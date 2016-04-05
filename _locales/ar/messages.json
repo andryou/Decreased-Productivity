@@ -1,0 +1,354 @@
+{
+   "black": {
+      "description": "Black",
+      "message": "الأسود"
+   },
+   "blacklist": {
+      "description": "Blacklist",
+      "message": "القائمة السوداء"
+   },
+   "blacklisted": {
+      "description": "Blacklisted",
+      "message": "القائمة السوداء"
+   },
+   "blue": {
+      "description": "Blue",
+      "message": "الأزرق"
+   },
+   "clear": {
+      "description": "clear",
+      "message": "واضح"
+   },
+   "cloak": {
+      "description": "Cloak",
+      "message": "العباءة"
+   },
+   "close": {
+      "description": "close",
+      "message": "إغلاق"
+   },
+   "color": {
+      "description": "Color",
+      "message": "اللون"
+   },
+   "colorbackground": {
+      "description": "Background",
+      "message": "الخلفية"
+   },
+   "colorlink": {
+      "description": "Link",
+      "message": "لينك"
+   },
+   "colorpresets": {
+      "description": "Presets",
+      "message": "المسبقة"
+   },
+   "colorpresetselect": {
+      "description": "Select a Preset",
+      "message": "حدد مسبقا"
+   },
+   "colortable": {
+      "description": "Table Borders",
+      "message": "حدود الجدول"
+   },
+   "colortext": {
+      "description": "Text",
+      "message": "نص"
+   },
+   "darkbrown": {
+      "description": "Dark Brown",
+      "message": "بني داكن"
+   },
+   "default": {
+      "description": "Default",
+      "message": "الافتراضي"
+   },
+   "demo": {
+      "description": "Demo",
+      "message": "تجريبي"
+   },
+   "disabled": {
+      "description": "disabled",
+      "message": "تعطيل"
+   },
+   "domain": {
+      "description": "Domain",
+      "message": "المجال"
+   },
+   "dpoptions": {
+      "description": "DP Options",
+      "message": "موانئ دبي خيارات"
+   },
+   "empty": {
+      "description": "Empty",
+      "message": "فارغ"
+   },
+   "enable": {
+      "description": "Enable",
+      "message": "تمكين"
+   },
+   "enabled": {
+      "description": "enabled",
+      "message": "تمكين"
+   },
+   "favicons": {
+      "description": "Hide Page Favicons",
+      "message": "إخفاء Favicons صفحة"
+   },
+   "font": {
+      "description": "Font",
+      "message": "خط"
+   },
+   "customfont": {
+      "description": "Custom Font",
+      "message": "خط مخصص"
+   },
+   "fontsize": {
+      "description": "Font Size",
+      "message": "حجم الخط"
+   },
+   "globalmode": {
+      "description": "Global Mode",
+      "message": "الوضع العالمي"
+   },
+   "globalmode2": {
+      "description": "tab-specific if unticked",
+      "message": "علامة محددة إذا unticked"
+   },
+   "globalmode3": {
+      "description": "new tabs by default",
+      "message": "علامات تبويب جديدة افتراضيا"
+   },
+   "gray": {
+      "description": "Gray",
+      "message": "رمادي"
+   },
+   "green": {
+      "description": "Green",
+      "message": "الأخضر"
+   },
+   "help": {
+      "description": "If you can help translate or improve, please contact me",
+      "message": "الناس الذين ساعدوا في ترجمة"
+   },
+   "hidetitles": {
+      "description": "Hide Page Titles",
+      "message": "إخفاء عناوين الصفحة"
+   },
+   "hovered": {
+      "description": "Hovered",
+      "message": "حامت"
+   },
+   "invalidcolour": {
+      "description": "Your colors weren't saved as one or more were invalid. Please revert your colors or re-enter a correct color.",
+      "message": "لم يتم حفظ الألوان لديك واحدة أو أكثر غير صالحة يرجى الرجوع الألوان الخاصة بك أو إعادة إدخال اللون الصحيح"
+   },
+   "invaliddomain": {
+      "description": "Error: invalid domain.",
+      "message": "خطأ : المجال غير صالحة."
+   },
+   "invalidnumber": {
+      "description": "Your change wasn't saved as you didn't enter a valid number.",
+      "message": "لم يتم حفظ التغيير وأنت لم تدخل رقم صالح."
+   },
+   "level": {
+      "description": "Level",
+      "message": "المستوى"
+   },
+   "lightred": {
+      "description": "Light Red",
+      "message": "الضوء الأحمر"
+   },
+   "nsfw": {
+      "description": "NSFW (show images/Flash, but change colors)",
+      "message": "نسفو (الصور تظهر / فلاش ، ولكن تغيير الألوان)"
+   },
+   "offwhite": {
+      "description": "Off-White",
+      "message": "من البيض"
+   },
+   "opacity": {
+      "description": "Image Opacity",
+      "message": "صورة التعتيم"
+   },
+   "opacity2": {
+      "description": "set how transparent images should be",
+      "message": "ضبط كيفية الصور الشفافة وينبغي"
+   },
+   "opensafely": {
+      "description": "Safely open in new tab",
+      "message": "فتح بأمان في علامة تبويب جديدة"
+   },
+   "paleblue": {
+      "description": "Pale Blue",
+      "message": "الأزرق الشاحب"
+   },
+   "paranoid": {
+      "description": "Paranoid (hide everything)",
+      "message": "المذعور (إخفاء كل شيء)"
+   },
+   "people": {
+      "description": "People who bought Andrew coffee",
+      "message": "الناس الذين اشتروا أندرو القهوة"
+   },
+   "pink": {
+      "description": "Pink",
+      "message": "بينك"
+   },
+   "red": {
+      "description": "Red",
+      "message": "أحمر"
+   },
+   "removebold": {
+      "description": "Unbold Text",
+      "message": "نص Unbold"
+   },
+   "removefromblacklist": {
+      "description": "Remove all entries from the blacklist?",
+      "message": "إزالة كافة الإدخالات من القائمة السوداء؟"
+   },
+   "removefromwhitelist": {
+      "description": "Remove all entries from the whitelist?",
+      "message": "إزالة كافة الإدخالات من القائمة البيضاء؟"
+   },
+   "revertcolours": {
+      "description": "Revert Colors",
+      "message": "الرجوع الألوان"
+   },
+   "save": {
+      "description": "Save",
+      "message": "حفظ"
+   },
+   "savecolours": {
+      "description": "Save Colors",
+      "message": "حفظ الألوان"
+   },
+   "saved": {
+      "description": "Settings saved.",
+      "message": "حفظ الإعدادات."
+   },
+   "sfw0": {
+      "description": "SFW0 (cloak images/Flash)",
+      "message": "SFW0 (صور عباءة / فلاش)"
+   },
+   "sfw1": {
+      "description": "SFW1 (cloak images/hide Flash)",
+      "message": "SFW1 (صور عباءة / إخفاء فلاش)"
+   },
+   "sfw2": {
+      "description": "SFW2 (cloak images only)",
+      "message": "SFW2 (صور عباءة فقط)"
+   },
+   "showcontext": {
+      "description": "Show Context Menu",
+      "message": "عرض قائمة سياق"
+   },
+   "showcontext2": {
+      "description": "show right-click item for links/images",
+      "message": "تظهر بزر الماوس الأيمن فوق عنصر للحصول على ارتباطات / صور"
+   },
+   "showicon": {
+      "description": "Show DP Icon",
+      "message": "موانئ دبي إظهار أيقونة"
+   },
+   "showicon2": {
+      "description": "show icon in address bar",
+      "message": "وتظهر أيقونة في شريط العنوان"
+   },
+   "showicon_type": {
+      "description": "Icon",
+      "message": "أيقونة"
+   },
+   "showicon_type2": {
+      "description": "icon to show in address bar",
+      "message": "الرمز لتظهر في شريط العنوان"
+   },
+   "showicon_title": {
+      "description": "Icon Title",
+      "message": "رمز عنوان"
+   },
+   "showimages": {
+      "description": "Show Images Within",
+      "message": "إظهار الصور ضمن"
+   },
+   "showimages2": {
+      "description": "always show images that are within this size (disable: set to 0 x 0)",
+      "message": "تظهر دائما الصور التي تقع ضمن هذا الحجم (تعطيل : تعيين إلى 0 س 0)"
+   },
+   "showunderline": {
+      "description": "Underline Links",
+      "message": "تسطير خيارات"
+   },
+   "showupdate": {
+      "description": "Show Update Popup",
+      "message": "إظهار التحديث انبثاق"
+   },
+   "showupdate2": {
+      "description": "show popup page when DP is updated",
+      "message": "تظهر صفحة منبثقة عند تحديث موانئ دبي"
+   },
+   "stickiness": {
+      "description": "Enable Stickiness",
+      "message": "تمكين اللزوجة"
+   },
+   "stickiness2": {
+      "description": "new tabs from cloaked pages are cloaked",
+      "message": "نحن ترتدي علامات تبويب جديدة من صفحات يرتدي معطفا طويلا"
+   },
+   "support": {
+      "description": "Support Andrew!",
+      "message": "دعم أندرو!"
+   },
+   "test1": {
+      "description": "A test link",
+      "message": "وصلة اختبار"
+   },
+   "test2": {
+      "description": "Link",
+      "message": "لينك"
+   },
+   "toggle": {
+      "description": "Enable Key Toggling",
+      "message": "تمكين تبديل مفتاح"
+   },
+   "toggle2": {
+      "description": "press the set hotkey to toggle",
+      "message": "اضغط على مفتاح الاختصار مجموعة للتبديل"
+   },
+   "hotkey": {
+      "description": "Hotkey Combination",
+      "message": "مزيج هوتكي"
+   },
+   "hotkey_record": {
+      "description": "Record",
+      "message": "سجل"
+   },
+   "hotkey_set": {
+      "description": "Set",
+      "message": "مجموعة"
+   },
+   "translators": {
+      "description": "People who helped translate",
+      "message": "إذا كنت تستطيع مساعدة في ترجمة أو تحسين، يرجى الاتصال بي"
+   },
+   "uncloak": {
+      "description": "Uncloak",
+      "message": "نزع الغطاء"
+   },
+   "unhovered": {
+      "description": "Unhovered",
+      "message": "Unhovered"
+   },
+   "white": {
+      "description": "White",
+      "message": "وايت"
+   },
+   "whitelist": {
+      "description": "Whitelist",
+      "message": "القائمة البيضاء"
+   },
+   "whitelisted": {
+      "description": "Whitelisted",
+      "message": "اللائحة البيضاء"
+   }
+}

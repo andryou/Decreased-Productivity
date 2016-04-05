@@ -1,0 +1,354 @@
+{
+   "black": {
+      "description": "Black",
+      "message": "黑"
+   },
+   "blacklist": {
+      "description": "Blacklist",
+      "message": "黑名單"
+   },
+   "blacklisted": {
+      "description": "Blacklisted",
+      "message": "黑名單"
+   },
+   "blue": {
+      "description": "Blue",
+      "message": "藍"
+   },
+   "clear": {
+      "description": "clear",
+      "message": "清"
+   },
+   "cloak": {
+      "description": "Cloak",
+      "message": "披風"
+   },
+   "close": {
+      "description": "close",
+      "message": "關閉"
+   },
+   "color": {
+      "description": "Color",
+      "message": "顏色"
+   },
+   "colorbackground": {
+      "description": "Background",
+      "message": "背景"
+   },
+   "colorlink": {
+      "description": "Link",
+      "message": "鏈接"
+   },
+   "colorpresets": {
+      "description": "Presets",
+      "message": "預設"
+   },
+   "colorpresetselect": {
+      "description": "Select a Preset",
+      "message": "選擇預設"
+   },
+   "colortable": {
+      "description": "Table Borders",
+      "message": "表格邊框"
+   },
+   "colortext": {
+      "description": "Text",
+      "message": "文本"
+   },
+   "darkbrown": {
+      "description": "Dark Brown",
+      "message": "深褐色"
+   },
+   "default": {
+      "description": "Default",
+      "message": "默認"
+   },
+   "demo": {
+      "description": "Demo",
+      "message": "演示"
+   },
+   "disabled": {
+      "description": "disabled",
+      "message": "禁用"
+   },
+   "domain": {
+      "description": "Domain",
+      "message": "域"
+   },
+   "dpoptions": {
+      "description": "DP Options",
+      "message": "DP選項"
+   },
+   "empty": {
+      "description": "Empty",
+      "message": "空"
+   },
+   "enable": {
+      "description": "Enable",
+      "message": "啟用"
+   },
+   "enabled": {
+      "description": "enabled",
+      "message": "啟用"
+   },
+   "favicons": {
+      "description": "Hide Page Favicons",
+      "message": "隱藏頁面網站圖示"
+   },
+   "font": {
+      "description": "Font",
+      "message": "字體"
+   },
+   "customfont": {
+      "description": "Custom Font",
+      "message": "自定義字體"
+   },
+   "fontsize": {
+      "description": "Font Size",
+      "message": "字體大小"
+   },
+   "globalmode": {
+      "description": "Global Mode",
+      "message": "全球模式"
+   },
+   "globalmode2": {
+      "description": "tab-specific if unticked",
+      "message": "標籤的具體如果unticked"
+   },
+   "globalmode3": {
+      "description": "new tabs by default",
+      "message": "新標籤的默認"
+   },
+   "gray": {
+      "description": "Gray",
+      "message": "灰色"
+   },
+   "green": {
+      "description": "Green",
+      "message": "綠色"
+   },
+   "help": {
+      "description": "If you can help translate or improve, please contact me",
+      "message": "如果你能幫助翻譯或改善，請與我聯繫"
+   },
+   "hidetitles": {
+      "description": "Hide Page Titles",
+      "message": "隱藏頁面標題"
+   },
+   "hovered": {
+      "description": "Hovered",
+      "message": "徘徊"
+   },
+   "invalidcolour": {
+      "description": "Your colors weren't saved as one or more were invalid. Please revert your colors or re-enter a correct color.",
+      "message": "你的顏色是不是保存為一個或多個無效，請恢復你的顏色或重新輸入正確的顏色。"
+   },
+   "invaliddomain": {
+      "description": "Error: invalid domain.",
+      "message": "錯誤：無效的域。"
+   },
+   "invalidnumber": {
+      "description": "Your change wasn't saved as you didn't enter a valid number.",
+      "message": "你的變化不是保存為你沒有輸入有效的數字。"
+   },
+   "level": {
+      "description": "Level",
+      "message": "級別"
+   },
+   "lightred": {
+      "description": "Light Red",
+      "message": "光紅"
+   },
+   "nsfw": {
+      "description": "NSFW (show images/Flash, but change colors)",
+      "message": "NSFW（顯示圖像 / Flash，但改變顏色）"
+   },
+   "offwhite": {
+      "description": "Off-White",
+      "message": "關白"
+   },
+   "opacity": {
+      "description": "Image Opacity",
+      "message": "圖像的不透明度"
+   },
+   "opacity2": {
+      "description": "set how transparent images should be",
+      "message": "如何設置透明圖像應"
+   },
+   "opensafely": {
+      "description": "Safely open in new tab",
+      "message": "在新標籤中打開安全"
+   },
+   "paleblue": {
+      "description": "Pale Blue",
+      "message": "淡藍色"
+   },
+   "paranoid": {
+      "description": "Paranoid (hide everything)",
+      "message": "偏執狂（隱藏一切）"
+   },
+   "people": {
+      "description": "People who bought Andrew coffee",
+      "message": "人誰買安德魯咖啡"
+   },
+   "pink": {
+      "description": "Pink",
+      "message": "紅粉"
+   },
+   "red": {
+      "description": "Red",
+      "message": "紅"
+   },
+   "removebold": {
+      "description": "Unbold Text",
+      "message": "Unbold文本"
+   },
+   "removefromblacklist": {
+      "description": "Remove all entries from the blacklist?",
+      "message": "刪除所有條目從黑名單中？"
+   },
+   "removefromwhitelist": {
+      "description": "Remove all entries from the whitelist?",
+      "message": "刪除所有條目從白名單？"
+   },
+   "revertcolours": {
+      "description": "Revert Colors",
+      "message": "還原顏色"
+   },
+   "save": {
+      "description": "Save",
+      "message": "保存"
+   },
+   "savecolours": {
+      "description": "Save Colors",
+      "message": "保存顏色"
+   },
+   "saved": {
+      "description": "Settings saved.",
+      "message": "設置保存。"
+   },
+   "sfw0": {
+      "description": "SFW0 (cloak images/Flash)",
+      "message": "SFW0（斗篷圖像/閃光燈）"
+   },
+   "sfw1": {
+      "description": "SFW1 (cloak images/hide Flash)",
+      "message": "SFW1（斗篷圖像/隱藏閃光燈）"
+   },
+   "sfw2": {
+      "description": "SFW2 (cloak images only)",
+      "message": "SFW2（斗篷鏡像）"
+   },
+   "showcontext": {
+      "description": "Show Context Menu",
+      "message": "顯示上下文菜單"
+   },
+   "showcontext2": {
+      "description": "show right-click item for links/images",
+      "message": "秀右鍵單擊​​項目的鏈接 /圖像"
+   },
+   "showicon": {
+      "description": "Show DP Icon",
+      "message": "顯示 DP圖標"
+   },
+   "showicon2": {
+      "description": "show icon in address bar",
+      "message": "在地址欄中顯示圖標"
+   },
+   "showicon_type": {
+      "description": "Icon",
+      "message": "圖標"
+   },
+   "showicon_type2": {
+      "description": "icon to show in address bar",
+      "message": "圖標，在地址欄中顯示"
+   },
+   "showicon_title": {
+      "description": "Icon Title",
+      "message": "圖標標題"
+   },
+   "showimages": {
+      "description": "Show Images Within",
+      "message": "顯示圖片在"
+   },
+   "showimages2": {
+      "description": "always show images that are within this size (disable: set to 0 x 0)",
+      "message": "總是顯示圖像均在此尺寸（禁用：設置為 0 × 0）"
+   },
+   "showunderline": {
+      "description": "Underline Links",
+      "message": "下劃線鏈接"
+   },
+   "showupdate": {
+      "description": "Show Update Popup",
+      "message": "顯示更新彈出"
+   },
+   "showupdate2": {
+      "description": "show popup page when DP is updated",
+      "message": "顯示彈出網頁更新時 DP"
+   },
+   "stickiness": {
+      "description": "Enable Stickiness",
+      "message": "啟用粘性"
+   },
+   "stickiness2": {
+      "description": "new tabs from cloaked pages are cloaked",
+      "message": "新標籤頁是隱形的隱形"
+   },
+   "support": {
+      "description": "Support Andrew!",
+      "message": "安德魯的支持！"
+   },
+   "test1": {
+      "description": "A test link",
+      "message": "一考鏈接"
+   },
+   "test2": {
+      "description": "Link",
+      "message": "鏈接"
+   },
+   "toggle": {
+      "description": "Enable Key Toggling",
+      "message": "啟用切換鍵"
+   },
+   "toggle2": {
+      "description": "press the set hotkey to toggle",
+      "message": "按設定的熱鍵切換"
+   },
+   "hotkey": {
+      "description": "Hotkey Combination",
+      "message": "熱鍵組合"
+   },
+   "hotkey_record": {
+      "description": "Record",
+      "message": "記錄"
+   },
+   "hotkey_set": {
+      "description": "Set",
+      "message": "組"
+   },
+   "translators": {
+      "description": "People who helped translate",
+      "message": "人們誰幫翻譯"
+   },
+   "uncloak": {
+      "description": "Uncloak",
+      "message": "取消遮蓋"
+   },
+   "unhovered": {
+      "description": "Unhovered",
+      "message": "Unhovered"
+   },
+   "white": {
+      "description": "White",
+      "message": "白"
+   },
+   "whitelist": {
+      "description": "Whitelist",
+      "message": "白名單"
+   },
+   "whitelisted": {
+      "description": "Whitelisted",
+      "message": "列入白名單"
+   }
+}

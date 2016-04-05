@@ -1,0 +1,242 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>DP Options</title>
+<link rel="stylesheet" href="css/options.css" type="text/css" />
+<link rel="stylesheet" href="css/colorpicker.css" type="text/css" />
+<link rel="stylesheet" href="css/jquery-ui.min.css"> 
+<link rel="stylesheet" href="css/jquery-ui.theme.min.css"> 
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery-ui.min.js"></script> 
+<script type="text/javascript" src="js/colorpicker.js"></script>
+<script type="text/javascript" src="js/jquery.hotkeys.js"></script>
+</head>
+<body>
+	<span id="title">Decreased Productivity</span> by Andrew Y.<br /><br />
+	<div id="main">
+		<div class="right"><span class="message"></span> <input type="button" class="i18_save" value="Save" /> <input type="button" class="i18_close" value="Close" /><br /><br /></div> 
+		<div id="tabs" class="clear">
+			<ul>
+				<li><a href="#general">General</a></li>
+				<li><a href="#cloak">Cloak</a></li>
+				<li><a href="#lists">Lists</a></li>
+			</ul>
+			<div id="general">
+				<table cellspacing="5" cellpadding="0" border="0">
+				<tr>
+				<td>
+					<table border="0" cellspacing="0" cellpadding="0">
+						<tr class="first"><td><label for="enable" class="i18_enable">Enable</label>:</td><td><input type="checkbox" id="enable" /> <i>(<span class="i18_default">Default</span>: <span class="i18_enabled">enabled</span>)</i></td></tr>
+						<tr><td><label for="global" class="i18_globalmode">Global Mode</label>:</td><td><input type="checkbox" id="global" title="Note: if you modify this setting, you must refresh all open tabs again. Any changes in the below options will not take effect until you do so." /> <i>(<span class="i18_default">Default</span>: <span class="i18_disabled">disabled</span>; <span class="i18_globalmode2">tab-specific if unticked</span>)</i><div id="newPagesRow"><select id="newPages">
+							<option value="Cloak" class="i18_cloak">Cloak</option>
+							<option value="Uncloak" class="i18_uncloak">Uncloak</option>
+						</select> <span class="i18_globalmode3">new tabs by default</span> <i>(<span class="i18_default">Default</span>: <span class="i18_uncloak"></span>)</i></div></td></tr>
+						<tr><td><label for="enableToggle" class="i18_toggle">Enable Key Toggling</label>:</td><td><input type="checkbox" id="enableToggle" /> <i>(<span class="i18_default">Default</span>: <span class="i18_enabled">enabled</span>; <span class="i18_toggle2">press the set hotkey to toggle</span>)</i></td></tr>
+						<tr class="hide" id="hotkeyrow"><td><label for="hotkey" class="i18_toggle_hotkey">Hotkey Combination</label>:</td><td><input type="text" id="hotkey" disabled /> <input id="hotkeyrecord" type="button" value="Record" class="i18_hotkey_record" /><br /><i>(<span class="i18_default">Default</span>: CTRL+F12)</i></td></tr>
+						<tr><td><label for="enableStickiness" class="i18_stickiness">Enable Stickiness</label>:</td><td><input type="checkbox" id="enableStickiness" /> <i>(<span class="i18_default">Default</span>: <span class="i18_disabled">disabled</span>; <span class="i18_stickiness2">new tabs from cloaked pages are cloaked</span>)</i></td></tr>
+						<tr><td><label for="showContext" class="i18_showcontext">Show Context Menu</label>:</td><td><input type="checkbox" id="showContext" /> <i>(<span class="i18_default">Default</span>: <span class="i18_enabled">enabled</span>; <span class="i18_showcontext2">show right-click item for links/images</span>)</i></td></tr>
+						<tr><td><label for="showIcon" class="i18_showicon">Show DP Icon</label>:</td><td><input type="checkbox" id="showIcon" /> <i>(<span class="i18_default">Default</span>: <span class="i18_enabled">enabled</span>; <span class="i18_showicon2">show icon in address bar</span>)</i></td></tr>
+						<tr class="discreeticonrow hide"><td><label for="iconType" class="i18_showicon_type">Icon</label>:</td><td><select id="iconType">
+							<option value="coffee">Coffee Cup</option>
+							<option value="coffee-grey">Coffee Cup (grey)</option>
+							<option value="add-item">Add Item</option>
+							<option value="addressbook">Address Book</option>
+							<option value="agent">Agent</option>
+							<option value="apple">Apple</option>
+							<option value="arrow-round">Arrow</option>
+							<option value="badge">Badge</option>
+							<option value="bar-chart">Bar Chart</option>
+							<option value="battery">Battery</option>
+							<option value="bin">Bin</option>
+							<option value="bird">Bird</option>
+							<option value="boat">Boat</option>
+							<option value="bookmark">Bookmark</option>
+							<option value="briefcase">Briefcase</option>
+							<option value="calculator">Calculator</option>
+							<option value="calendar">Calendar</option>
+							<option value="cassette">Cassette</option>
+							<option value="chain">Chain</option>
+							<option value="chat-filled">Chat (filled)</option>
+							<option value="chat-outline">Chat (outline)</option>
+							<option value="cloud-filled">Cloud (filled)</option>
+							<option value="cloud-outline">Cloud (outline)</option>
+							<option value="computer">Computer</option>
+							<option value="configuration">Configuration</option>
+							<option value="connected">Connected</option>
+							<option value="connections">Connections</option>
+							<option value="container">Container</option>
+							<option value="copy-item">Copy Item</option>
+							<option value="database">Database</option>
+							<option value="delete-item">Delete Item</option>
+							<option value="disc">Disc</option>
+							<option value="dollar">Dollar</option>
+							<option value="download">Download</option>
+							<option value="edit">Edit</option>
+							<option value="email">Email</option>
+							<option value="fan">Fan</option>
+							<option value="fancy-globe">Fancy Globe</option>
+							<option value="female-user">Female User</option>
+							<option value="fire">Fire</option>
+							<option value="first-aid">First Aid</option>
+							<option value="flag">Flag</option>
+							<option value="flower">Flower</option>
+							<option value="full-screen">Full Screen</option>
+							<option value="gears">Gears</option>
+							<option value="glasses">Glasses</option>
+							<option value="globe">Globe</option>
+							<option value="happy-face">Happy Face</option>
+							<option value="headphone">Headphone</option>
+							<option value="heart">Heart</option>
+							<option value="home">Home</option>
+							<option value="id">ID</option>
+							<option value="ipod">iPod</option>
+							<option value="lab">Lab</option>
+							<option value="lamp">Lamp</option>
+							<option value="leaves">Leaves</option>
+							<option value="lightning">Lightning</option>
+							<option value="line-globe">Line Globe</option>
+							<option value="line-graph">Line Graph</option>
+							<option value="lock">Lock</option>
+							<option value="lookup">Lookup</option>
+							<option value="male-user">Male User</option>
+							<option value="microphone">Microphone</option>
+							<option value="mobile">Mobile</option>
+							<option value="mouse">Mouse</option>
+							<option value="multi-user">Multi User</option>
+							<option value="music-note">Music Note</option>
+							<option value="network-pc">Network PC</option>
+							<option value="network">Network</option>
+							<option value="next-item">Next Item</option>
+							<option value="phone">Phone</option>
+							<option value="pie-chart">Pie Chart</option>
+							<option value="pin">Pin</option>
+							<option value="plane">Plane</option>
+							<option value="power">Power</option>
+							<option value="print">Print</option>
+							<option value="processing">Processing</option>
+							<option value="push-pin">Push Pin</option>
+							<option value="reload">Reload</option>
+							<option value="rss">RSS</option>
+							<option value="satellite">Satellite</option>
+							<option value="save">Save</option>
+							<option value="scale">Scale</option>
+							<option value="scissors">Scissors</option>
+							<option value="screen">Screen</option>
+							<option value="search">Search</option>
+							<option value="shield">Shield</option>
+							<option value="star">Star</option>
+							<option value="tablet">Tablet</option>
+							<option value="tag">Tag</option>
+							<option value="tap">Tap</option>
+							<option value="tree">Tree</option>
+							<option value="umbrella">Umbrella</option>
+							<option value="unlock">Unlock</option>
+							<option value="usb">USB</option>
+							<option value="van">Van</option>
+							<option value="wifi">WiFi</option>
+							<option value="world">World</option>
+						</select> <i>(<span class="i18_default">Default</span>: Coffee Cup; <span class="i18_showicon_type2">icon to show in address bar</span>)</i><br /><br /><img src="../img/addressicon/coffee.png" id="sampleicon" /></td></tr>
+						<tr class="discreeticonrow hide"><td><label for="iconTitle" class="i18_showicon_title">Icon Title</label>:</td><td><input type="text" id="iconTitle" /> <i>(<span class="i18_default">Default</span>: Decreased Productivity)</i></td></tr>
+						<tr><td><label for="showUpdateNotifications" class="i18_showupdate">Show Update Popup</label>:</td><td><input type="checkbox" id="showUpdateNotifications" /> <i>(<span class="i18_default">Default</span>: <span class="i18_enabled">enabled</span>; <span class="i18_showupdate2">show popup page when DP is updated</span>)</i></td></tr>
+					</table>
+				</td>
+				</tr>
+				</table>
+			</div>
+			<div id="cloak">
+				<table cellspacing="5" cellpadding="0" border="0">
+				<tr>
+				<td>
+					<table border="0" cellspacing="0" cellpadding="0">
+						<tr class="first"><td><label for="sfwmode" class="i18_level">Level</label>:</td><td><select id="sfwmode">
+							<option value="Paranoid" class="i18_paranoid">Paranoid (hide everything)</option>
+							<option value="SFW" class="i18_sfw0">SFW0 (cloak images/Flash)</option>
+							<option value="SFW1" class="i18_sfw1">SFW1 (cloak images/hide Flash)</option>
+							<option value="SFW2" class="i18_sfw2">SFW2 (cloak images only)</option>
+							<option value="NSFW" class="i18_nsfw">NSFW (show images/Flash, but change colors)</option>
+						</select> <i>(<span class="i18_default">Default</span>: SFW0)</i></td></tr>
+						<tr id="opacityrow" class="hide"><td><label for="opacity" class="i18_opacity">Image Opacity</label>:<br /><img src="../img/icon32.png" class="sampleimage" /></td><td>
+							<div id="o1"></div>
+							<input type="text" id="opacity1" size="1" /> <span class="i18_unhovered">Unhovered</span> <i>(<span class="i18_default">Default</span>: 0.05 <span class="i18_opacity2">set how transparent images should be</span>)</i>
+							<br />
+							<br />
+							<div id="o2"></div>
+							<input type="text" id="opacity2" size="1" /> <span class="i18_hovered">Hovered</span> <i>(<span class="i18_default">Default</span>: 0.5; <span class="i18_opacity2">set how transparent images should be</span>)</i></td></tr>
+						<tr><td><label for="disableFavicons" class="i18_favicons">Hide Page Favicons</label>:</td><td><input type="checkbox" id="disableFavicons" /> <i>(<span class="i18_default">Default</span>: <span class="i18_disabled">disabled</span>)</i></td></tr>
+						<tr><td><label for="hidePageTitles" class="i18_hidetitles">Hide Page Titles</label>:</td><td><input type="checkbox" id="hidePageTitles" /> <i>(<span class="i18_default">Default</span>: <span class="i18_disabled">disabled</span>)</i><div id="pageTitle"><input type="text" id="pageTitleText" /> <i>(<span class="i18_default">Default</span>: Google Chrome)</i></div></td></tr>
+						<tr><td><label for="maxwidth" class="i18_showimages">Show Images Within</label>:</td><td><input type="text" id="maxwidth" style="width: 30px;" /><i>w x</i> <input type="text" id="maxheight" style="width: 30px;" /><i>h (<span class="i18_showimages2">always show images that are within this size (disable: set to 0 x 0)</span>)</i></td></tr>
+						<tr><td><label for="showUnderline" class="i18_showunderline">Underline Links</label>:</td><td><input type="checkbox" id="showUnderline" /> <i>(<span class="i18_default">Default</span>: <span class="i18_enabled">enabled</span>)</i></td></tr>
+						<tr><td><label for="removeBold" class="i18_removebold">Unbold Text</label>:</td><td><input type="checkbox" id="removeBold" /> <i>(<span class="i18_default">Default</span>: <span class="i18_disabled">disabled</span>)</i></td></tr>
+						<tr><td><label for="font" class="i18_font">Font</label>:</td><td><select id="font">
+							<option value="Arial">Arial</option>
+							<option value="Helvetica">Helvetica</option>
+							<option value="Calibri">Calibri</option>
+							<option value="Serif">Serif</option>
+							<option value="Monospace">Monospace</option>
+							<option value="-Custom-">-Custom-</option>
+							<option value="-Unchanged-">-Unchanged-</option>
+						</select> <i>(<span class="i18_default">Default</span>: Arial)</i></td></tr>
+						<tr id="customfontrow" class="hide"><td><label for="customfont" class="i18_customfont">Custom Font</label>:</td><td><input id="customfont" value="" /></td></tr>
+						<tr><td><label for="fontsize" class="i18_fontsize">Font Size</label>:</td><td><input type="number" id="fontsize" style="width: 40px" />px <i>(<span class="i18_default">Default</span>: 12px)</i></td></tr>
+						<tr><td><label for="s_preset"><span class="i18_color">Color</span> - <span class="i18_colorpresets">Presets</span></label>:</td><td><select id="s_preset">
+							<option value="" class="i18_colorpresetselect">-- Select a Preset --</option>
+							<option value="White - Blue" class="i18_c1">White - Blue</option>
+							<option value="White - Green" class="i18_c10">White - Green</option>
+							<option value="White - Gray" class="i18_c2">White - Gray</option>
+							<option value="Gray - Blue" class="i18_c3">Gray - Blue</option>
+							<option value="Light Red - Pale Blue" class="i18_c4">Light Red - Pale Blue</option>
+							<option value="Dark Brown - Off-White" class="i18_c5">Dark Brown - Off-White</option>
+							<option value="Black - Blue" class="i18_c6">Black - Blue</option>
+							<option value="Black - Green" class="i18_c7">Black - Green</option>
+							<option value="Black - Red" class="i18_c8">Black - Red</option>
+							<option value="Black - Pink" class="i18_c9">Black - Pink</option>
+						</select></td></tr>
+						<tr><td><label for="s_bg"><span class="i18_color">Color</span> - <span class="i18_colorbackground">Background</span></label>:</td><td><input class="mousetrap" id="s_bg" maxlength="6" value="" /></td></tr>
+						<tr><td><label for="s_text"><span class="i18_color">Color</span> - <span class="i18_colortext">Text</span></label>:</td><td><input class="mousetrap" id="s_text" maxlength="6" value="" /></td></tr>
+						<tr><td><label for="s_link"><span class="i18_color">Color</span> - <span class="i18_colorlink">Link</span></label>:</td><td><input class="mousetrap" id="s_link" maxlength="6" value="" /></td></tr>
+						<tr><td><label for="s_table"><span class="i18_color">Color</span> - <span class="i18_colortable">Table Borders</span></label>:</td><td><input class="mousetrap" id="s_table" maxlength="6" value="" /></td></tr>
+						<tr><td><span class="i18_demo">Demo</span>:</td><td><div id="test">
+							<img src="../img/option/demo/favicon.png" id="demo_favicon" /><div id="demo_title"></div>
+							<div id="demo_content">
+								<h1>Page Title</h1>
+								<img src="../img/icon32.png" class="sampleimage" />
+								<br /><br />
+								<table style="border: 1px solid;"><tr><td id="t_table"><span class="i18_test1">A test link</span>: <a href="javascript:;" id="t_link"><span class="i18_test2">Link</span></a></td></tr></table>
+							</div>
+						</div></td></tr>
+						<tr><td colspan="2" align="right"><input type="button" value="Save Colours" class="i18_savecolours" /> <input type="button" value="Revert Colours" class="i18_revertcolours" /></td></tr>
+					</table>
+				</td>
+				</tr>
+				</table>
+			</div>
+			<div id="lists">
+				<table cellspacing="5" cellpadding="0" border="0">
+				<tr>
+				<td colspan="2">
+					<table border="0" cellspacing="0" cellpadding="0">
+						<tr class="first"><td colspan="2"><label for="url" class="i18_domain">Domain</label>: <input id="url" value="" class="mousetrap" /> <input type="button" value="+ Whitelist" class="i18_addwhitelist" /><input type="button" value="+ Blacklist" class="i18_addblacklist" /><span id="listMsg"></span></td></tr>
+						<tr><td><strong class="i18_whitelist">Whitelist</strong> (<a href="javascript:;" class="i18_clear">clear</a>)<div class="list" id="whitelist"></div></td><td><strong class="i18_blacklist">Blacklist</strong> (<a href="javascript:;" class="i18_clear">clear</a>)<div class="list" id="blacklist"></div></td></tr>
+					</table>
+				</td>
+				</tr>
+				</table>
+			</div>
+		</div>
+		<div class="right"><br /><span class="message"></span> <input type="button" class="i18_save" value="Save" /> <input type="button" value="Close" class="i18_close" /></div>
+		<br class="clear">
+		
+	</div>
+	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" style="display: inline;">
+	<input type="hidden" name="cmd" value="_s-xclick">
+	<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHiAYJKoZIhvcNAQcEoIIHeTCCB3UCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBDNDNQaK4jxNNT/9ax3HKdG0JBS80pCwlkVizPyPhNENAN1Xx2zTpquYTM554Q8B9AvtYqu6ZleDBLPN6ntiQb9dJZZVNMidZpIGlgJrFkVPGBfWtpDOcryYYRumde+OG4fDHmDe+CmbGFGlbwIUuWyxVbQ4nO3d7RoMKGn4TVpzELMAkGBSsOAwIaBQAwggEEBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECHtvloSetOwngIHgm1D1G7oaarV2UEQJbhYpmTtQbhe97E67rNxTiSk4a1jO38zrBxFZVmKIg74y1PuKvhuAMUlQnGvWItK5Q1iGYKOCGOsmHNEy5aL4ySMbxWiv55uwKlxmXFrKg+2meDjSf8s+iLhZjSUwR/7QjVS4WwscFeO6aXuxMbG2BfVykA3iIbLcCbeYMuu1aeRfQ4hZjG5BwllGwWodU4UtnLw93U/YhYTanED6+i/jLPqMo7JKtH4HozriE2BeGHHqxX4EogJKiluhjd39ovrakNMqJd3MMQm8NlcWTT0kpcoMcNWgggOHMIIDgzCCAuygAwIBAgIBADANBgkqhkiG9w0BAQUFADCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20wHhcNMDQwMjEzMTAxMzE1WhcNMzUwMjEzMTAxMzE1WjCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMFHTt38RMxLXJyO2SmS+Ndl72T7oKJ4u4uw+6awntALWh03PewmIJuzbALScsTS4sZoS1fKciBGoh11gIfHzylvkdNe/hJl66/RGqrj5rFb08sAABNTzDTiqqNpJeBsYs/c2aiGozptX2RlnBktH+SUNpAajW724Nv2Wvhif6sFAgMBAAGjge4wgeswHQYDVR0OBBYEFJaffLvGbxe9WT9S1wob7BDWZJRrMIG7BgNVHSMEgbMwgbCAFJaffLvGbxe9WT9S1wob7BDWZJRroYGUpIGRMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbYIBADAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4GBAIFfOlaagFrl71+jq6OKidbWFSE+Q4FqROvdgIONth+8kSK//Y/4ihuE4Ymvzn5ceE3S/iBSQQMjyvb+s2TWbQYDwcp129OPIbD9epdr4tJOUNiSojw7BHwYRiPh58S1xGlFgHFXwrEBb3dgNbMUa+u4qectsMAXpVHnD9wIyfmHMYIBmjCCAZYCAQEwgZQwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tAgEAMAkGBSsOAwIaBQCgXTAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwGCSqGSIb3DQEJBTEPFw0xMTA1MjExNjM4MzBaMCMGCSqGSIb3DQEJBDEWBBRtvTUsMt9WPz42S0PIt3tWVZgkPzANBgkqhkiG9w0BAQEFAASBgKjzksgHn7HfD2z8ZmgLpFnQliQrE4Nevc6d+/vXSATCp+yFH5wElZEiTlj5FAmWqwjj3b67pHPj/5EXlYxHlASMcqasc38WX+S60VFCYIqHbOkgmpb0KnvczFRbQpCBrt+Xo/iKXwMlBU796NqeJP6JHq1FlzOsdbeU98vZ80VF-----END PKCS7-----">
+	<input type="image" src="./img/icon48.png" border="0" name="submit" class="i18_supportimg" alt="Support Andrew!" title="Support Andrew!">
+	</form> <span class="i18_support">Support Andrew!</span><br /><br />
+	<i style="width:937px; display:block;"><span class="i18_people">People who bought Andrew coffee</span>: Leonardo C., 朱之灏, Donald D., John B., Patrick H., Luke C., Eric G., Brian B., Daniel C., Joel D., Joseph W., David M., Rafal W., Ip L., Caillin P., Simon B., Keith T., Peter C., Gordon M., James M., Ranjan S., Philipp B., Rommel G., Todd A., Jason T., Vineet W., Adam C., Jim M., Alex U., Stanislav S., George T., Genere S., Kevin S., Jérémy P., Carlos S., Miguel L., Adrian H., Scott B., Daniel C., Mark M., Timothy D., Alexis B., Peter C., Christiaan E., Matthew L., Russell H., David D., Keith S., Elena G., Rafael V., Scott F., Paul M., Danielle F., 曾 信夫, Jon T., Barry D., Andrew H., Ma X., Frank E., Alex W., Roger S., Artem S., Wassim N., Rajat N., Vadim P., Celia D., Mikyas W., Reann M., Gabriel J., Anthony Z., Kai Cheong W., Jason T., Michael L., Maximilian B., Anton C.</i><br />
+	<i style="width:937px; display:block;"><span class="i18_translators">People who helped translate</span>: Christoph (Deutsch), Luciano (Español), Yamaji (Japanese), Jérémy (Français), VeryFriend (Russian), Lorenzo (Italian)</i><br />
+	<i><span class="i18_help">If you can help translate or improve, please contact me</span>: <a href="mailto:andryou@gmail.com">andryou@gmail.com</a></i><br /><br />
+	<i><a href="https://twitter.com/andryou" target="_blank">Follow me (@andryou) on Twitter!</a><br /><br />
+	<i><a href="https://chrome.google.com/extensions/detail/nlbpiflhmdcklcbihngeffpmoklbiooj" target="_blank">Decreased Productivity on the Chrome Web Store</a></i>
+	<script type="text/javascript" src="js/options.js"></script>
+</body>
+</html>

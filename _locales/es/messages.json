@@ -1,0 +1,354 @@
+{
+   "black": {
+      "description": "Black",
+      "message": "Negro"
+   },
+   "blacklist": {
+      "description": "Blacklist",
+      "message": "Lista negra"
+   },
+   "blacklisted": {
+      "description": "Blacklisted",
+      "message": "Lista negra"
+   },
+   "blue": {
+      "description": "Blue",
+      "message": "Azul"
+   },
+   "clear": {
+      "description": "clear",
+      "message": "limpiar"
+   },
+   "cloak": {
+      "description": "Cloak",
+      "message": "Capa"
+   },
+   "close": {
+      "description": "close",
+      "message": "Cerrar"
+   },
+   "color": {
+      "description": "Color",
+      "message": "Color"
+   },
+   "colorbackground": {
+      "description": "Background",
+      "message": "De fondo"
+   },
+   "colorlink": {
+      "description": "Link",
+      "message": "Enlace"
+   },
+   "colorpresets": {
+      "description": "Presets",
+      "message": "Presets"
+   },
+   "colorpresetselect": {
+      "description": "Select a Preset",
+      "message": "Seleccione predefinidos"
+   },
+   "colortable": {
+      "description": "Table Borders",
+      "message": "Bordes de tabla"
+   },
+   "colortext": {
+      "description": "Text",
+      "message": "Texto"
+   },
+   "darkbrown": {
+      "description": "Dark Brown",
+      "message": "Marron Oscuro"
+   },
+   "default": {
+      "description": "Default",
+      "message": "Por Defecto"
+   },
+   "demo": {
+      "description": "Demo",
+      "message": "Demostración"
+   },
+   "disabled": {
+      "description": "disabled",
+      "message": "Deshabilitado"
+   },
+   "domain": {
+      "description": "Domain",
+      "message": "Dominio"
+   },
+   "dpoptions": {
+      "description": "DP Options",
+      "message": "Opciones de DP"
+   },
+   "empty": {
+      "description": "Empty",
+      "message": "Vacio"
+   },
+   "enable": {
+      "description": "Enable",
+      "message": "Activado"
+   },
+   "enabled": {
+      "description": "enabled",
+      "message": "Habilitado"
+   },
+   "favicons": {
+      "description": "Hide Page Favicons",
+      "message": "Ocultar icono de la página"
+   },
+   "font": {
+      "description": "Font",
+      "message": "Fuente"
+   },
+   "customfont": {
+      "description": "Custom Font",
+      "message": "Fuente Personalizada"
+   },
+   "fontsize": {
+      "description": "Font Size",
+      "message": "Tamaño de la Fuente"
+   },
+   "globalmode": {
+      "description": "Global Mode",
+      "message": "Modo Global"
+   },
+   "globalmode2": {
+      "description": "tab-specific if unticked",
+      "message": "Sin Chequear específica pestaña"
+   },
+   "globalmode3": {
+      "description": "new tabs by default",
+      "message": "Nueva pestañas por defecto"
+   },
+   "gray": {
+      "description": "Gray",
+      "message": "Gris"
+   },
+   "green": {
+      "description": "Green",
+      "message": "Verde"
+   },
+   "help": {
+      "description": "If you can help translate or improve, please contact me",
+      "message": "Si usted puede ayudar a traducir o mejorar, por favor póngase en contacto conmigo"
+   },
+   "hidetitles": {
+      "description": "Hide Page Titles",
+      "message": "Ocultar los títulos de página"
+   },
+   "hovered": {
+      "description": "Hovered",
+      "message": "Por cernía"
+   },
+   "invalidcolour": {
+      "description": "Your colors weren't saved as one or more were invalid. Please revert your colors or re-enter a correct color.",
+      "message": "Los colores no se pueden guardar, uno o más no son válidos. Por favor, vuelva al color por defecto o ingrese un color correcto."
+   },
+   "invaliddomain": {
+      "description": "Error: invalid domain.",
+      "message": "Error: Dominio inválido."
+   },
+   "invalidnumber": {
+      "description": "Your change wasn't saved as you didn't enter a valid number.",
+      "message": "El cambio no se ha guardado. Ingreso un número inválido."
+   },
+   "level": {
+      "description": "Level",
+      "message": "Nivel"
+   },
+   "lightred": {
+      "description": "Light Red",
+      "message": "Luz Roja"
+   },
+   "nsfw": {
+      "description": "NSFW (show images/Flash, but change colors)",
+      "message": "NSFW (muestra imágenes/Flash, pero cambiandole de color)"
+   },
+   "offwhite": {
+      "description": "Off-White",
+      "message": "Blanco tiza"
+   },
+   "opacity": {
+      "description": "Image Opacity",
+      "message": "Opacidad de imagen"
+   },
+   "opacity2": {
+      "description": "set how transparent images should be",
+      "message": "Establecer la transparencia de las imágenes "
+   },
+   "opensafely": {
+      "description": "Safely open in new tab",
+      "message": "Abrir con seguridad en nueva pestaña"
+   },
+   "paleblue": {
+      "description": "Pale Blue",
+      "message": "Azul Claro"
+   },
+   "paranoid": {
+      "description": "Paranoid (hide everything)",
+      "message": "Paranoico (ocultar todo)"
+   },
+   "people": {
+      "description": "People who bought Andrew coffee",
+      "message": "Las personas que compraron café Andrew"
+   },
+   "pink": {
+      "description": "Pink",
+      "message": "Rosa"
+   },
+   "red": {
+      "description": "Red",
+      "message": "Rojo"
+   },
+   "removebold": {
+      "description": "Quitar negritas",
+      "message": "Unbold text"
+   },
+   "removefromblacklist": {
+      "description": "Remove all entries from the blacklist?",
+      "message": "Eliminar todas las entradas de la lista negra?"
+   },
+   "removefromwhitelist": {
+      "description": "Remove all entries from the whitelist?",
+      "message": "Eliminar todas las entradas de la lista blanca?"
+   },
+   "revertcolours": {
+      "description": "Revert Colors",
+      "message": "Revertir los colores"
+   },
+   "save": {
+      "description": "Save",
+      "message": "Guardar"
+   },
+   "savecolours": {
+      "description": "Save Colors",
+      "message": "Guardar colores"
+   },
+   "saved": {
+      "description": "Settings saved.",
+      "message": "Configuración guardada."
+   },
+   "sfw0": {
+      "description": "SFW0 (cloak images/Flash)",
+      "message": "SFW0 (Cubrir imágenes/Flash)"
+   },
+   "sfw1": {
+      "description": "SFW1 (cloak images/hide Flash)",
+      "message": "SFW1 (Cubrir imágenes/ocultar Flash)"
+   },
+   "sfw2": {
+      "description": "SFW2 (cloak images only)",
+      "message": "SFW2 (Cubrir imágenes solamente)"
+   },
+   "showcontext": {
+      "description": "Show Context Menu",
+      "message": "Mostrar menú contextual"
+   },
+   "showcontext2": {
+      "description": "show right-click item for links/images",
+      "message": "Mostrar los items del click derecho de los enlaces/imágenes"
+   },
+   "showicon": {
+      "description": "Show DP Icon",
+      "message": "Mostrar icono DP"
+   },
+   "showicon2": {
+      "description": "show icon in address bar",
+      "message": "Mostrar icono en la barra de direcciones"
+   },
+   "showicon_type": {
+      "description": "Icon",
+      "message": "Icono"
+   },
+   "showicon_type2": {
+      "description": "icon to show in address bar",
+      "message": "icono que se mostrará en la barra de direcciones"
+   },
+   "showicon_title": {
+      "description": "Icon Title",
+      "message": "Título de icono"
+   },
+   "showimages": {
+      "description": "Show Images Within",
+      "message": "Mostrar imágenes dentro"
+   },
+   "showimages2": {
+      "description": "always show images that are within this size (disable: set to 0 x 0)",
+      "message": "Mostrar imágenes siempre que están dentro de este tamaño (desactivar: se establece en 0 x 0)"
+   },
+   "showunderline": {
+      "description": "Underline Links",
+      "message": "Subrayar vínculos"
+   },
+   "showupdate": {
+      "description": "Show Update Popup",
+      "message": "Mostrar Popup de actualización"
+   },
+   "showupdate2": {
+      "description": "show popup page when DP is updated",
+      "message": "Mostrar la página emergente cuando DP se actualizó"
+   },
+   "stickiness": {
+      "description": "Enable Stickiness",
+      "message": "Habilitar viscosidad"
+   },
+   "stickiness2": {
+      "description": "new tabs from cloaked pages are cloaked",
+      "message": "Las nuevas pestañas de las páginas ocultas aparecen ocultas"
+   },
+   "support": {
+      "description": "Support Andrew!",
+      "message": "Apoya a Andrew!"
+   },
+   "test1": {
+      "description": "A test link",
+      "message": "Enlace de prueba"
+   },
+   "test2": {
+      "description": "Link",
+      "message": "Enlace"
+   },
+   "toggle": {
+      "description": "Enable Key Toggling",
+      "message": "Permite alternar clave"
+   },
+   "toggle2": {
+      "description": "press the set hotkey to toggle",
+      "message": "pulse la tecla de acceso directo para alternar conjunto"
+   },
+   "hotkey": {
+      "description": "Hotkey Combination",
+      "message": "La combinación de teclas rápidas"
+   },
+   "hotkey_record": {
+      "description": "Record",
+      "message": "Grabar"
+   },
+   "hotkey_set": {
+      "description": "Set",
+      "message": "Conjunto"
+   },
+   "translators": {
+      "description": "People who helped translate",
+      "message": "La gente que ayudó a traducir"
+   },
+   "uncloak": {
+      "description": "Uncloak",
+      "message": "Anular ocultación"
+   },
+   "unhovered": {
+      "description": "Unhovered",
+      "message": "No por cercanía"
+   },
+   "white": {
+      "description": "White",
+      "message": "Blanco"
+   },
+   "whitelist": {
+      "description": "Whitelist",
+      "message": "Lista blanca"
+   },
+   "whitelisted": {
+      "description": "Whitelisted",
+      "message": "En lista blanca"
+   }
+}

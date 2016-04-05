@@ -1,0 +1,354 @@
+{
+   "black": {
+      "description": "Black",
+      "message": "Черный"
+   },
+   "blacklist": {
+      "description": "Blacklist",
+      "message": "Черный список"
+   },
+   "blacklisted": {
+      "description": "Blacklisted",
+      "message": "В черном списке"
+   },
+   "blue": {
+      "description": "Blue",
+      "message": "Синий"
+   },
+   "clear": {
+      "description": "clear",
+      "message": "очистить"
+   },
+   "cloak": {
+      "description": "Cloak",
+      "message": "Безопасный"
+   },
+   "close": {
+      "description": "close",
+      "message": "Завершить настройку"
+   },
+   "color": {
+      "description": "Color",
+      "message": "Цвет"
+   },
+   "colorbackground": {
+      "description": "Background",
+      "message": "Фон"
+   },
+   "colorlink": {
+      "description": "Link",
+      "message": "Ссылка"
+   },
+   "colorpresets": {
+      "description": "Presets",
+      "message": "Раскраски"
+   },
+   "colorpresetselect": {
+      "description": "Select a Preset",
+      "message": "Выберите раскраску"
+   },
+   "colortable": {
+      "description": "Table Borders",
+      "message": "Границы таблиц"
+   },
+   "colortext": {
+      "description": "Text",
+      "message": "Текст"
+   },
+   "darkbrown": {
+      "description": "Dark Brown",
+      "message": "Темно-коричневый"
+   },
+   "default": {
+      "description": "Default",
+      "message": "По умолчанию"
+   },
+   "demo": {
+      "description": "Demo",
+      "message": "Пример"
+   },
+   "disabled": {
+      "description": "disabled",
+      "message": "отключено"
+   },
+   "domain": {
+      "description": "Domain",
+      "message": "Домен"
+   },
+   "dpoptions": {
+      "description": "DP Options",
+      "message": "Настройки DP"
+   },
+   "empty": {
+      "description": "Empty",
+      "message": "Пусто"
+   },
+   "enable": {
+      "description": "Enable",
+      "message": "Включить"
+   },
+   "enabled": {
+      "description": "enabled",
+      "message": "включено"
+   },
+   "favicons": {
+      "description": "Hide Page Favicons",
+      "message": "Скрывать иконки вкладок"
+   },
+   "font": {
+      "description": "Font",
+      "message": "Шрифт"
+   },
+   "customfont": {
+      "description": "Custom Font",
+      "message": "пользовательский шрифт"
+   },
+   "fontsize": {
+      "description": "Font Size",
+      "message": "размер шрифта"
+   },
+   "globalmode": {
+      "description": "Global Mode",
+      "message": "Безопасный режим во всех вкладках"
+   },
+   "globalmode2": {
+      "description": "tab-specific if unticked",
+      "message": "если отключено, то безопасный режим для каждой вкладки включается вручную"
+   },
+   "globalmode3": {
+      "description": "new tabs by default",
+      "message": "Режим для новой вкладки"
+   },
+   "gray": {
+      "description": "Gray",
+      "message": "Серый"
+   },
+   "green": {
+      "description": "Green",
+      "message": "Зеленый"
+   },
+   "help": {
+      "description": "If you can help translate or improve, please contact me",
+      "message": "Если вы захотите улучшить этот перевод, вы можете связаться со мной"
+   },
+   "hidetitles": {
+      "description": "Hide Page Titles",
+      "message": "Скрывать заголовки вкладок"
+   },
+   "hovered": {
+      "description": "Hovered",
+      "message": "при наведении курсора мыши"
+   },
+   "invalidcolour": {
+      "description": "Your colors weren't saved as one or more were invalid. Please revert your colors or re-enter a correct color.",
+      "message": "Вы ввели некорректное значение цвета. Введите корректное значение или отмените ваши изменения просто нажав кнопку Восстановить раскраску."
+   },
+   "invaliddomain": {
+      "description": "Error: invalid domain.",
+      "message": "Ошибка: неверный домен."
+   },
+   "invalidnumber": {
+      "description": "Your change wasn't saved as you didn't enter a valid number.",
+      "message": "Введенное значение невозможно сохранить, так как оно не является числом"
+   },
+   "level": {
+      "description": "Level",
+      "message": "Уровень безопасности"
+   },
+   "lightred": {
+      "description": "Light Red",
+      "message": "Светло-красный"
+   },
+   "nsfw": {
+      "description": "NSFW (show images/Flash, but change colors)",
+      "message": "Раскрасить, показывать картинки и флеш"
+   },
+   "offwhite": {
+      "description": "Off-White",
+      "message": "Грязно-белый"
+   },
+   "opacity": {
+      "description": "Image Opacity",
+      "message": "Прозрачность скрытых картинок"
+   },
+   "opacity2": {
+      "description": "set how transparent images should be",
+      "message": "прозрачность картинки станет такой при наведении курсора мыши"
+   },
+   "opensafely": {
+      "description": "Safely open in new tab",
+      "message": "Открыть безопасно в новой вкладке"
+   },
+   "paleblue": {
+      "description": "Pale Blue",
+      "message": "Светло-синий"
+   },
+   "paranoid": {
+      "description": "Paranoid (hide everything)",
+      "message": "Раскрасить, сделать недоступными картинки и флеш"
+   },
+   "people": {
+      "description": "People who bought Andrew coffee",
+      "message": "Те, кто угостил Эндрю кофе"
+   },
+   "pink": {
+      "description": "Pink",
+      "message": "Розовый"
+   },
+   "red": {
+      "description": "Red",
+      "message": "Красный"
+   },
+   "removebold": {
+      "description": "Unbold Text",
+      "message": "Использовать только нежирный шрифт"
+   },
+   "removefromblacklist": {
+      "description": "Remove all entries from the blacklist?",
+      "message": "Очистить черный список?"
+   },
+   "removefromwhitelist": {
+      "description": "Remove all entries from the whitelist?",
+      "message": "Очистить белый список?"
+   },
+   "revertcolours": {
+      "description": "Revert Colors",
+      "message": "Восстановить раскраску"
+   },
+   "save": {
+      "description": "Save",
+      "message": "Сохранить"
+   },
+   "savecolours": {
+      "description": "Save Colors",
+      "message": "Сохранить раскраску"
+   },
+   "saved": {
+      "description": "Settings saved.",
+      "message": "Изменение настроек сохранено"
+   },
+   "sfw0": {
+      "description": "SFW0 (cloak images/Flash)",
+      "message": "Раскрасить, маскировать картинки и флеш (SFW0)"
+   },
+   "sfw1": {
+      "description": "SFW1 (cloak images/hide Flash)",
+      "message": "Раскрасить, маскировать картинки и скрыть флеш (SFW1)"
+   },
+   "sfw2": {
+      "description": "SFW2 (cloak images only)",
+      "message": "Раскрасить, маскировать картинки, показывать флеш (SFW2)"
+   },
+   "showcontext": {
+      "description": "Show Context Menu",
+      "message": "Показывать пункт DP в контекстном меню"
+   },
+   "showcontext2": {
+      "description": "show right-click item for links/images",
+      "message": "если включено, то в контекстном меню для ссылок и картинок появится пункт DP"
+   },
+   "showicon": {
+      "description": "Show DP Icon",
+      "message": "Показывать иконку расширения"
+   },
+   "showicon2": {
+      "description": "show icon in address bar",
+      "message": "показать значок в адресной строке"
+   },
+   "showicon_type": {
+      "description": "Icon",
+      "message": "Значок"
+   },
+   "showicon_type2": {
+      "description": "icon to show in address bar",
+      "message": "значок, чтобы показать в адресной строке"
+   },
+   "showicon_title": {
+      "description": "Icon Title",
+      "message": "Иконка Название"
+   },
+   "showimages": {
+      "description": "Show Images Within",
+      "message": "Фильтровать картинки по размеру"
+   },
+   "showimages2": {
+      "description": "always show images that are within this size (disable: set to 0 x 0)",
+      "message": "всегда показывать изображения меньше этого размера (чтобы отключить, введите: 0 х 0)"
+   },
+   "showunderline": {
+      "description": "Underline Links",
+      "message": "Подчеркивать ссылки"
+   },
+   "showupdate": {
+      "description": "Show Update Popup",
+      "message": "Сообщать об обновлениях"
+   },
+   "showupdate2": {
+      "description": "show popup page when DP is updated",
+      "message": "при завершении обновления будет автоматически открыта вкладка с подробной информацией о нём"
+   },
+   "stickiness": {
+      "description": "Enable Stickiness",
+      "message": "Наследовать безопасный режим"
+   },
+   "stickiness2": {
+      "description": "new tabs from cloaked pages are cloaked",
+      "message": "если включено, то новая вкладка из скрытой страницы откроется также скрытой"
+   },
+   "support": {
+      "description": "Support Andrew!",
+      "message": "Поддержите Эндрю!"
+   },
+   "test1": {
+      "description": "A test link",
+      "message": "Тестовая ссылка"
+   },
+   "test2": {
+      "description": "Link",
+      "message": "Ссылка"
+   },
+   "toggle": {
+      "description": "Enable Key Toggling",
+      "message": "Использовать горячие клавиши"
+   },
+   "toggle2": {
+      "description": "press the set hotkey to toggle",
+      "message": "нажмите набор горячих клавиш для переключения"
+   },
+   "hotkey": {
+      "description": "Hotkey Combination",
+      "message": "Hotkey Комбинация"
+   },
+   "hotkey_record": {
+      "description": "Record",
+      "message": "запись"
+   },
+   "hotkey_set": {
+      "description": "Set",
+      "message": "Задавать"
+   },
+   "translators": {
+      "description": "People who helped translate",
+      "message": "Те, кто помог с локализацией"
+   },
+   "uncloak": {
+      "description": "Uncloak",
+      "message": "Обычный"
+   },
+   "unhovered": {
+      "description": "Unhovered",
+      "message": "при скрытии картинки"
+   },
+   "white": {
+      "description": "White",
+      "message": "Белый"
+   },
+   "whitelist": {
+      "description": "Whitelist",
+      "message": "Белый список"
+   },
+   "whitelisted": {
+      "description": "Whitelisted",
+      "message": "В белом списке"
+   }
+}

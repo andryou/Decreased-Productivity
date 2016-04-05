@@ -1,0 +1,354 @@
+{
+   "black": {
+      "description": "Black",
+      "message": "ブラック"
+   },
+   "blacklist": {
+      "description": "Blacklist",
+      "message": "ブラックリスト"
+   },
+   "blacklisted": {
+      "description": "Blacklisted",
+      "message": "ブラックリストに追加しました"
+   },
+   "blue": {
+      "description": "Blue",
+      "message": "ブルー"
+   },
+   "clear": {
+      "description": "clear",
+      "message": "クリア"
+   },
+   "cloak": {
+      "description": "Cloak",
+      "message": "クローク"
+   },
+   "close": {
+      "description": "close",
+      "message": "閉じる"
+   },
+   "color": {
+      "description": "Color",
+      "message": "色"
+   },
+   "colorbackground": {
+      "description": "Background",
+      "message": "背景"
+   },
+   "colorlink": {
+      "description": "Link",
+      "message": "リンク"
+   },
+   "colorpresets": {
+      "description": "Presets",
+      "message": "プリセット"
+   },
+   "colorpresetselect": {
+      "description": "Select a Preset",
+      "message": "プリセットを選択"
+   },
+   "colortable": {
+      "description": "Table Borders",
+      "message": "テーブルボーダー"
+   },
+   "colortext": {
+      "description": "Text",
+      "message": "テキスト"
+   },
+   "darkbrown": {
+      "description": "Dark Brown",
+      "message": "ダークブラウン"
+   },
+   "default": {
+      "description": "Default",
+      "message": "デフォルト"
+   },
+   "demo": {
+      "description": "Demo",
+      "message": "デモ"
+   },
+   "disabled": {
+      "description": "disabled",
+      "message": "無効"
+   },
+   "domain": {
+      "description": "Domain",
+      "message": "ドメイン"
+   },
+   "dpoptions": {
+      "description": "DP Options",
+      "message": "DPオプション"
+   },
+   "empty": {
+      "description": "Empty",
+      "message": "空"
+   },
+   "enable": {
+      "description": "Enable",
+      "message": "有効"
+   },
+   "enabled": {
+      "description": "enabled",
+      "message": "有効"
+   },
+   "favicons": {
+      "description": "Hide Page Favicons",
+      "message": "ページファビコンを非表示"
+   },
+   "font": {
+      "description": "Font",
+      "message": "フォント"
+   },
+   "customfont": {
+      "description": "Custom Font",
+      "message": "カスタムフォント"
+   },
+   "fontsize": {
+      "description": "Font Size",
+      "message": "フォント·サイズ"
+   },
+   "globalmode": {
+      "description": "Global Mode",
+      "message": "グローバルモード"
+   },
+   "globalmode2": {
+      "description": "tab-specific if unticked",
+      "message": "チェック無しならタブ別の設定"
+   },
+   "globalmode3": {
+      "description": "new tabs by default",
+      "message": "新規タブにデフォルト設定を適用"
+   },
+   "gray": {
+      "description": "Gray",
+      "message": "グレイ"
+   },
+   "green": {
+      "description": "Green",
+      "message": "グリーン"
+   },
+   "help": {
+      "description": "If you can help translate or improve, please contact me",
+      "message": "翻訳または訳語の改善を手伝ってくれる方、私にご連絡ください"
+   },
+   "hidetitles": {
+      "description": "Hide Page Titles",
+      "message": "ページタイトルを変更"
+   },
+   "hovered": {
+      "description": "Hovered",
+      "message": "ホバーしている時"
+   },
+   "invalidcolour": {
+      "description": "Your colors weren't saved as one or more were invalid. Please revert your colors or re-enter a correct color.",
+      "message": "無効な値が指定された為、色設定を保存できませんでした。色を元に戻すか正しく指定し直してください。"
+   },
+   "invaliddomain": {
+      "description": "Error: invalid domain.",
+      "message": "エラー：無効なドメインです。"
+   },
+   "invalidnumber": {
+      "description": "Your change wasn't saved as you didn't enter a valid number.",
+      "message": "無効な数値が入力された為、変更内容は保存されませんでした。"
+   },
+   "level": {
+      "description": "Level",
+      "message": "レベル"
+   },
+   "lightred": {
+      "description": "Light Red",
+      "message": "ライトレッド"
+   },
+   "nsfw": {
+      "description": "NSFW (show images/Flash, but change colors)",
+      "message": "NSFW (画像/フラッシュを表示するが、色を変更する)"
+   },
+   "offwhite": {
+      "description": "Off-White",
+      "message": "オフホワイト"
+   },
+   "opacity": {
+      "description": "Image Opacity",
+      "message": "画像の不透明度"
+   },
+   "opacity2": {
+      "description": "set how transparent images should be",
+      "message": "画像をどれくらい透明にするか"
+   },
+   "opensafely": {
+      "description": "Safely open in new tab",
+      "message": "新しいタブで安全に開く"
+   },
+   "paleblue": {
+      "description": "Pale Blue",
+      "message": "ペールブルー"
+   },
+   "paranoid": {
+      "description": "Paranoid (hide everything)",
+      "message": "パラノイド (全て非表示)"
+   },
+   "people": {
+      "description": "People who bought Andrew coffee",
+      "message": "Andrewコーヒーを購入した人"
+   },
+   "pink": {
+      "description": "Pink",
+      "message": "ピンク"
+   },
+   "red": {
+      "description": "Red",
+      "message": "レッド"
+   },
+   "removebold": {
+      "description": "Unbold Text",
+      "message": "太字を解除"
+   },
+   "removefromblacklist": {
+      "description": "Remove all entries from the blacklist?",
+      "message": "ブラックリストから全てのエントリを削除しますか？"
+   },
+   "removefromwhitelist": {
+      "description": "Remove all entries from the whitelist?",
+      "message": "ホワイトリストから全てのエントリを削除しますか？"
+   },
+   "revertcolours": {
+      "description": "Revert Colors",
+      "message": "色を元に戻す"
+   },
+   "save": {
+      "description": "Save",
+      "message": "保存"
+   },
+   "savecolours": {
+      "description": "Save Colors",
+      "message": "色を保存"
+   },
+   "saved": {
+      "description": "Settings saved.",
+      "message": "設定が保存されました"
+   },
+   "sfw0": {
+      "description": "SFW0 (cloak images/Flash)",
+      "message": "SFW0 (画像をクロークし、フラッシュをクロークし)"
+   },
+   "sfw1": {
+      "description": "SFW1 (cloak images/hide Flash)",
+      "message": "SFW1 (画像をクロークし、フラッシュを非表示)"
+   },
+   "sfw2": {
+      "description": "SFW2 (cloak images only)",
+      "message": "SFW2 (画像のクロークのみ)"
+   },
+   "showcontext": {
+      "description": "Show Context Menu",
+      "message": "コンテキストメニューの表示"
+   },
+   "showcontext2": {
+      "description": "show right-click item for links/images",
+      "message": "リンク/画像の右クリックアイテムを表示するかどうか"
+   },
+   "showicon": {
+      "description": "Show DP Icon",
+      "message": "DPアイコンを表示"
+   },
+   "showicon2": {
+      "description": "show icon in address bar",
+      "message": "アドレスバーにコイコンを表示するかどうか"
+   },
+   "showicon_type": {
+      "description": "Icon",
+      "message": "アイコン"
+   },
+   "showicon_type2": {
+      "description": "icon to show in address bar",
+      "message": "アイコンがアドレスバーに表示します"
+   },
+   "showicon_title": {
+      "description": "Icon Title",
+      "message": "アイコンタイトル"
+   },
+   "showimages": {
+      "description": "Show Images Within",
+      "message": "範囲内の画像を表示"
+   },
+   "showimages2": {
+      "description": "always show images that are within this size (disable: set to 0 x 0)",
+      "message": "このサイズ以内の画像は常に表示する (無効にするには 0 x 0 を設定)"
+   },
+   "showunderline": {
+      "description": "Underline Links",
+      "message": "リンクに下線を表示"
+   },
+   "showupdate": {
+      "description": "Show Update Popup",
+      "message": "アップデートポップアップの表示"
+   },
+   "showupdate2": {
+      "description": "show popup page when DP is updated",
+      "message": "DPがアップデートされたらポップアップページを表示する"
+   },
+   "stickiness": {
+      "description": "Enable Stickiness",
+      "message": "スティッキネスを有効"
+   },
+   "stickiness2": {
+      "description": "new tabs from cloaked pages are cloaked",
+      "message": "クロークが有効なタブから開かれたページでクロークを有効にするかどうか"
+   },
+   "support": {
+      "description": "Support Andrew!",
+      "message": "Support Andrew!"
+   },
+   "test1": {
+      "description": "A test link",
+      "message": "テストのリンク"
+   },
+   "test2": {
+      "description": "Link",
+      "message": "リンク"
+   },
+   "toggle": {
+      "description": "Enable Key Toggling",
+      "message": "キーによる切替"
+   },
+   "toggle2": {
+      "description": "press the set hotkey to toggle",
+      "message": "切り替えるには、設定されたホットキーを押します"
+   },
+   "hotkey": {
+      "description": "Hotkey Combination",
+      "message": "ホットキーコンビネーション"
+   },
+   "hotkey_record": {
+      "description": "Record",
+      "message": "記録"
+   },
+   "hotkey_set": {
+      "description": "Set",
+      "message": "セット"
+   },
+   "translators": {
+      "description": "People who helped translate",
+      "message": "翻訳を手伝ってくれた人"
+   },
+   "uncloak": {
+      "description": "Uncloak",
+      "message": "クロークなし"
+   },
+   "unhovered": {
+      "description": "Unhovered",
+      "message": "ホバーしていない時"
+   },
+   "white": {
+      "description": "White",
+      "message": "ホワイト"
+   },
+   "whitelist": {
+      "description": "Whitelist",
+      "message": "ホワイトリスト"
+   },
+   "whitelisted": {
+      "description": "Whitelisted",
+      "message": "ホワイトリストに追加しました"
+   }
+}

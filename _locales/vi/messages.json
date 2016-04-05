@@ -1,0 +1,354 @@
+{
+   "black": {
+      "description": "Black",
+      "message": "Black"
+   },
+   "blacklist": {
+      "description": "Blacklist",
+      "message": "Danh sách đen"
+   },
+   "blacklisted": {
+      "description": "Blacklisted",
+      "message": "Danh sách đen"
+   },
+   "blue": {
+      "description": "Blue",
+      "message": "Blue"
+   },
+   "clear": {
+      "description": "clear",
+      "message": "rõ ràng"
+   },
+   "cloak": {
+      "description": "Cloak",
+      "message": "Cloak"
+   },
+   "close": {
+      "description": "close",
+      "message": "Đóng"
+   },
+   "color": {
+      "description": "Color",
+      "message": "Màu"
+   },
+   "colorbackground": {
+      "description": "Background",
+      "message": "Background"
+   },
+   "colorlink": {
+      "description": "Link",
+      "message": "Link"
+   },
+   "colorpresets": {
+      "description": "Presets",
+      "message": "Presets"
+   },
+   "colorpresetselect": {
+      "description": "Select a Preset",
+      "message": "Chọn Preset"
+   },
+   "colortable": {
+      "description": "Table Borders",
+      "message": "Bảng biên giới"
+   },
+   "colortext": {
+      "description": "Text",
+      "message": "Văn bản"
+   },
+   "darkbrown": {
+      "description": "Dark Brown",
+      "message": "Dark Brown"
+   },
+   "default": {
+      "description": "Default",
+      "message": "Default"
+   },
+   "demo": {
+      "description": "Demo",
+      "message": "Demo"
+   },
+   "disabled": {
+      "description": "disabled",
+      "message": "tàn tật"
+   },
+   "domain": {
+      "description": "Domain",
+      "message": "Tên miền"
+   },
+   "dpoptions": {
+      "description": "DP Options",
+      "message": "Tùy chọn DP"
+   },
+   "empty": {
+      "description": "Empty",
+      "message": "rỗng"
+   },
+   "enable": {
+      "description": "Enable",
+      "message": "Enable"
+   },
+   "enabled": {
+      "description": "enabled",
+      "message": "kích hoạt"
+   },
+   "favicons": {
+      "description": "Hide Page Favicons",
+      "message": "Hide Favicons Trang"
+   },
+   "font": {
+      "description": "Font",
+      "message": "Font"
+   },
+   "customfont": {
+      "description": "Custom Font",
+      "message": "Custom Font"
+   },
+   "fontsize": {
+      "description": "Font Size",
+      "message": "Kích thước phông chữ"
+   },
+   "globalmode": {
+      "description": "Global Mode",
+      "message": "Chế độ toàn cầu"
+   },
+   "globalmode2": {
+      "description": "tab-specific if unticked",
+      "message": "tab cụ thể nếu unticked"
+   },
+   "globalmode3": {
+      "description": "new tabs by default",
+      "message": "tab mới bằng cách mặc định"
+   },
+   "gray": {
+      "description": "Gray",
+      "message": "Xám"
+   },
+   "green": {
+      "description": "Green",
+      "message": "Xanh"
+   },
+   "help": {
+      "description": "If you can help translate or improve, please contact me",
+      "message": "Nếu bạn có thể dịch hoặc cải thiện, xin vui lòng liên hệ với tôi"
+   },
+   "hidetitles": {
+      "description": "Hide Page Titles",
+      "message": "Hide Trang đề"
+   },
+   "hovered": {
+      "description": "Hovered",
+      "message": "Quét"
+   },
+   "invalidcolour": {
+      "description": "Your colors weren't saved as one or more were invalid. Please revert your colors or re-enter a correct color.",
+      "message": "Màu sắc của bạn không được lưu như một hoặc nhiều người không hợp lệ Xin vui lòng trở lại màu sắc của bạn hoặc nhập lại một màu sắc chính xác."
+   },
+   "invaliddomain": {
+      "description": "Error: invalid domain.",
+      "message": "Lỗi: miền không hợp lệ."
+   },
+   "invalidnumber": {
+      "description": "Your change wasn't saved as you didn't enter a valid number.",
+      "message": "Thay đổi của bạn đã được lưu lại khi bạn đã không nhập một số hợp lệ."
+   },
+   "level": {
+      "description": "Level",
+      "message": "Cấp"
+   },
+   "lightred": {
+      "description": "Light Red",
+      "message": "Đèn đỏ"
+   },
+   "nsfw": {
+      "description": "NSFW (show images/Flash, but change colors)",
+      "message": "NSFW (hình ảnh hiển thị / Flash, nhưng thay đổi màu sắc)"
+   },
+   "offwhite": {
+      "description": "Off-White",
+      "message": "Off-trắng"
+   },
+   "opacity": {
+      "description": "Image Opacity",
+      "message": "Hình ảnh Opacity"
+   },
+   "opacity2": {
+      "description": "set how transparent images should be",
+      "message": "thiết lập hình ảnh minh bạch"
+   },
+   "opensafely": {
+      "description": "Safely open in new tab",
+      "message": "An toàn mở trong tab mới"
+   },
+   "paleblue": {
+      "description": "Pale Blue",
+      "message": "Xanh nhạt"
+   },
+   "paranoid": {
+      "description": "Paranoid (hide everything)",
+      "message": "Paranoid (ẩn tất cả mọi thứ)"
+   },
+   "people": {
+      "description": "People who bought Andrew coffee",
+      "message": "Những người mua cà phê Andrew"
+   },
+   "pink": {
+      "description": "Pink",
+      "message": "Pink"
+   },
+   "red": {
+      "description": "Red",
+      "message": "Red"
+   },
+   "removebold": {
+      "description": "Unbold Text",
+      "message": "Unbold Tiêu đề"
+   },
+   "removefromblacklist": {
+      "description": "Remove all entries from the blacklist?",
+      "message": "Hủy bỏ tất cả các mục từ danh sách đen?"
+   },
+   "removefromwhitelist": {
+      "description": "Remove all entries from the whitelist?",
+      "message": "Hủy bỏ tất cả các mục từ danh sách trắng?"
+   },
+   "revertcolours": {
+      "description": "Revert Colors",
+      "message": "Hoàn nguyên màu sắc"
+   },
+   "save": {
+      "description": "Save",
+      "message": "Save"
+   },
+   "savecolours": {
+      "description": "Save Colors",
+      "message": "Tiết kiệm Màu sắc"
+   },
+   "saved": {
+      "description": "Settings saved.",
+      "message": "Cài đặt được lưu."
+   },
+   "sfw0": {
+      "description": "SFW0 (cloak images/Flash)",
+      "message": "SFW0 (hình ảnh / Flash chiếc áo choàng)"
+   },
+   "sfw1": {
+      "description": "SFW1 (cloak images/hide Flash)",
+      "message": "SFW1 (hình ảnh chiếc áo choàng / ẩn Flash)"
+   },
+   "sfw2": {
+      "description": "SFW2 (cloak images only)",
+      "message": "SFW2 (hình ảnh chiếc áo choàng)"
+   },
+   "showcontext": {
+      "description": "Show Context Menu",
+      "message": "Hiển thị Context Menu"
+   },
+   "showcontext2": {
+      "description": "show right-click item for links/images",
+      "message": "hiển thị kích chuột phải vào mục cho các liên kết / hình ảnh"
+   },
+   "showicon": {
+      "description": "Show DP Icon",
+      "message": "Hiển thị DP Biểu tượng"
+   },
+   "showicon2": {
+      "description": "show icon in address bar",
+      "message": "chương trình biểu tượng trong thanh địa chỉ"
+   },
+   "showicon_type": {
+      "description": "Icon",
+      "message": "Biểu tượng"
+   },
+   "showicon_type2": {
+      "description": "icon to show in address bar",
+      "message": "biểu tượng để hiển thị trong thanh địa chỉ"
+   },
+   "showicon_title": {
+      "description": "Icon Title",
+      "message": "tiêu đề biểu tượng"
+   },
+   "showimages": {
+      "description": "Show Images Within",
+      "message": "Hiển thị hình ảnh Trong thời hạn"
+   },
+   "showimages2": {
+      "description": "always show images that are within this size (disable: set to 0 x 0)",
+      "message": "luôn luôn hiển thị hình ảnh trong kích thước này (vô hiệu hóa: thiết lập để 0 x 0)"
+   },
+   "showunderline": {
+      "description": "Underline Links",
+      "message": "Gạch chân Liên kết"
+   },
+   "showupdate": {
+      "description": "Show Update Popup",
+      "message": "Hiển thị Cập nhật Popup"
+   },
+   "showupdate2": {
+      "description": "show popup page when DP is updated",
+      "message": "hiển thị trang quảng cáo khi DP được cập nhật"
+   },
+   "stickiness": {
+      "description": "Enable Stickiness",
+      "message": "Kích hoạt tính năng dính"
+   },
+   "stickiness2": {
+      "description": "new tabs from cloaked pages are cloaked",
+      "message": "tab mới từ các trang mặc áo choàng tàng hình"
+   },
+   "support": {
+      "description": "Support Andrew!",
+      "message": "Hỗ trợ Andrew!"
+   },
+   "test1": {
+      "description": "A test link",
+      "message": "Một liên kết thử nghiệm"
+   },
+   "test2": {
+      "description": "Link",
+      "message": "Link"
+   },
+   "toggle": {
+      "description": "Enable Key Toggling",
+      "message": "Kích hoạt tính năng Chuyển qua chuyển lại chính"
+   },
+   "toggle2": {
+      "description": "press the set hotkey to toggle",
+      "message": "nhấn bộ phím nóng để chuyển đổi"
+   },
+   "hotkey": {
+      "description": "Hotkey Combination",
+      "message": "Kết hợp phím nóng"
+   },
+   "hotkey_record": {
+      "description": "Record",
+      "message": "Ghi lại"
+   },
+   "hotkey_set": {
+      "description": "Set",
+      "message": "Bộ"
+   },
+   "translators": {
+      "description": "People who helped translate",
+      "message": "Những người đã giúp dịch"
+   },
+   "uncloak": {
+      "description": "Uncloak",
+      "message": "Cởi áo măng tô"
+   },
+   "unhovered": {
+      "description": "Unhovered",
+      "message": "Unhovered"
+   },
+   "white": {
+      "description": "White",
+      "message": "Trắng"
+   },
+   "whitelist": {
+      "description": "Whitelist",
+      "message": "Danh sách trắng"
+   },
+   "whitelisted": {
+      "description": "Whitelisted",
+      "message": "Whitelisted"
+   }
+}

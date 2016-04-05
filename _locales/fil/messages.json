@@ -1,0 +1,354 @@
+{
+   "black": {
+      "description": "Black",
+      "message": "Black"
+   },
+   "blacklist": {
+      "description": "Blacklist",
+      "message": "Blacklist"
+   },
+   "blacklisted": {
+      "description": "Blacklisted",
+      "message": "naka-blacklist"
+   },
+   "blue": {
+      "description": "Blue",
+      "message": "Blue"
+   },
+   "clear": {
+      "description": "clear",
+      "message": "malinaw"
+   },
+   "cloak": {
+      "description": "Cloak",
+      "message": "Balabal"
+   },
+   "close": {
+      "description": "close",
+      "message": "Isara"
+   },
+   "color": {
+      "description": "Color",
+      "message": "Kulay"
+   },
+   "colorbackground": {
+      "description": "Background",
+      "message": "Background"
+   },
+   "colorlink": {
+      "description": "Link",
+      "message": "Link"
+   },
+   "colorpresets": {
+      "description": "Presets",
+      "message": "Presets"
+   },
+   "colorpresetselect": {
+      "description": "Select a Preset",
+      "message": "Pumili ng isang preset"
+   },
+   "colortable": {
+      "description": "Table Borders",
+      "message": "Mga Hangganan ng Table"
+   },
+   "colortext": {
+      "description": "Text",
+      "message": "Text"
+   },
+   "darkbrown": {
+      "description": "Dark Brown",
+      "message": "Matingkad na kayumanggi"
+   },
+   "default": {
+      "description": "Default",
+      "message": "Default"
+   },
+   "demo": {
+      "description": "Demo",
+      "message": "Demo"
+   },
+   "disabled": {
+      "description": "disabled",
+      "message": "pinagana"
+   },
+   "domain": {
+      "description": "Domain",
+      "message": "Domain"
+   },
+   "dpoptions": {
+      "description": "DP Options",
+      "message": "DP Opsyon"
+   },
+   "empty": {
+      "description": "Empty",
+      "message": "Empty"
+   },
+   "enable": {
+      "description": "Enable",
+      "message": "Paganahin ang"
+   },
+   "enabled": {
+      "description": "enabled",
+      "message": "pinagana"
+   },
+   "favicons": {
+      "description": "Hide Page Favicons",
+      "message": "Itago ang mga Favicons Page"
+   },
+   "font": {
+      "description": "Font",
+      "message": "Font"
+   },
+   "customfont": {
+      "description": "Custom Font",
+      "message": "Custom Font"
+   },
+   "fontsize": {
+      "description": "Font Size",
+      "message": "Laki ng Font"
+   },
+   "globalmode": {
+      "description": "Global Mode",
+      "message": "Global Mode"
+   },
+   "globalmode2": {
+      "description": "tab-specific if unticked",
+      "message": "tab-tiyak kung unticked"
+   },
+   "globalmode3": {
+      "description": "new tabs by default",
+      "message": "bagong tab sa pamamagitan ng default"
+   },
+   "gray": {
+      "description": "Gray",
+      "message": "Gray"
+   },
+   "green": {
+      "description": "Green",
+      "message": "Green"
+   },
+   "help": {
+      "description": "If you can help translate or improve, please contact me",
+      "message": "Kung maaari kang makatulong na isalin o pagbutihin, mangyaring ugnay sa akin"
+   },
+   "hidetitles": {
+      "description": "Hide Page Titles",
+      "message": "Itago ang mga Pahina ng Pamagat"
+   },
+   "hovered": {
+      "description": "Hovered",
+      "message": "Hovered"
+   },
+   "invalidcolour": {
+      "description": "Your colors weren't saved as one or more were invalid. Please revert your colors or re-enter a correct color.",
+      "message": "Ang iyong mga kulay ay hindi nai-save bilang isa o higit pa ay hindi wasto Mangyaring ibalik ang iyong mga kulay o muling ipasok ang isang tamang kulay."
+   },
+   "invaliddomain": {
+      "description": "Error: invalid domain.",
+      "message": "Error: hindi wastong domain."
+   },
+   "invalidnumber": {
+      "description": "Your change wasn't saved as you didn't enter a valid number.",
+      "message": "Ang iyong pagbabago ay hindi nai-save bilang hindi ka nagpasok ng isang wastong numero."
+   },
+   "level": {
+      "description": "Level",
+      "message": "Antas"
+   },
+   "lightred": {
+      "description": "Light Red",
+      "message": "Light Red"
+   },
+   "nsfw": {
+      "description": "NSFW (show images/Flash, but change colors)",
+      "message": "NSFW (ipakita ang mga imahe / Flash, ngunit baguhin ang kulay)"
+   },
+   "offwhite": {
+      "description": "Off-White",
+      "message": "Off-White"
+   },
+   "opacity": {
+      "description": "Image Opacity",
+      "message": "Imahe Opacity"
+   },
+   "opacity2": {
+      "description": "set how transparent images should be",
+      "message": "Itakda ang kung paano dapat na ang transparent imahe"
+   },
+   "opensafely": {
+      "description": "Safely open in new tab",
+      "message": "ligtas na bukas sa bagong tab"
+   },
+   "paleblue": {
+      "description": "Pale Blue",
+      "message": "Maputla Blue"
+   },
+   "paranoid": {
+      "description": "Paranoid (hide everything)",
+      "message": "Paranoyd (itago ang lahat)"
+   },
+   "people": {
+      "description": "People who bought Andrew coffee",
+      "message": "mga taong bumili Andrew kape"
+   },
+   "pink": {
+      "description": "Pink",
+      "message": "Pink"
+   },
+   "red": {
+      "description": "Red",
+      "message": "Red"
+   },
+   "removebold": {
+      "description": "Unbold Text",
+      "message": "Unbold Text"
+   },
+   "removefromblacklist": {
+      "description": "Remove all entries from the blacklist?",
+      "message": "Alisin ang lahat ng mga entry mula sa talaang-itim?"
+   },
+   "removefromwhitelist": {
+      "description": "Remove all entries from the whitelist?",
+      "message": "Alisin ang lahat ng mga entry mula sa whitelist?"
+   },
+   "revertcolours": {
+      "description": "Revert Colors",
+      "message": "Ibalik ang mga Kulay"
+   },
+   "save": {
+      "description": "Save",
+      "message": "I-save"
+   },
+   "savecolours": {
+      "description": "Save Colors",
+      "message": "I-save ng mga Kulay"
+   },
+   "saved": {
+      "description": "Settings saved.",
+      "message": "Mga Setting-save."
+   },
+   "sfw0": {
+      "description": "SFW0 (cloak images/Flash)",
+      "message": "SFW0 (balabal images / Flash)"
+   },
+   "sfw1": {
+      "description": "SFW1 (cloak images/hide Flash)",
+      "message": "SFW1 (balabal images / itago Flash)"
+   },
+   "sfw2": {
+      "description": "SFW2 (cloak images only)",
+      "message": "SFW2 (balabal imahe lamang)"
+   },
+   "showcontext": {
+      "description": "Show Context Menu",
+      "message": "Show Context Menu"
+   },
+   "showcontext2": {
+      "description": "show right-click item for links/images",
+      "message": "ipakita ang right-click na item para sa mga link / images"
+   },
+   "showicon": {
+      "description": "Show DP Icon",
+      "message": "Ipakita ang DP Icon"
+   },
+   "showicon2": {
+      "description": "show icon in address bar",
+      "message": "ipakita icon sa address bar"
+   },
+   "showicon_type": {
+      "description": "Icon",
+      "message": "Icon"
+   },
+   "showicon_type2": {
+      "description": "icon to show in address bar",
+      "message": "icon upang ipakita sa address bar"
+   },
+   "showicon_title": {
+      "description": "Icon Title",
+      "message": "Icon Title"
+   },
+   "showimages": {
+      "description": "Show Images Within",
+      "message": "Ipakita ang mga Imahe loob"
+   },
+   "showimages2": {
+      "description": "always show images that are within this size (disable: set to 0 x 0)",
+      "message": "palaging ipakita ang mga imahe na sa loob ng sukat na ito (hindi paganahin ang: naka-set sa 0 x 0)"
+   },
+   "showunderline": {
+      "description": "Underline Links",
+      "message": "Ipakita ang Context Menu"
+   },
+   "showupdate": {
+      "description": "Show Update Popup",
+      "message": "Ipakita Update Popup"
+   },
+   "showupdate2": {
+      "description": "show popup page when DP is updated",
+      "message": "ipakita ang popup pahina kapag DP-update ang"
+   },
+   "stickiness": {
+      "description": "Enable Stickiness",
+      "message": "Paganahin ang katigasan"
+   },
+   "stickiness2": {
+      "description": "new tabs from cloaked pages are cloaked",
+      "message": "bagong tab mula sa cloaked pahina ay cloaked"
+   },
+   "support": {
+      "description": "Support Andrew!",
+      "message": "Support Andrew!"
+   },
+   "test1": {
+      "description": "A test link",
+      "message": "Ang isang pagsubok link"
+   },
+   "test2": {
+      "description": "Link",
+      "message": "Link"
+   },
+   "toggle": {
+      "description": "Enable Key Toggling",
+      "message": "Paganahin ang Key Toggling"
+   },
+   "toggle2": {
+      "description": "press the set hotkey to toggle",
+      "message": "pindutin ang set hotkey upang magpalipat-lipat"
+   },
+   "hotkey": {
+      "description": "Hotkey Combination",
+      "message": "hotkey Kumbinasyon"
+   },
+   "hotkey_record": {
+      "description": "Record",
+      "message": "Rekord"
+   },
+   "hotkey_set": {
+      "description": "Set",
+      "message": "Itakda"
+   },
+   "translators": {
+      "description": "People who helped translate",
+      "message": "Mga tao na nakatulong isalin"
+   },
+   "uncloak": {
+      "description": "Uncloak",
+      "message": "Uncloak"
+   },
+   "unhovered": {
+      "description": "Unhovered",
+      "message": "Unhovered"
+   },
+   "white": {
+      "description": "White",
+      "message": "White"
+   },
+   "whitelist": {
+      "description": "Whitelist",
+      "message": "Whitelist"
+   },
+   "whitelisted": {
+      "description": "Whitelisted",
+      "message": "Whitelisted"
+   }
+}

@@ -1,0 +1,354 @@
+{
+   "black": {
+      "description": "Black",
+      "message": "블랙"
+   },
+   "blacklist": {
+      "description": "Blacklist",
+      "message": "블랙리스트"
+   },
+   "blacklisted": {
+      "description": "Blacklisted",
+      "message": "블랙리스트"
+   },
+   "blue": {
+      "description": "Blue",
+      "message": "블루"
+   },
+   "clear": {
+      "description": "clear",
+      "message": "맑은"
+   },
+   "cloak": {
+      "description": "Cloak",
+      "message": "은폐"
+   },
+   "close": {
+      "description": "close",
+      "message": "닫기"
+   },
+   "color": {
+      "description": "Color",
+      "message": "색상"
+   },
+   "colorbackground": {
+      "description": "Background",
+      "message": "배경"
+   },
+   "colorlink": {
+      "description": "Link",
+      "message": "링크"
+   },
+   "colorpresets": {
+      "description": "Presets",
+      "message": "프리셋"
+   },
+   "colorpresetselect": {
+      "description": "Select a Preset",
+      "message": "프리셋을 선택하십시오"
+   },
+   "colortable": {
+      "description": "Table Borders",
+      "message": "테이블 테두리"
+   },
+   "colortext": {
+      "description": "Text",
+      "message": "텍스트"
+   },
+   "darkbrown": {
+      "description": "Dark Brown",
+      "message": "다크 브라운"
+   },
+   "default": {
+      "description": "Default",
+      "message": "기본"
+   },
+   "demo": {
+      "description": "Demo",
+      "message": "데모"
+   },
+   "disabled": {
+      "description": "disabled",
+      "message": "비활성"
+   },
+   "domain": {
+      "description": "Domain",
+      "message": "도메인"
+   },
+   "dpoptions": {
+      "description": "DP Options",
+      "message": "DP 옵션"
+   },
+   "empty": {
+      "description": "Empty",
+      "message": "비우기"
+   },
+   "enable": {
+      "description": "Enable",
+      "message": "사용"
+   },
+   "enabled": {
+      "description": "enabled",
+      "message": "활성화"
+   },
+   "favicons": {
+      "description": "Hide Page Favicons",
+      "message": "페이지 Favicons 숨기기"
+   },
+   "font": {
+      "description": "Font",
+      "message": "글꼴"
+   },
+   "customfont": {
+      "description": "Custom Font",
+      "message": "사용자 정의 글꼴"
+   },
+   "fontsize": {
+      "description": "Font Size",
+      "message": "글꼴 크기"
+   },
+   "globalmode": {
+      "description": "Global Mode",
+      "message": "글로벌 모드"
+   },
+   "globalmode2": {
+      "description": "tab-specific if unticked",
+      "message": "탭을 특정 unticked 경우"
+   },
+   "globalmode3": {
+      "description": "new tabs by default",
+      "message": "기본적으로 새 탭"
+   },
+   "gray": {
+      "description": "Gray",
+      "message": "회색"
+   },
+   "green": {
+      "description": "Green",
+      "message": "그린"
+   },
+   "help": {
+      "description": "If you can help translate or improve, please contact me",
+      "message": "당신이 번역 도움 향상시킬 수있다면, 나에게 연락 주시기 바랍니다"
+   },
+   "hidetitles": {
+      "description": "Hide Page Titles",
+      "message": "숨기기 페이지 제목"
+   },
+   "hovered": {
+      "description": "Hovered",
+      "message": "였다"
+   },
+   "invalidcolour": {
+      "description": "Your colors weren't saved as one or more were invalid. Please revert your colors or re-enter a correct color.",
+      "message": "하나 이상의 잘못된 것처럼 귀하의 색상이 저장되지 않은 귀하의 색상을 되돌하십시오 또는 정확한 색상을 다시 입력."
+   },
+   "invaliddomain": {
+      "description": "Error: invalid domain.",
+      "message": "오류 : 잘못된 도메인."
+   },
+   "invalidnumber": {
+      "description": "Your change wasn't saved as you didn't enter a valid number.",
+      "message": "당신은 유효한 숫자를 입력하지 않았 귀하의 변경 사항이 저장되지 않았습니다."
+   },
+   "level": {
+      "description": "Level",
+      "message": "수준"
+   },
+   "lightred": {
+      "description": "Light Red",
+      "message": "라이트 레드"
+   },
+   "nsfw": {
+      "description": "NSFW (show images/Flash, but change colors)",
+      "message": "NSFW (보기 이미지 / 플래시하지만, 변경 색상)"
+   },
+   "offwhite": {
+      "description": "Off-White",
+      "message": "오프 - 화이트"
+   },
+   "opacity": {
+      "description": "이미지 불투명도",
+      "message": "Image Opacity"
+   },
+   "opacity2": {
+      "description": "set how transparent images should be",
+      "message": "투명 이미지가 얼마나되어야 세트"
+   },
+   "opensafely": {
+      "description": "Safely open in new tab",
+      "message": "새 탭에서 안전 열기"
+   },
+   "paleblue": {
+      "description": "Pale Blue",
+      "message": "페일 블루"
+   },
+   "paranoid": {
+      "description": "Paranoid (hide everything)",
+      "message": "편집적 (모두 숨기기)"
+   },
+   "people": {
+      "description": "People who bought Andrew coffee",
+      "message": "앤드류 커피를 구입하는 사람"
+   },
+   "pink": {
+      "description": "Pink",
+      "message": "핑크"
+   },
+   "red": {
+      "description": "Red",
+      "message": "레드"
+   },
+   "removebold": {
+      "description": "Unbold Text",
+      "message": "Unbold 텍스트"
+   },
+   "removefromblacklist": {
+      "description": "Remove all entries from the blacklist?",
+      "message": "블랙리스트에서 모든 항목을 제거?"
+   },
+   "removefromwhitelist": {
+      "description": "Remove all entries from the whitelist?",
+      "message": "허용된 사이트 목록에서 모든 항목을 제거?"
+   },
+   "revertcolours": {
+      "description": "Revert Colors",
+      "message": "되돌리기 색상"
+   },
+   "save": {
+      "description": "Save",
+      "message": "저장"
+   },
+   "savecolours": {
+      "description": "Save Colors",
+      "message": "색상 저장"
+   },
+   "saved": {
+      "description": "Settings saved.",
+      "message": "설정 저장되었습니다."
+   },
+   "sfw0": {
+      "description": "SFW0 (cloak images/Flash)",
+      "message": "SFW0 (외투 이미지 / 플래시)"
+   },
+   "sfw1": {
+      "description": "SFW1 (cloak images/hide Flash)",
+      "message": "SFW1 (외투 이미지 / 숨기기 플래시)"
+   },
+   "sfw2": {
+      "description": "SFW2 (cloak images only)",
+      "message": "SFW2 (단 외투 이미지)"
+   },
+   "showcontext": {
+      "description": "Show Context Menu",
+      "message": "표시 컨텍스트 메뉴"
+   },
+   "showcontext2": {
+      "description": "show right-click item for links/images",
+      "message": "링크 / 이미지를 마우스 오른쪽 단추로 누른 다음 항목을 표시"
+   },
+   "showicon": {
+      "description": "Show DP Icon",
+      "message": "표시 DP 아이콘"
+   },
+   "showicon2": {
+      "description": "show icon in address bar",
+      "message": "주소 표시줄에 표시 아이콘"
+   },
+   "showicon_type": {
+      "description": "Icon",
+      "message": "상"
+   },
+   "showicon_type2": {
+      "description": "icon to show in address bar",
+      "message": "아이콘은 주소 표시 줄에 표시합니다"
+   },
+   "showicon_title": {
+      "description": "Icon Title",
+      "message": "아이콘 제목"
+   },
+   "showimages": {
+      "description": "Show Images Within",
+      "message": "내에 이미지를 표시"
+   },
+   "showimages2": {
+      "description": "always show images that are within this size (disable: set to 0 x 0)",
+      "message": "항상 (해제 : 0 X 0으로 설정)이 크기 내에있는 이미지를 보여"
+   },
+   "showunderline": {
+      "description": "Underline Links",
+      "message": "링크 밑줄"
+   },
+   "showupdate": {
+      "description": "Show Update Popup",
+      "message": "팝업 업데이트 표시"
+   },
+   "showupdate2": {
+      "description": "show popup page when DP is updated",
+      "message": "DP가 업데이 트되었을 때 팝업 페이지를 표시"
+   },
+   "stickiness": {
+      "description": "Enable Stickiness",
+      "message": "끈적 거림을 사용"
+   },
+   "stickiness2": {
+      "description": "new tabs from cloaked pages are cloaked",
+      "message": "은폐 페이지에서 새 탭이 은폐"
+   },
+   "support": {
+      "description": "Support Andrew!",
+      "message": "지원 앤드류!"
+   },
+   "test1": {
+      "description": "A test link",
+      "message": "링크 테스트"
+   },
+   "test2": {
+      "description": "Link",
+      "message": "링크"
+   },
+   "toggle": {
+      "description": "Enable Key Toggling",
+      "message": "키 토글 사용"
+   },
+   "toggle2": {
+      "description": "press the set hotkey to toggle",
+      "message": "전환 설정 단축키를 누르십시오"
+   },
+   "hotkey": {
+      "description": "Hotkey Combination",
+      "message": "단축키 조합"
+   },
+   "hotkey_record": {
+      "description": "Record",
+      "message": "기록"
+   },
+   "hotkey_set": {
+      "description": "Set",
+      "message": "세트"
+   },
+   "translators": {
+      "description": "People who helped translate",
+      "message": "번역 도와 사람"
+   },
+   "uncloak": {
+      "description": "Uncloak",
+      "message": "가면을 벗기다"
+   },
+   "unhovered": {
+      "description": "Unhovered",
+      "message": "Unhovered"
+   },
+   "white": {
+      "description": "White",
+      "message": "화이트"
+   },
+   "whitelist": {
+      "description": "Whitelist",
+      "message": "화이트리스트"
+   },
+   "whitelisted": {
+      "description": "Whitelisted",
+      "message": "화이트리스트"
+   }
+}

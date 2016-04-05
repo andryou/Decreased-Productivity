@@ -1,0 +1,354 @@
+{
+   "black": {
+      "description": "Black",
+      "message": "Black"
+   },
+   "blacklist": {
+      "description": "Blacklist",
+      "message": "Blacklist"
+   },
+   "blacklisted": {
+      "description": "Blacklisted",
+      "message": "Blacklisted"
+   },
+   "blue": {
+      "description": "Blue",
+      "message": "Blue"
+   },
+   "clear": {
+      "description": "clear",
+      "message": "clear"
+   },
+   "cloak": {
+      "description": "Cloak",
+      "message": "Cloak"
+   },
+   "close": {
+      "description": "close",
+      "message": "Close"
+   },
+   "color": {
+      "description": "Color",
+      "message": "Colour"
+   },
+   "colorbackground": {
+      "description": "Background",
+      "message": "Background"
+   },
+   "colorlink": {
+      "description": "Link",
+      "message": "Link"
+   },
+   "colorpresets": {
+      "description": "Presets",
+      "message": "Presets"
+   },
+   "colorpresetselect": {
+      "description": "Select a Preset",
+      "message": "Select a Preset"
+   },
+   "colortable": {
+      "description": "Table Borders",
+      "message": "Table Borders"
+   },
+   "colortext": {
+      "description": "Text",
+      "message": "Text"
+   },
+   "darkbrown": {
+      "description": "Dark Brown",
+      "message": "Dark Brown"
+   },
+   "default": {
+      "description": "Default",
+      "message": "Default"
+   },
+   "demo": {
+      "description": "Demo",
+      "message": "Demo"
+   },
+   "disabled": {
+      "description": "disabled",
+      "message": "disabled"
+   },
+   "domain": {
+      "description": "Domain",
+      "message": "Domain"
+   },
+   "dpoptions": {
+      "description": "DP Options",
+      "message": "DP Options"
+   },
+   "empty": {
+      "description": "Empty",
+      "message": "Empty"
+   },
+   "enable": {
+      "description": "Enable",
+      "message": "Enable"
+   },
+   "enabled": {
+      "description": "enabled",
+      "message": "enabled"
+   },
+   "favicons": {
+      "description": "Hide Page Favicons",
+      "message": "Hide Page Favicons"
+   },
+   "font": {
+      "description": "Font",
+      "message": "Font"
+   },
+   "customfont": {
+      "description": "Custom Font",
+      "message": "Custom Font"
+   },
+   "fontsize": {
+      "description": "Font Size",
+      "message": "Font Size"
+   },
+   "globalmode": {
+      "description": "Global Mode",
+      "message": "Global Mode"
+   },
+   "globalmode2": {
+      "description": "tab-specific if unticked",
+      "message": "tab-specific if unticked"
+   },
+   "globalmode3": {
+      "description": "new tabs by default",
+      "message": "new tabs by default"
+   },
+   "gray": {
+      "description": "Gray",
+      "message": "Gray"
+   },
+   "green": {
+      "description": "Green",
+      "message": "Green"
+   },
+   "help": {
+      "description": "If you can help translate or improve, please contact me",
+      "message": "If you can help translate or improve, please contact me"
+   },
+   "hidetitles": {
+      "description": "Hide Page Titles",
+      "message": "Hide Page Titles"
+   },
+   "hovered": {
+      "description": "Hovered",
+      "message": "Hovered"
+   },
+   "invalidcolour": {
+      "description": "Your colors weren't saved as one or more were invalid. Please revert your colors or re-enter a correct color.",
+      "message": "Your colours weren't saved as one or more were invalid. Please revert your colours or re-enter a correct colour."
+   },
+   "invaliddomain": {
+      "description": "Error: invalid domain.",
+      "message": "Error: invalid domain."
+   },
+   "invalidnumber": {
+      "description": "Your change wasn't saved as you didn't enter a valid number.",
+      "message": "Your change wasn't saved as you didn't enter a valid number."
+   },
+   "level": {
+      "description": "Level",
+      "message": "Level"
+   },
+   "lightred": {
+      "description": "Light Red",
+      "message": "Light Red"
+   },
+   "nsfw": {
+      "description": "NSFW (show images/Flash, but change colors)",
+      "message": "NSFW (show images/Flash, but change colours)"
+   },
+   "offwhite": {
+      "description": "Off-White",
+      "message": "Off-White"
+   },
+   "opacity": {
+      "description": "Image Opacity",
+      "message": "Image Opacity"
+   },
+   "opacity2": {
+      "description": "set how transparent images should be",
+      "message": "set how transparent images should be"
+   },
+   "opensafely": {
+      "description": "Safely open in new tab",
+      "message": "Safely open in new tab"
+   },
+   "paleblue": {
+      "description": "Pale Blue",
+      "message": "Pale Blue"
+   },
+   "paranoid": {
+      "description": "Paranoid (hide everything)",
+      "message": "Paranoid (hide everything)"
+   },
+   "people": {
+      "description": "People who bought Andrew coffee",
+      "message": "People who bought Andrew coffee"
+   },
+   "pink": {
+      "description": "Pink",
+      "message": "Pink"
+   },
+   "red": {
+      "description": "Red",
+      "message": "Red"
+   },
+   "removebold": {
+      "description": "Unbold Text",
+      "message": "Unbold Text"
+   },
+   "removefromblacklist": {
+      "description": "Remove all entries from the blacklist?",
+      "message": "Remove all entries from the blacklist?"
+   },
+   "removefromwhitelist": {
+      "description": "Remove all entries from the whitelist?",
+      "message": "Remove all entries from the whitelist?"
+   },
+   "revertcolours": {
+      "description": "Revert Colors",
+      "message": "Revert Colours"
+   },
+   "save": {
+      "description": "Save",
+      "message": "Save"
+   },
+   "savecolours": {
+      "description": "Save Colors",
+      "message": "Save Colours"
+   },
+   "saved": {
+      "description": "Settings saved.",
+      "message": "Settings saved."
+   },
+   "sfw0": {
+      "description": "SFW0 (cloak images/Flash)",
+      "message": "SFW0 (cloak images/Flash)"
+   },
+   "sfw1": {
+      "description": "SFW1 (cloak images/hide Flash)",
+      "message": "SFW1 (cloak images/hide Flash)"
+   },
+   "sfw2": {
+      "description": "SFW2 (cloak images only)",
+      "message": "SFW2 (cloak images only)"
+   },
+   "showcontext": {
+      "description": "Show Context Menu",
+      "message": "Show Context Menu"
+   },
+   "showcontext2": {
+      "description": "show right-click item for links/images",
+      "message": "show right-click item for links/images"
+   },
+   "showicon": {
+      "description": "Show DP Icon",
+      "message": "Show DP Icon"
+   },
+   "showicon2": {
+      "description": "show icon in address bar",
+      "message": "show icon in address bar"
+   },
+   "showicon_type": {
+      "description": "Icon",
+      "message": "Icon"
+   },
+   "showicon_type2": {
+      "description": "icon to show in address bar",
+      "message": "icon to show in address bar"
+   },
+   "showicon_title": {
+      "description": "Icon Title",
+      "message": "Icon Title"
+   },
+   "showimages": {
+      "description": "Show Images Within",
+      "message": "Show Images Within"
+   },
+   "showimages2": {
+      "description": "always show images that are within this size (disable: set to 0 x 0)",
+      "message": "always show images that are within this size (disable: set to 0 x 0)"
+   },
+   "showunderline": {
+      "description": "Underline Links",
+      "message": "Underline Links"
+   },
+   "showupdate": {
+      "description": "Show Update Popup",
+      "message": "Show Update Popup"
+   },
+   "showupdate2": {
+      "description": "show popup page when DP is updated",
+      "message": "show popup page when DP is updated"
+   },
+   "stickiness": {
+      "description": "Enable Stickiness",
+      "message": "Enable Stickiness"
+   },
+   "stickiness2": {
+      "description": "new tabs from cloaked pages are cloaked",
+      "message": "new tabs from cloaked pages are cloaked"
+   },
+   "support": {
+      "description": "Support Andrew!",
+      "message": "Support Andrew!"
+   },
+   "test1": {
+      "description": "A test link",
+      "message": "A test link"
+   },
+   "test2": {
+      "description": "Link",
+      "message": "Link"
+   },
+   "toggle": {
+      "description": "Enable Key Toggling",
+      "message": "Enable Key Toggling"
+   },
+   "toggle2": {
+      "description": "press the set hotkey to toggle",
+      "message": "press the set hotkey to toggle"
+   },
+   "hotkey": {
+      "description": "Hotkey Combination",
+      "message": "Hotkey Combination"
+   },
+   "hotkey_record": {
+      "description": "Record",
+      "message": "Record"
+   },
+   "hotkey_set": {
+      "description": "Set",
+      "message": "Set"
+   },
+   "translators": {
+      "description": "People who helped translate",
+      "message": "People who helped translate"
+   },
+   "uncloak": {
+      "description": "Uncloak",
+      "message": "Uncloak"
+   },
+   "unhovered": {
+      "description": "Unhovered",
+      "message": "Unhovered"
+   },
+   "white": {
+      "description": "White",
+      "message": "White"
+   },
+   "whitelist": {
+      "description": "Whitelist",
+      "message": "Whitelist"
+   },
+   "whitelisted": {
+      "description": "Whitelisted",
+      "message": "Whitelisted"
+   }
+}
