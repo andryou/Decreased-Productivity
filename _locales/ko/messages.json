@@ -7,6 +7,10 @@
       "description": "Blacklist",
       "message": "블랙리스트"
    },
+   "blacklistdomain": {
+      "description": "Blacklist this Domain",
+      "message": "블랙리스트이 도메인"
+   },
    "blacklisted": {
       "description": "Blacklisted",
       "message": "블랙리스트"
@@ -26,6 +30,10 @@
    "close": {
       "description": "close",
       "message": "닫기"
+   },
+   "collapseimage": {
+      "description": "Remove whitespace taken up by hidden element(s)",
+      "message": "숨겨진 요소가 차지하는 공백을 제거"
    },
    "color": {
       "description": "Color",
@@ -203,6 +211,10 @@
       "description": "Unbold Text",
       "message": "Unbold 텍스트"
    },
+   "removelist": {
+      "description": "Remove from lists",
+      "message": "목록에서 제거"
+   },
    "removefromblacklist": {
       "description": "Remove all entries from the blacklist?",
       "message": "블랙리스트에서 모든 항목을 제거?"
@@ -346,6 +358,10 @@
    "whitelist": {
       "description": "Whitelist",
       "message": "화이트리스트"
+   },
+   "whitelistdomain": {
+      "description": "Whitelist this Domain",
+      "message": "이 도메인을 허용 목록"
    },
    "whitelisted": {
       "description": "Whitelisted",

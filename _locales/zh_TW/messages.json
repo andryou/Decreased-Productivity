@@ -7,6 +7,10 @@
       "description": "Blacklist",
       "message": "黑名單"
    },
+   "blacklistdomain": {
+      "description": "Blacklist this Domain",
+      "message": "這個黑名單域名"
+   },
    "blacklisted": {
       "description": "Blacklisted",
       "message": "黑名單"
@@ -26,6 +30,10 @@
    "close": {
       "description": "close",
       "message": "關閉"
+   },
+   "collapseimage": {
+      "description": "Remove whitespace taken up by hidden element(s)",
+      "message": "通過刪除隱藏要素佔用空格"
    },
    "color": {
       "description": "Color",
@@ -203,6 +211,10 @@
       "description": "Unbold Text",
       "message": "Unbold文本"
    },
+   "removelist": {
+      "description": "Remove from lists",
+      "message": "從列表中刪除"
+   },
    "removefromblacklist": {
       "description": "Remove all entries from the blacklist?",
       "message": "刪除所有條目從黑名單中？"
@@ -346,6 +358,10 @@
    "whitelist": {
       "description": "Whitelist",
       "message": "白名單"
+   },
+   "whitelistdomain": {
+      "description": "Whitelist this Domain",
+      "message": "這個白名單域名"
    },
    "whitelisted": {
       "description": "Whitelisted",

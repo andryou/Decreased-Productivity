@@ -7,6 +7,10 @@
       "description": "Blacklist",
       "message": "Lista Negra"
    },
+   "blacklistdomain": {
+      "description": "Blacklist this Domain",
+      "message": "Blacklist este domínio"
+   },
    "blacklisted": {
       "description": "Blacklisted",
       "message": "Lista negra"
@@ -26,6 +30,10 @@
    "close": {
       "description": "close",
       "message": "Fechar"
+   },
+   "collapseimage": {
+      "description": "Remove whitespace taken up by hidden element(s)",
+      "message": "Remover espaço em branco ocupado por elementos ocultos"
    },
    "color": {
       "description": "Color",
@@ -203,6 +211,10 @@
       "description": "Unbold Text",
       "message": "Texto Unbold"
    },
+   "removelist": {
+      "description": "Remove from lists",
+      "message": "Remover a partir de listas"
+   },
    "removefromblacklist": {
       "description": "Remove all entries from the blacklist?",
       "message": "Remover todas as entradas da lista negra?"
@@ -346,6 +358,10 @@
    "whitelist": {
       "description": "Whitelist",
       "message": "Lista Branca"
+   },
+   "whitelistdomain": {
+      "description": "Whitelist this Domain",
+      "message": "Whitelist este domínio"
    },
    "whitelisted": {
       "description": "Whitelisted",

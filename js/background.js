@@ -1,4 +1,3 @@
-
 // (c) Andrew
 // Icon by dunedhel: http://dunedhel.deviantart.com/
 // Supporting functions by AdThwart - T. Joseph
@@ -48,6 +47,34 @@ function extractDomainFromURL(url) {
 	if (colPos >= 0) x = x.substr(0, colPos);
 	return x;
 }
+function domainHandler(domain,action) {
+	console.log(domain);
+	// Initialize local storage
+	if (typeof(localStorage['whiteList'])=='undefined') localStorage['whiteList'] = JSON.stringify([]);
+	if (typeof(localStorage['blackList'])=='undefined') localStorage['blackList'] = JSON.stringify([]);
+	var whiteList = JSON.parse(localStorage['whiteList']);
+	var blackList = JSON.parse(localStorage['blackList']);
+	
+	// Remove domain from whitelist and blacklist
+	var pos = whiteList.indexOf(domain);
+	if (pos>-1) whiteList.splice(pos,1);
+	pos = blackList.indexOf(domain);
+	if (pos>-1) blackList.splice(blackList.indexOf(domain),1);
+	
+	switch(action) {
+		case 0:	// Whitelist
+			whiteList.push(domain);
+			break;
+		case 1:	// Blacklist
+			blackList.push(domain);
+			break;
+		case 2:	// Remove
+			break;
+	}
+	localStorage['whiteList'] = JSON.stringify(whiteList);
+	localStorage['blackList'] = JSON.stringify(blackList);
+	return false;
+}
 // ----- Options
 function optionExists(opt) {
 	return (typeof localStorage[opt] != "undefined");
@@ -59,12 +86,13 @@ function setDefaultOptions() {
 	defaultOptionValue("version", version);
 	defaultOptionValue("enable", "true");
 	defaultOptionValue("enableToggle", "true");
-	defaultOptionValue("hotkey", "CTRL+F12");
+	defaultOptionValue("hotkey", "CTRL F12");
 	defaultOptionValue("global", "false");
 	defaultOptionValue("newPages", "Uncloak");
 	defaultOptionValue("sfwmode", "SFW");
 	defaultOptionValue("opacity1", "0.05");
 	defaultOptionValue("opacity2", "0.5");
+	defaultOptionValue("collapseimage", "false");
 	defaultOptionValue("showIcon", "true");
 	defaultOptionValue("iconType", "coffee");
 	defaultOptionValue("iconTitle", "Decreased Productivity");
@@ -98,6 +126,10 @@ function setDefaultOptions() {
 	if (!optionExists("whiteList")) localStorage['whiteList'] = JSON.stringify([]);
 }
 // Context Menu
+chrome.contextMenus.create({"title": chrome.i18n.getMessage("whitelistdomain"), "contexts": ['browser_action','page_action'], "onclick": function(info, tab){ if (tab.url.substring(0, 4) != 'http') return; domainHandler(extractDomainFromURL(tab.url), 0); }});
+chrome.contextMenus.create({"title": chrome.i18n.getMessage("blacklistdomain"), "contexts": ['browser_action','page_action'], "onclick": function(info, tab){ if (tab.url.substring(0, 4) != 'http') return; domainHandler(extractDomainFromURL(tab.url), 1); }});
+chrome.contextMenus.create({"title": chrome.i18n.getMessage("removelist"), "contexts": ['browser_action','page_action'], "onclick": function(info, tab){ if (tab.url.substring(0, 4) != 'http') return; domainHandler(extractDomainFromURL(tab.url), 2); }});
+
 // Called by clicking on the context menu item
 function newCloak(info, tab) {
 	// Enable cloaking (in case its been disabled) and open the link in a new tab
@@ -255,13 +287,13 @@ var requestDispatchTable = {
 			if (localStorage["customfont"]) fontface = localStorage["customfont"];
 			else fontface = 'Arial';
 		} else fontface = localStorage["font"];
-		if (localStorage["global"] == "false") sendResponse({enable: 'true', sfwmode: localStorage["sfwmode"], font: fontface, fontsize: localStorage["fontsize"], underline: localStorage["showUnderline"], background: localStorage["s_bg"], text: localStorage["s_text"], table: localStorage["s_table"], link: localStorage["s_link"], bold: localStorage["removeBold"], opacity1: localStorage["opacity1"], opacity2: localStorage["opacity2"], maxheight: localStorage["maxheight"], maxwidth: localStorage["maxwidth"]});
+		if (localStorage["global"] == "false") sendResponse({enable: 'true', sfwmode: localStorage["sfwmode"], font: fontface, fontsize: localStorage["fontsize"], underline: localStorage["showUnderline"], background: localStorage["s_bg"], text: localStorage["s_text"], table: localStorage["s_table"], link: localStorage["s_link"], bold: localStorage["removeBold"], opacity1: localStorage["opacity1"], opacity2: localStorage["opacity2"], collapseimage: localStorage["collapseimage"], maxheight: localStorage["maxheight"], maxwidth: localStorage["maxwidth"]});
 		else {
 			var enable;
 			var dpdomaincheck = domainCheck(extractDomainFromURL(sender.tab.url));
 			if (enabled(sender.tab.url) == "true" && dpdomaincheck != 0 && (localStorage["global"] == "true" || (localStorage["global"] == "false" && (cloakedTabs.indexOf(sender.tab.id) != -1 || localStorage["newPages"] == "Cloak" || dpdomaincheck == 1)))) enable = 'true';
 			else enable = 'false';
-			sendResponse({enable: enable, sfwmode: localStorage["sfwmode"], font: fontface, fontsize: localStorage["fontsize"], underline: localStorage["showUnderline"], background: localStorage["s_bg"], text: localStorage["s_text"], table: localStorage["s_table"], link: localStorage["s_link"], bold: localStorage["removeBold"], opacity1: localStorage["opacity1"], opacity2: localStorage["opacity2"], maxheight: localStorage["maxheight"], maxwidth: localStorage["maxwidth"]});
+			sendResponse({enable: enable, sfwmode: localStorage["sfwmode"], font: fontface, fontsize: localStorage["fontsize"], underline: localStorage["showUnderline"], background: localStorage["s_bg"], text: localStorage["s_text"], table: localStorage["s_table"], link: localStorage["s_link"], bold: localStorage["removeBold"], opacity1: localStorage["opacity1"], opacity2: localStorage["opacity2"], collapseimage: localStorage["collapseimage"], maxheight: localStorage["maxheight"], maxwidth: localStorage["maxwidth"]});
 		}
 	}
 }

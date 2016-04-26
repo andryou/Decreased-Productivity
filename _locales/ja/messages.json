@@ -7,6 +7,10 @@
       "description": "Blacklist",
       "message": "ブラックリスト"
    },
+   "blacklistdomain": {
+      "description": "Blacklist this Domain",
+      "message": "ブラックリストこのドメイン"
+   },
    "blacklisted": {
       "description": "Blacklisted",
       "message": "ブラックリストに追加しました"
@@ -26,6 +30,10 @@
    "close": {
       "description": "close",
       "message": "閉じる"
+   },
+   "collapseimage": {
+      "description": "Remove whitespace taken up by hidden element(s)",
+      "message": "隠し要素によって取り込まれたホワイトスペースを削除します"
    },
    "color": {
       "description": "Color",
@@ -203,6 +211,10 @@
       "description": "Unbold Text",
       "message": "太字を解除"
    },
+   "removelist": {
+      "description": "Remove from lists",
+      "message": "リストから削除"
+   },
    "removefromblacklist": {
       "description": "Remove all entries from the blacklist?",
       "message": "ブラックリストから全てのエントリを削除しますか？"
@@ -346,6 +358,10 @@
    "whitelist": {
       "description": "Whitelist",
       "message": "ホワイトリスト"
+   },
+   "whitelistdomain": {
+      "description": "Whitelist this Domain",
+      "message": "このドメインをホワイトリストに登録"
    },
    "whitelisted": {
       "description": "Whitelisted",

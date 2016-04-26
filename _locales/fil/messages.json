@@ -7,6 +7,10 @@
       "description": "Blacklist",
       "message": "Blacklist"
    },
+   "blacklistdomain": {
+      "description": "Blacklist this Domain",
+      "message": "Blacklist ito Domain"
+   },
    "blacklisted": {
       "description": "Blacklisted",
       "message": "naka-blacklist"
@@ -26,6 +30,10 @@
    "close": {
       "description": "close",
       "message": "Isara"
+   },
+   "collapseimage": {
+      "description": "Remove whitespace taken up by hidden element(s)",
+      "message": "Tanggalin white space kinuha up sa pamamagitan ng nakatagong mga elemento"
    },
    "color": {
       "description": "Color",
@@ -203,6 +211,10 @@
       "description": "Unbold Text",
       "message": "Unbold Text"
    },
+   "removelist": {
+      "description": "Remove from lists",
+      "message": "Alisin mula sa mga listahan"
+   },
    "removefromblacklist": {
       "description": "Remove all entries from the blacklist?",
       "message": "Alisin ang lahat ng mga entry mula sa talaang-itim?"
@@ -346,6 +358,10 @@
    "whitelist": {
       "description": "Whitelist",
       "message": "Whitelist"
+   },
+   "whitelistdomain": {
+      "description": "Whitelist this Domain",
+      "message": "Whitelist ito Domain"
    },
    "whitelisted": {
       "description": "Whitelisted",

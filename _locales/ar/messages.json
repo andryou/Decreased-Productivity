@@ -7,6 +7,10 @@
       "description": "Blacklist",
       "message": "القائمة السوداء"
    },
+   "blacklistdomain": {
+      "description": "Blacklist this Domain",
+      "message": "القائمة السوداء هذا المجال"
+   },
    "blacklisted": {
       "description": "Blacklisted",
       "message": "القائمة السوداء"
@@ -26,6 +30,10 @@
    "close": {
       "description": "close",
       "message": "إغلاق"
+   },
+   "collapseimage": {
+      "description": "Remove whitespace taken up by hidden element(s)",
+      "message": "إزالة المساحة البيضاء تناولها من قبل عناصر خفية"
    },
    "color": {
       "description": "Color",
@@ -203,6 +211,10 @@
       "description": "Unbold Text",
       "message": "نص Unbold"
    },
+   "removelist": {
+      "description": "Remove from lists",
+      "message": "إزالة من القوائم"
+   },
    "removefromblacklist": {
       "description": "Remove all entries from the blacklist?",
       "message": "إزالة كافة الإدخالات من القائمة السوداء؟"
@@ -346,6 +358,10 @@
    "whitelist": {
       "description": "Whitelist",
       "message": "القائمة البيضاء"
+   },
+   "whitelistdomain": {
+      "description": "Whitelist this Domain",
+      "message": "القائمة البيضاء هذا المجال"
    },
    "whitelisted": {
       "description": "Whitelisted",

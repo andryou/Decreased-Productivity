@@ -7,6 +7,10 @@
       "description": "Blacklist",
       "message": "Danh sách đen"
    },
+   "blacklistdomain": {
+      "description": "Blacklist this Domain",
+      "message": "Blacklist miền này"
+   },
    "blacklisted": {
       "description": "Blacklisted",
       "message": "Danh sách đen"
@@ -26,6 +30,10 @@
    "close": {
       "description": "close",
       "message": "Đóng"
+   },
+   "collapseimage": {
+      "description": "Remove whitespace taken up by hidden element(s)",
+      "message": "Di chuyển không gian màu trắng đưa lên bởi các yếu tố ẩn"
    },
    "color": {
       "description": "Color",
@@ -203,6 +211,10 @@
       "description": "Unbold Text",
       "message": "Unbold Tiêu đề"
    },
+   "removelist": {
+      "description": "Remove from lists",
+      "message": "Loại bỏ khỏi danh sách"
+   },
    "removefromblacklist": {
       "description": "Remove all entries from the blacklist?",
       "message": "Hủy bỏ tất cả các mục từ danh sách đen?"
@@ -346,6 +358,10 @@
    "whitelist": {
       "description": "Whitelist",
       "message": "Danh sách trắng"
+   },
+   "whitelistdomain": {
+      "description": "Whitelist this Domain",
+      "message": "Danh sách trắng miền này"
    },
    "whitelisted": {
       "description": "Whitelisted",

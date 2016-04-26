@@ -9,69 +9,13 @@ var version = (function () {
 }());
 var bkg = chrome.extension.getBackgroundPage();
 var error = false;
-var elements = [
-	"esc","tab","space","return","backspace","scroll","capslock","numlock","insert","home","del","end","pageup","pagedown",
-	"left","up","right","down",
-	"f1","f2","f3","f4","f5","f6","f7","f8","f9","f10","f11","f12",
-	"1","2","3","4","5","6","7","8","9","0",
-	"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-	"Ctrl+a","Ctrl+b","Ctrl+c","Ctrl+d","Ctrl+e","Ctrl+f","Ctrl+g","Ctrl+h","Ctrl+i","Ctrl+j","Ctrl+k","Ctrl+l","Ctrl+m",
-	"Ctrl+n","Ctrl+o","Ctrl+p","Ctrl+q","Ctrl+r","Ctrl+s","Ctrl+t","Ctrl+u","Ctrl+v","Ctrl+w","Ctrl+x","Ctrl+y","Ctrl+z",
-	"Shift+a","Shift+b","Shift+c","Shift+d","Shift+e","Shift+f","Shift+g","Shift+h","Shift+i","Shift+j","Shift+k","Shift+l",
-	"Shift+m","Shift+n","Shift+o","Shift+p","Shift+q","Shift+r","Shift+s","Shift+t","Shift+u","Shift+v","Shift+w","Shift+x",
-	"Shift+y","Shift+z",
-	"Alt+a","Alt+b","Alt+c","Alt+d","Alt+e","Alt+f","Alt+g","Alt+h","Alt+i","Alt+j","Alt+k","Alt+l",
-	"Alt+m","Alt+n","Alt+o","Alt+p","Alt+q","Alt+r","Alt+s","Alt+t","Alt+u","Alt+v","Alt+w","Alt+x","Alt+y","Alt+z",
-	"Alt+Ctrl+a","Alt+Ctrl+b","Alt+Ctrl+c","Alt+Ctrl+d","Alt+Ctrl+e","Alt+Ctrl+f","Alt+Ctrl+g","Alt+Ctrl+h","Alt+Ctrl+i","Alt+Ctrl+j","Alt+Ctrl+k","Alt+Ctrl+l",
-	"Alt+Ctrl+m","Alt+Ctrl+n","Alt+Ctrl+o","Alt+Ctrl+p","Alt+Ctrl+q","Alt+Ctrl+r","Alt+Ctrl+s","Alt+Ctrl+t","Alt+Ctrl+u","Alt+Ctrl+v","Alt+Ctrl+w","Alt+Ctrl+x","Alt+Ctrl+y","Alt+Ctrl+z",
-	"Alt+Shift+a","Alt+Shift+b","Alt+Shift+c","Alt+Shift+d","Alt+Shift+e","Alt+Shift+f","Alt+Shift+g","Alt+Shift+h","Alt+Shift+i","Alt+Shift+j","Alt+Shift+k","Alt+Shift+l",
-	"Alt+Shift+m","Alt+Shift+n","Alt+Shift+o","Alt+Shift+p","Alt+Shift+q","Alt+Shift+r","Alt+Shift+s","Alt+Shift+t","Alt+Shift+u","Alt+Shift+v","Alt+Shift+w","Alt+Shift+x","Alt+Shift+y","Alt+Shift+z",
-	"Ctrl+Shift+a","Ctrl+Shift+b","Ctrl+Shift+c","Ctrl+Shift+d","Ctrl+Shift+e","Ctrl+Shift+f","Ctrl+Shift+g","Ctrl+Shift+h","Ctrl+Shift+i","Ctrl+Shift+j","Ctrl+Shift+k","Ctrl+Shift+l",
-	"Ctrl+Shift+m","Ctrl+Shift+n","Ctrl+Shift+o","Ctrl+Shift+p","Ctrl+Shift+q","Ctrl+Shift+r","Ctrl+Shift+s","Ctrl+Shift+t","Ctrl+Shift+u","Ctrl+Shift+v","Ctrl+Shift+w","Ctrl+Shift+x","Ctrl+Shift+y","Ctrl+Shift+z",
-	"Alt+Ctrl+Shift+a","Alt+Ctrl+Shift+b","Alt+Ctrl+Shift+c","Alt+Ctrl+Shift+d","Alt+Ctrl+Shift+e","Alt+Ctrl+Shift+f","Alt+Ctrl+Shift+g","Alt+Ctrl+Shift+h","Alt+Ctrl+Shift+i","Alt+Ctrl+Shift+j","Alt+Ctrl+Shift+k","Alt+Ctrl+Shift+l",
-	"Alt+Ctrl+Shift+m","Alt+Ctrl+Shift+n","Alt+Ctrl+Shift+o","Alt+Ctrl+Shift+p","Alt+Ctrl+Shift+q","Alt+Ctrl+Shift+r","Alt+Ctrl+Shift+s","Alt+Ctrl+Shift+t","Alt+Ctrl+Shift+u","Alt+Ctrl+Shift+v","Alt+Ctrl+Shift+w","Alt+Ctrl+Shift+x","Alt+Ctrl+Shift+y","Alt+Ctrl+Shift+z",
-	"Ctrl+esc","Ctrl+tab","Ctrl+space","Ctrl+return","Ctrl+backspace","Ctrl+scroll","Ctrl+capslock","Ctrl+numlock",
-	"Ctrl+insert","Ctrl+home","Ctrl+del","Ctrl+end","Ctrl+pageup","Ctrl+pagedown","Ctrl+left","Ctrl+up","Ctrl+right",
-	"Ctrl+down",
-	"Ctrl+f1","Ctrl+f2","Ctrl+f3","Ctrl+f4","Ctrl+f5","Ctrl+f6","Ctrl+f7","Ctrl+f8","Ctrl+f9","Ctrl+f10","Ctrl+f11","Ctrl+f12",
-	"Ctrl+1","Ctrl+2","Ctrl+3","Ctrl+4","Ctrl+5","Ctrl+6","Ctrl+7","Ctrl+8","Ctrl+9","Ctrl+0",
-	"Shift+esc","Shift+tab","Shift+space","Shift+return","Shift+backspace","Shift+scroll","Shift+capslock","Shift+numlock",
-	"Shift+insert","Shift+home","Shift+del","Shift+end","Shift+pageup","Shift+pagedown","Shift+left","Shift+up",
-	"Shift+right","Shift+down",
-	"Shift+f1","Shift+f2","Shift+f3","Shift+f4","Shift+f5","Shift+f6","Shift+f7","Shift+f8","Shift+f9","Shift+f10","Shift+f11","Shift+f12",
-	"Shift+1","Shift+2","Shift+3","Shift+4","Shift+5","Shift+6","Shift+7","Shift+8","Shift+9","Shift+0",
-	"Alt+esc","Alt+tab","Alt+space","Alt+return","Alt+backspace","Alt+scroll","Alt+capslock","Alt+numlock",
-	"Alt+insert","Alt+home","Alt+del","Alt+end","Alt+pageup","Alt+pagedown","Alt+left","Alt+up","Alt+right","Alt+down",
-	"Alt+f1","Alt+f2","Alt+f3","Alt+f4","Alt+f5","Alt+f6","Alt+f7","Alt+f8","Alt+f9","Alt+f10","Alt+f11","Alt+f12",
-	"Alt+1","Alt+2","Alt+3","Alt+4","Alt+5","Alt+6","Alt+7","Alt+8","Alt+9","Alt+0",
-	"Alt+Ctrl+esc","Alt+Ctrl+tab","Alt+Ctrl+space","Alt+Ctrl+return","Alt+Ctrl+backspace","Alt+Ctrl+scroll","Alt+Ctrl+capslock","Alt+Ctrl+numlock",
-	"Alt+Ctrl+insert","Alt+Ctrl+home","Alt+Ctrl+del","Alt+Ctrl+end","Alt+Ctrl+pageup","Alt+Ctrl+pagedown","Alt+Ctrl+left","Alt+Ctrl+up","Alt+Ctrl+right","Alt+Ctrl+down",
-	"Alt+Ctrl+f1","Alt+Ctrl+f2","Alt+Ctrl+f3","Alt+Ctrl+f4","Alt+Ctrl+f5","Alt+Ctrl+f6","Alt+Ctrl+f7","Alt+Ctrl+f8","Alt+Ctrl+f9","Alt+Ctrl+f10","Alt+Ctrl+f11","Alt+Ctrl+f12",
-	"Alt+Ctrl+1","Alt+Ctrl+2","Alt+Ctrl+3","Alt+Ctrl+4","Alt+Ctrl+5","Alt+Ctrl+6","Alt+Ctrl+7","Alt+Ctrl+8","Alt+Ctrl+9","Alt+Ctrl+0",
-	"Alt+Shift+esc","Alt+Shift+tab","Alt+Shift+space","Alt+Shift+return","Alt+Shift+backspace","Alt+Shift+scroll","Alt+Shift+capslock","Alt+Shift+numlock",
-	"Alt+Shift+insert","Alt+Shift+home","Alt+Shift+del","Alt+Shift+end","Alt+Shift+pageup","Alt+Shift+pagedown","Alt+Shift+left","Alt+Shift+up","Alt+Shift+right","Alt+Shift+down",
-	"Alt+Shift+f1","Alt+Shift+f2","Alt+Shift+f3","Alt+Shift+f4","Alt+Shift+f5","Alt+Shift+f6","Alt+Shift+f7","Alt+Shift+f8","Alt+Shift+f9","Alt+Shift+f10","Alt+Shift+f11","Alt+Shift+f12",
-	"Alt+Shift+1","Alt+Shift+2","Alt+Shift+3","Alt+Shift+4","Alt+Shift+5","Alt+Shift+6","Alt+Shift+7","Alt+Shift+8","Alt+Shift+9","Alt+Shift+0",
-	"Ctrl+Shift+esc","Ctrl+Shift+tab","Ctrl+Shift+space","Ctrl+Shift+return","Ctrl+Shift+backspace","Ctrl+Shift+scroll","Ctrl+Shift+capslock","Ctrl+Shift+numlock",
-	"Ctrl+Shift+insert","Ctrl+Shift+home","Ctrl+Shift+del","Ctrl+Shift+end","Ctrl+Shift+pageup","Ctrl+Shift+pagedown","Ctrl+Shift+left","Ctrl+Shift+up","Ctrl+Shift+right","Ctrl+Shift+down",
-	"Ctrl+Shift+f1","Ctrl+Shift+f2","Ctrl+Shift+f3","Ctrl+Shift+f4","Ctrl+Shift+f5","Ctrl+Shift+f6","Ctrl+Shift+f7","Ctrl+Shift+f8","Ctrl+Shift+f9","Ctrl+Shift+f10","Ctrl+Shift+f11","Ctrl+Shift+f12",
-	"Ctrl+Shift+1","Ctrl+Shift+2","Ctrl+Shift+3","Ctrl+Shift+4","Ctrl+Shift+5","Ctrl+Shift+6","Ctrl+Shift+7","Ctrl+Shift+8","Ctrl+Shift+9","Ctrl+Shift+0",
-	"Alt+Ctrl+Shift+esc","Alt+Ctrl+Shift+tab","Alt+Ctrl+Shift+space","Alt+Ctrl+Shift+return","Alt+Ctrl+Shift+backspace","Alt+Ctrl+Shift+scroll","Alt+Ctrl+Shift+capslock","Alt+Ctrl+Shift+numlock",
-	"Alt+Ctrl+Shift+insert","Alt+Ctrl+Shift+home","Alt+Ctrl+Shift+del","Alt+Ctrl+Shift+end","Alt+Ctrl+Shift+pageup","Alt+Ctrl+Shift+pagedown","Alt+Ctrl+Shift+left","Alt+Ctrl+Shift+up","Alt+Ctrl+Shift+right","Alt+Ctrl+Shift+down",
-	"Alt+Ctrl+Shift+f1","Alt+Ctrl+Shift+f2","Alt+Ctrl+Shift+f3","Alt+Ctrl+Shift+f4","Alt+Ctrl+Shift+f5","Alt+Ctrl+Shift+f6","Alt+Ctrl+Shift+f7","Alt+Ctrl+Shift+f8","Alt+Ctrl+Shift+f9","Alt+Ctrl+Shift+f10","Alt+Ctrl+Shift+f11","Alt+Ctrl+Shift+f12",
-	"Alt+Ctrl+Shift+1","Alt+Ctrl+Shift+2","Alt+Ctrl+Shift+3","Alt+Ctrl+Shift+4","Alt+Ctrl+Shift+5","Alt+Ctrl+Shift+6","Alt+Ctrl+Shift+7","Alt+Ctrl+Shift+8","Alt+Ctrl+Shift+9","Alt+Ctrl+Shift+0",
-	"`","-","=","[","]","\\",";","'",",",".","/",
-	"Alt+`","Alt+-","Alt+=","Alt+[","Alt+]","Alt+\\","Alt+;","Alt+'","Alt+,","Alt+.","Alt+/",
-	"Ctrl+`","Ctrl+-","Ctrl+=","Ctrl+[","Ctrl+]","Ctrl+\\","Ctrl+;","Ctrl+'","Ctrl+,","Ctrl+.","Ctrl+/",
-	"Shift+`","Shift+-","Shift+=","Shift+[","Shift+]","Shift+\\","Shift+;","Shift+'","Shift+,","Shift+.","Shift+/",
-	"Alt+Ctrl+`","Alt+Ctrl+-","Alt+Ctrl+=","Alt+Ctrl+[","Alt+Ctrl+]","Alt+Ctrl+\\","Alt+Ctrl+;","Alt+Ctrl+'","Alt+Ctrl+,","Alt+Ctrl+.","Alt+Ctrl+/",
-	"Alt+Shift+`","Alt+Shift+-","Alt+Shift+=","Alt+Shift+[","Alt+Shift+]","Alt+Shift+\\","Alt+Shift+;","Alt+Shift+'","Alt+Shift+,","Alt+Shift+.","Alt+Shift+/",
-	"Ctrl+Shift+`","Ctrl+Shift+-","Ctrl+Shift+=","Ctrl+Shift+[","Ctrl+Shift+]","Ctrl+Shift+\\","Ctrl+Shift+;","Ctrl+Shift+'","Ctrl+Shift+,","Ctrl+Shift+.","Ctrl+Shift+/",
-	"Alt+Ctrl+Shift+`","Alt+Ctrl+Shift+-","Alt+Ctrl+Shift+=","Alt+Ctrl+Shift+[","Alt+Ctrl+Shift+]","Alt+Ctrl+Shift+\\","Alt+Ctrl+Shift+;","Alt+Ctrl+Shift+'","Alt+Ctrl+Shift+,","Alt+Ctrl+Shift+.","Alt+Ctrl+Shift+/"
-];
 document.addEventListener('DOMContentLoaded', function () {
 	$("#tabs").tabs();
-	$("#o1").slider({min: 0, max: 1, step: 0.05, slide: function(event, ui) { $("#opacity1").val(ui.value); opacitytest(); }, stop: function(event, ui) { saveOptions(); }});
+	$("#o1").slider({min: 0, max: 1, step: 0.05, slide: function(event, ui) { $("#opacity1").val(ui.value); opacitytest(); }, stop: function(event, ui) { 
+		if (ui.value == 0) $("#collapseimageblock").show();
+		else $("#collapseimageblock").hide();
+		saveOptions();
+	}});
 	$("#o2").slider({min: 0, max: 1, step: 0.05, slide: function(event, ui) { $("#opacity2").val(ui.value); opacitytest(); }, stop: function(event, ui) { saveOptions(); }});
 	loadOptions();
 	colorPickLoad("s_bg");
@@ -90,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			listclear(1);
 		}
 	});
-	$("#enable, #enableToggle, #enableStickiness, #disableFavicons, #hidePageTitles, #showUnderline, #removeBold, #showContext, #showIcon, #showUpdateNotifications").click(saveOptions);
+	$("#enable, #enableToggle, #enableStickiness, #disableFavicons, #hidePageTitles, #showUnderline, #collapseimage, #removeBold, #showContext, #showIcon, #showUpdateNotifications").click(saveOptions);
 	$("#iconTitle").blur(saveOptions);
 	$("#s_bg, #s_text, #s_link, #s_table").keyup(updateDemo);
 	$("#global").click(function() {
@@ -99,6 +43,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 	$("#opacity1").blur(function() {
 		intValidate(this, 0.05);
+		if (this.value == 0) $("#collapseimageblock").show();
+		else $("#collapseimageblock").hide();
 		opacitytest();
 	});
 	$("#opacity2").blur(function() {
@@ -114,19 +60,23 @@ document.addEventListener('DOMContentLoaded', function () {
 		//else $("#fontsize").parent().parent().show();
 		updateDemo();
 	});
-	// Hotkey Record
-	$.each(elements, function(i, e) {
-	   $("#hotkey").bind('keydown', elements[i], function assets() {
-			$("#hotkey").val(elements[i]).attr('disabled', 'true');
-			$("#hotkeyrecord").val(chrome.i18n.getMessage("hotkey_record"));
-			saveOptions();
-			return false;
-	   });
-	});
+	// Hotkey
+	var listener;
+	var keysettings = {
+		is_solitary    : true,
+		is_unordered    : true,
+		is_exclusive    : true,
+		prevent_repeat  : true, 
+		is_sequence  : false,
+		is_counting  : false
+	};
+	listener = new window.keypress.Listener($("#hotkey"), keysettings);
+	listener.register_many(combos);
 	$("#hotkeyrecord").click(function() {
 		$("#hotkeyrecord").val(chrome.i18n.getMessage("hotkey_set"));
 		$("#hotkey").removeAttr('disabled').select().focus();
 	});
+	//
 	$("#iconType").change(function() {
 		$("#sampleicon").attr('src', '../img/addressicon/'+$(this).val()+'.png');
 	});
@@ -137,6 +87,11 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 	$(".i18_close").click(closeOptions);
 });
+function keyhandle(keypressed) {
+	$("#hotkey").val(keypressed).attr('disabled', 'true');
+	$("#hotkeyrecord").val(chrome.i18n.getMessage("hotkey_record"));
+	saveOptions();
+}
 function loadCheckbox(id) {
 	document.getElementById(id).checked = typeof localStorage[id] == "undefined" ? false : localStorage[id] == "true";
 }
@@ -177,6 +132,7 @@ function i18load() {
 	$(".i18_toggle_hotkey").html(chrome.i18n.getMessage("hotkey"));
 	$(".i18_hotkey_record").val(chrome.i18n.getMessage("hotkey_record"));
 	$(".i18_opacity").html(chrome.i18n.getMessage("opacity"));
+	$(".i18_collapseimage").html(chrome.i18n.getMessage("collapseimage"));
 	$(".i18_opacity2").html(chrome.i18n.getMessage("opacity2"));
 	$(".i18_unhovered").html(chrome.i18n.getMessage("unhovered"));
 	$(".i18_hovered").html(chrome.i18n.getMessage("hovered"));
@@ -247,6 +203,7 @@ function loadOptions() {
 	loadElement("sfwmode");
 	loadElement("opacity1");
 	loadElement("opacity2");
+	loadCheckbox("collapseimage");
 	loadCheckbox("showIcon");
 	loadElement("iconType");
 	loadElement("iconTitle");
@@ -272,6 +229,7 @@ function loadOptions() {
 	if ($('#enableToggle').is(':checked')) $("#hotkeyrow").show();
 	$("#sampleicon").attr('src', '../img/addressicon/'+$('#iconType').val()+'.png');
 	if (!$('#hidePageTitles').is(':checked')) $("#pageTitle").css('display', 'none');
+	if ($('#opacity1').val() == 0) $("#collapseimageblock").css('display', 'block');
 	if ($('#sfwmode').val() == 'SFW' || $('#sfwmode').val() == 'SFW1' || $('#sfwmode').val() == 'SFW2') $("#opacityrow").show();
 	if ($('#font').val() == '-Custom-') {
 		if ($("#customfont").val()) $("#customfontrow").show();
@@ -311,6 +269,7 @@ function saveOptions() {
 	saveElement("hotkey");
 	saveElement("opacity1");
 	saveElement("opacity2");
+	saveCheckbox("collapseimage");
 	saveElement("newPages");
 	saveElement("sfwmode");
 	saveCheckbox("showIcon");
@@ -494,7 +453,7 @@ function addList(type) {
 	if (!(domainValidator.test(domain.toLowerCase()))) {
 		$('#listMsg').html(chrome.i18n.getMessage("invaliddomain")).stop().fadeIn("slow").delay(2000).fadeOut("slow");
 	} else {
-		domainHandler(domain, type);
+		bkg.domainHandler(domain, type);
 		$('#url').val('');
 		$('#listMsg').html([chrome.i18n.getMessage("whitelisted"),chrome.i18n.getMessage("blacklisted")][type]+' '+domain+'.').stop().fadeIn("slow").delay(2000).fadeOut("slow");
 		listUpdate();
@@ -502,36 +461,8 @@ function addList(type) {
 	}
 	return false;
 }
-
-function domainHandler(domain,action) {
-	// Initialize local storage
-	if (typeof(localStorage['whiteList'])=='undefined') localStorage['whiteList'] = JSON.stringify([]);
-	if (typeof(localStorage['blackList'])=='undefined') localStorage['blackList'] = JSON.stringify([]);
-	var whiteList = JSON.parse(localStorage['whiteList']);
-	var blackList = JSON.parse(localStorage['blackList']);
-	
-	// Remove domain from whitelist and blacklist
-	var pos = whiteList.indexOf(domain);
-	if (pos>-1) whiteList.splice(pos,1);
-	pos = blackList.indexOf(domain);
-	if (pos>-1) blackList.splice(blackList.indexOf(domain),1);
-	
-	switch(action) {
-		case 0:	// Whitelist
-			whiteList.push(domain);
-			break;
-		case 1:	// Blacklist
-			blackList.push(domain);
-			break;
-		case 2:	// Remove
-			break;
-	}
-	localStorage['whiteList'] = JSON.stringify(whiteList);
-	localStorage['blackList'] = JSON.stringify(blackList);
-	return false;
-}
 function domainRemover(domain) {
-	domainHandler(domain,2);
+	bkg.domainHandler(domain,2);
 	listUpdate();
 	return false;
 }
