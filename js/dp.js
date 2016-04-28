@@ -104,21 +104,21 @@ function addCloak(sfw, f, fsize, u, bg, text, table, link, bold, o1, o2, collaps
 	removeCss('initialstealth');
 }
 function dpPostLoad(dpheight, dpwidth, sfwmode, bold) {
-	if (bold == 'true') {
-		jQuery("a:not([__decreased__])").addClass('dp'+timestamp+'_link dp'+timestamp+'_unbold').attr('__decreased__', 'link');
-		jQuery("body *:not([__decreased__])").addClass('dp'+timestamp+'_text dp'+timestamp+'_unbold').attr('__decreased__', 'element');
-	} else {
-		jQuery("a:not([__decreased__])").addClass('dp'+timestamp+'_link').attr('__decreased__', 'link');
-		jQuery("body *:not([__decreased__])").addClass('dp'+timestamp+'_text').attr('__decreased__', 'element');
-	}
 	if (dpwidth > 0 && dpheight > 0) {
-		jQuery("img:not([__decreased__])").each(function() {
+		jQuery("img:not([__decreased__='image'])").each(function() {
 			jQuery(this).attr('__decreased__', 'image');
 			if (this.width <= dpwidth && this.height <= dpheight)
 				jQuery(this).addClass('dp'+timestamp+'_visible');
 			else
 				if (sfwmode == "Paranoid") jQuery(this).addClass('dp'+timestamp+'_hide');
 		});
+	}
+	if (bold == 'true') {
+		jQuery("a:not([__decreased__='link'])").addClass('dp'+timestamp+'_link dp'+timestamp+'_unbold').attr('__decreased__', 'link');
+		jQuery("body *:not([__decreased__])").addClass('dp'+timestamp+'_text dp'+timestamp+'_unbold').attr('__decreased__', 'element');
+	} else {
+		jQuery("a:not([__decreased__='link'])").addClass('dp'+timestamp+'_link').attr('__decreased__', 'link');
+		jQuery("body *:not([__decreased__])").addClass('dp'+timestamp+'_text').attr('__decreased__', 'element');
 	}
 }
 function removeCss(name) {
