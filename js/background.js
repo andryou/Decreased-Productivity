@@ -16,7 +16,7 @@ var dpicon, dptitle;
 // ----- Supporting Functions
 
 function enabled(url) {
-	if (localStorage["enable"] == "true" || domainCheck(extractDomainFromURL(url)) == 1) return 'true';
+	if (localStorage["enable"] == "true" || domainCheck(extractDomainFromURL(url)) == '1') return 'true';
 	return 'false';
 }
 function in_array(needle,haystack) {
@@ -32,10 +32,9 @@ function domainCheck(domain) {
 	if (domain.substr(0,4)=='www.') {
 		if (in_array(domain.substr(4), whiteList)) return '0';
 		if (in_array(domain.substr(4), blackList)) return '1';
-	} else {
-		if (in_array(domain, whiteList)) return '0';
-		if (in_array(domain, blackList)) return '1';
 	}
+	if (in_array(domain, whiteList)) return '0';
+	if (in_array(domain, blackList)) return '1';
 	return '-1';
 }
 function extractDomainFromURL(url) {
@@ -48,7 +47,6 @@ function extractDomainFromURL(url) {
 	return x;
 }
 function domainHandler(domain,action) {
-	console.log(domain);
 	// Initialize local storage
 	if (typeof(localStorage['whiteList'])=='undefined') localStorage['whiteList'] = JSON.stringify([]);
 	if (typeof(localStorage['blackList'])=='undefined') localStorage['blackList'] = JSON.stringify([]);
@@ -126,9 +124,23 @@ function setDefaultOptions() {
 	if (!optionExists("whiteList")) localStorage['whiteList'] = JSON.stringify([]);
 }
 // Context Menu
-chrome.contextMenus.create({"title": chrome.i18n.getMessage("whitelistdomain"), "contexts": ['browser_action','page_action'], "onclick": function(info, tab){ if (tab.url.substring(0, 4) != 'http') return; domainHandler(extractDomainFromURL(tab.url), 0); }});
-chrome.contextMenus.create({"title": chrome.i18n.getMessage("blacklistdomain"), "contexts": ['browser_action','page_action'], "onclick": function(info, tab){ if (tab.url.substring(0, 4) != 'http') return; domainHandler(extractDomainFromURL(tab.url), 1); }});
-chrome.contextMenus.create({"title": chrome.i18n.getMessage("removelist"), "contexts": ['browser_action','page_action'], "onclick": function(info, tab){ if (tab.url.substring(0, 4) != 'http') return; domainHandler(extractDomainFromURL(tab.url), 2); }});
+chrome.contextMenus.create({"title": chrome.i18n.getMessage("whitelistdomain"), "contexts": ['browser_action','page_action'], "onclick": function(info, tab){
+	if (tab.url.substring(0, 4) != 'http') return;
+	domainHandler(extractDomainFromURL(tab.url), 0);
+	magician('false', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id, 'true');
+}});
+chrome.contextMenus.create({"title": chrome.i18n.getMessage("blacklistdomain"), "contexts": ['browser_action','page_action'], "onclick": function(info, tab){
+	if (tab.url.substring(0, 4) != 'http') return;
+	domainHandler(extractDomainFromURL(tab.url), 1);
+	magician('true', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id, 'true');
+}});
+chrome.contextMenus.create({"title": chrome.i18n.getMessage("removelist"), "contexts": ['browser_action','page_action'], "onclick": function(info, tab){
+	if (tab.url.substring(0, 4) != 'http') return;
+	domainHandler(extractDomainFromURL(tab.url), 2);
+	if (localStorage['newPages'] == 'Cloak' || localStorage['global'] == 'true') flag = 'true';
+	else flag = 'false';
+	magician(flag, localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id, 'true');
+}});
 
 // Called by clicking on the context menu item
 function newCloak(info, tab) {
