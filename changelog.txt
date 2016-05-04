@@ -1,0 +1,226 @@
+v0.46.52 - Wednesday, May 4, 2016
+- added new Paranoid Hotkey toggle (default: ALT+P) which toggles between Paranoid mode (all images/media hidden) and the Cloaking Level you chose. Like the cloaking toggle, you have full control over what the hotkeys are.
+- toolbar icon action now respects DP enabled state
+- tweaked hotkey visual display and fixed potential issue
+
+v0.46.51 - Thursday, April 28, 2016
+- fixed issue where "Show Images Within" setting not taking effect (thanks Vineet)
+- fixed issue when using Global Mode and whitelisted sites with a www. prefix (thanks Robert)
+- when whitelisting/blacklisting a domain from the toolbar icon, the changes are now reflected immediately. If removing from lists, it will respect your specified settings and cloak the tab accordingly (e.g. if Global mode or cloak new tabs by default) (thanks Robert)
+
+v0.46.50 - Tuesday, April 26, 2016
+- cloaking hotkey toggle now plays more nicely with Mac devices (thank you Vineet for testing)
+- more thorough font/link cloaking (e.g. Amazon product pages) (thank you Vineet for reporting)
+- added new option: "Remove whitespace taken up by hidden element(s)" (e.g. if you use any mode other than "Paranoid" and set the unhovered opacity to 0, this gives you the ability to remove the whitespace) (thank you Vineet for suggesting)
+- added the ability to right-click the DP icon in the toolbar and quickly whitelist/blacklist the current tab, or remove it from either list (thank you Robert for suggesting)
+- improved Twitter compatibility (videos now visible)
+- tweaked Paranoid mode to remove whitespace taken up by hidden elements
+- DP is now on Github so you can view exactly what code changed from update to update: https://github.com/andryou/Decreased-Productivity
+--- Over this summer I hope to start looking into creating a version of DP for Firefox!
+
+v0.46.49 - Monday, March 21, 2016
+- improved the custom cloaking hotkey toggle option in the Options page
+- fixed white screen issue in WhatsApp Web and Chrome v49 (thanks Meik)
+
+v0.46.48 - Wednesday, March 16, 2016
+- added ability to set a custom address bar icon
+- added option to set a custom cloak toggle hotkey
+
+v0.46.47 - Tuesday, February 23, 2016
+- corrected cloaking images in the SFW1 cloak mode
+
+v0.46.46 - Friday, February 12, 2016
+- I'm proud to present a shiny, (kind of) new, and more organized Options page! Yay!
+-- Settings have been grouped under three tabs: 1) General; 2) Cloak; and 3) Lists
+-- The demo area has been improved to reflect your setting changes in real-time (found under the "Cloak" tab)
+- added the ability to set your own custom font (if left blank, it will default to Arial)
+- improved compatibility with Twitter ("view profile" page)
+- better handling of cloaking manually triggered iframes (e.g. the "View Activity" button in Twitter)
+- now handles images loaded after the initial page load (e.g. "Load More" type pages); relevant if you have set DP to show images that are within a certain resolution
+- added more names to my list of generous coffee-buyers :) (much appreciated, thank you all!)
+
+v0.46.45 - Tuesday, February 9, 2016
+- New default cloak level: SFW0 => cloak images AND videos, instead of hiding videos.
+--- This new default behaviour will give you a better browsing experience due to the increase of .webm and .gifv images on websites (most of which use the <video> element and were getting hidden).
+--- If you prefer the previous behaviour (cloak image and hide videos), you can choose SFW1 on the Options page.
+--- I've personally updated all 17 locales to reflect this new option.
+- SVG elements now cloaked as well (video player controls visibility (e.g. YouTube) should now be improved)
+- improved compatibility with Engadget (thanks Dan), Google+ (scrolling stuttering), YouTube (thanks Jason), Reddit (if using Reddit Enhancement Suite (Night Mode))
+
+v0.46.44 - Friday, February 5, 2016
+- polished cloaking so more sites should be readable</li>
+- improved compatibility with Facebook (main timeline post box and Instagram photos), Reddit (if using Reddit Enhancement Suite), the Gawker sites (e.g. Lifehacker, Gizmodo, etc)
+
+v0.46.43 - Friday, February 5, 2016
+- improve compatibility with Facebook (main timeline post box) and WhatsApp (chat messages - thanks for the bug report, Matthew)
+- added more names to my list of generous coffee-buyers :) *jittery hands*
+
+v0.46.41/v0.46.42 - Thursday, February 4, 2016
+- polished favicon and title hiding behaviour (favicon and page titles now properly hidden/restored)
+- cloaking now also applies to element shadows, filters (e.g. inverting colours), and :before/:after styling
+- better handling of cloaking iframes
+- fixed minor bug where it would insert the cloaking CSS multiple times into the same page (impacting uncloaking on image hover)
+- improved compatibility with Facebook (images now hover friendly), Twitter (quoted tweets), Instagram, and Reddit (if using the Reddit Enhancement Suite extension), yay!
+- updated jQuery, jQuery UI, jQuery Hotkeys to latest versions
+- cleaned up the code => possible increased performance (due to less redundancy)
+- added Italian locale (thanks Lorenzo!)
+
+v0.46.40 - Monday, January 19, 2015
+- updated the domain validation so you are now able to whitelist/blacklist domains such as "localhost", "localhost:8888", "asite.com:1234"
+
+v0.46.38 and v0.46.39 - Friday, November 21, 2014
+- minor fix to respect the uncloaking of cloaked tabs that were opened from a cloaked page (if "Enable Stickiness" is enabled)
+- optimized the core code to have less calls/redundant lookups and probably improve speed/memory usage
+- minor update to the Options page to not save on every increase/decrease of the font size setting
+
+v0.46.37 - Thursday, November 20, 2014
+- added ability to control font sizes
+- corrected behaviour to cloak new tabs opened directly only from cloaked pages (if "Enable Stickiness" is enabled)
+- made Options page layout easier to read
+
+v0.46.36 - Tuesday, August 12, 2014
+- updated Russian translation
+v0.46.35 - Tuesday, May 20, 2014
+-fixed "hide page title" loop
+-fixed hotkey toggle behaviour (CTRL + F12)
+-updated to latest Chrome extension API version
+
+v0.46.34 - Sunday, August 21, 2011
+-Español and Japanese locales updated (thank you Luciano and Yamaji for translating!)
+-fixed minor locale issue in the Options page (thanks Yamaji)
+
+v0.46.33 - Wednesday, August 10, 2011
+-you can now set how transparent images are! (unhovered and hovered; live example provided in the Options page)
+-added keyboard shortcut (CTRL+F12) to toggle the cloaking of pages! (enabled by default; you can disable this in the Options page)
+-fixed possible memory leak (and intermittent browser crash (?)) (related to the page title cloaking function and an infinite loop)
+-minor updates to the Español locale (thanks Luciano)
+-updated coffee-buyer list :)
+
+v0.46.31-0.46.32 - Tuesday, August 9, 2011
+-made blacklist/whitelists easier to read
+-added option to unbold text
+-added Monospace and Serif font options
+-(and updated coffee-buyer list :))
+
+v0.46.29-v0.46.30 - Monday, August 1, 2011
+-optimized code (refactored to leverage jQuery for content scripting)
+-added functions to make cloaking more reliable and miss less elements (div, links, spans, and page titles (Facebook would update its title periodically and "undo" the title cloaking... not anymore!))
+-made "Enable Stickiness" disabled by default for fresh installs (Stickiness: new tabs from cloaked pages are cloaked)
+-updated coffee-buyer list :)
+
+v0.46.27-v0.46.28 - Thursday, July 28, 2011
+-added "catch-all" code to ensure all link colors are changed (if DP is enabled)
+-added "White - Green" color preset
+-updated the German locale (thanks Christoph!)
+-updated locale files to be easier to translate
+-added my contact information on the Options page so you can get in touch with me more easily!
+
+v0.46.21-v0.46.26 - Wednesday, July 27, 2011
+-added option to always show images that are within a specified dimension (width x height in pixels). By default, this is disabled (0 x 0px).
+-updated behaviour to be more logical; now DP won't be automatically enabled on all sites once a blacklisted site is visited while in global mode
+-updated options page to be more intuitive (glorious lines! (aka borders))
+-changed default font to Arial from Calibri (reasoning: Arial is older than Calibri and more likely to be on more systems). If Arial doesn't exist on the system, a sans-serif font will be used.
+
+v0.46.17-v0.46.20 - Monday, May 30, 2011
+-added option to cloak page titles (disabled by default; default page title is "Google Chrome", but you can change it)
+-added color-picker popups for the color options in the Options page (and changed alert notifications into fade-in messages instead)
+-added "Enable Stickiness" option, where you can control whether or not tabs opened from a cloaked page are cloaked as well! (enabled by default)
+-added "Show Update Popup" option, where you can control whether or not you see the page that popups in the background with a list of what's new each time you are updated to a newer version of DP! (enabled by default)
+
+v0.46.10-v0.46.16 - Friday, May 20, 2011
+-added domain whitelisting/blacklisting support
+-added option to hide page favicons
+-added SFW2 mode (cloak images only, leave Flash videos intact)
+-improved right-click context menu loading speed
+-set default text selection colours (white text on dark gray)
+-added compatibility for LastPass (autologin/autofill button display)
+-added update notification
+
+v0.46.6-0.46.9 - Wednesday, February 9, 2011
+-corrected partial inheritance behavior (issue below still exists) (v0.46.9)
+-added ability to customize all styling colours and added live demo area to Options page (v0.46.7)
+-updated to support dark backgrounds (remove flicker upon page load) (v0.46.7)
+-further improved initial cloaking speed
+-code clean-up and optimization
+-support for inheritance a little buggy (if new link opens in background, then it will work properly; if the new link opens in the foreground, it will not inherit)
+
+v0.46.3-v0.46.5 - Monday, February 7, 2011
+-corrected "Safely open in new tab" behavior (v0.46.5)
+-improved initial cloaking speed to prevent content from appearing on page load (v0.46.4)
+-added option to show/hide link underlines (enabled by default)
+-added option to set Level: NSFW (show all), SFW (cloak images and hide flash), Paranoid (hide everything) (SFW by default)
+
+v0.46.2 - Friday, February 4, 2011
+-Happy Belated New Year!
+-added new style: "Dark Brown - Off-White"
+-added support for inheritance (e.g. if parent tab is cloaked, then all spawned child tabs will also be cloaked)
+
+v0.46.1 - Tuesday, December 7, 2010
+-minor code changes that take into account whether or not the extension is enabled before initially hiding elements (should solve reference error)
+
+v0.46 - Monday, December 6, 2010
+-fixed reported bug (with Google Apps; thanks Max!)
+-made minor code changes that may speed up initial element hiding
+
+v0.45 - Sunday, December 5, 2010
+-fixed minor bugs (CSS; reported Battle.net bug)
+-now initially hides all elements until page is loaded, where it then cloaks the page (there's still a slight flicker, but it should be substantially improved now)
+--I tried to change the default white background to match the chosen style, but I couldn't (so for those of you using the Black background like myself, you'll have to bear with blinding white screens between page loads :()
+-added names of more generous donors to Options page :)
+
+v0.43-v0.44 - Saturday, October 23, 2010
+-v0.43: fixed bug where closing a new tab would uncloak a previously cloaked tab
+-v0.43: added option to leave font type and size unmodified ("-Unchanged-" for Font in Options page)
+-v0.44: made Options page more conspicuous (renamed title to "DP Options", made heading, options box and donation image translucent but opaque on hover)
+-----extension size is now 47kB instead of ~240kB (due to removal of 512x512 coffee cup image used in Options page)
+-----please try to use this extension responsibly
+
+v0.40-v0.42 - Tuesday, October 19, 2010
+-fixed minor bugs
+-made text fields and textareas have a dotted outline for increased clarity
+-added list of generous donators in Options page (last names abbreviated for privacy); if you donate, you will be added :)
+
+v0.39
+-added ability to set mode: Global or Page-Specific (we're limited to having only one icon in the address bar)
+-added option, if mode set to Page-Specific, to open new tabs as either Cloaked or Uncloaked.
+-added new style: "White - Gray" (white background with gray text/links)
+
+v0.38 - Monday, October 18, 2010
+-made it so at least Chrome 6 has to be installed since this extension requires permission to use the context menu (re: the permissions[2] error)
+--will still have to look into why it's not working on Linux
+-to update your Chrome, click on the Wrench => About
+
+v0.37
+-overall code clean-up and optimization for faster styling of pages
+
+v0.36 - Sunday, October 17, 2010
+-added option to "Show Context Menu"
+-changes made in the Options page now take effect immediately to all tabs
+-clicking on "Safely open in new tab" will enable DP and also enable SFW Mode (since it doesn't make sense if it doesn't enable SFW Mode!)
+
+v0.35
+-added "Safe-for-Work Mode" option; if enabled (which it is by default), it will cloak images and hide multimedia (e.g. Flash). If disabled, images and multimedia will appear normally at full opacity
+
+v0.34
+-made the default font an option in the Options page
+
+v0.33
+-set default font to Calibri and slightly increased font-size for readability
+
+v0.32
+-added new style: Light Red - Pale Blue (based on f.lux's site: http://www.stereopsis.com/flux/)
+
+v0.31
+-minor aesthetic change to Option page
+
+v0.3
+-added "Safely open in new tab" support for images
+-different styles added
+
+v0.2 - Saturday, October 16, 2010
+-added toggle icon
+-options to enable/disable cloaking and toggle icon
+-added right-click context menu item for links to "Safely open in new tab"
+
+v0.1 - Friday, July 23, 2010
+-first version
