@@ -290,6 +290,7 @@ function saveOptions() {
 	saveCheckbox("global");
 	saveCheckbox("enableToggle");
 	saveElement("hotkey");
+	saveElement("paranoidhotkey");
 	saveElement("opacity1");
 	saveElement("opacity2");
 	saveCheckbox("collapseimage");

@@ -1,5 +1,5 @@
 v0.46.52 - Wednesday, May 4, 2016
-- added new Paranoid Hotkey toggle (default: ALT+P) which toggles between Paranoid mode (all images/media hidden) and the Cloaking Level you chose. Like the cloaking toggle, you have full control over what the hotkeys are.
+- added new Paranoid Hotkey toggle (default: ALT+P) which toggles between Paranoid mode (all images/media hidden) and the Cloaking Level you chose. Like the cloaking toggle, you have full control over what the hotkeys are (the .1 in the version number v0.46.52.1 = a fix so that any change to the Paranoid Hotkey combo is actually saved)
 - toolbar icon action now respects DP enabled state
 - tweaked hotkey visual display and fixed potential issue
 
