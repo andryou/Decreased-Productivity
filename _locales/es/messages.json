@@ -339,6 +339,10 @@
       "description": "Set",
       "message": "Conjunto"
    },
+   "paranoidhotkey": {
+      "description": "Paranoid Hotkey",
+      "message": "Tecla de acceso directo paranoide"
+   },
    "translators": {
       "description": "People who helped translate",
       "message": "La gente que ayudó a traducir"

@@ -339,6 +339,10 @@
       "description": "Set",
       "message": "セット"
    },
+   "paranoidhotkey": {
+      "description": "Paranoid Hotkey",
+      "message": "パラノイドホットキー"
+   },
    "translators": {
       "description": "People who helped translate",
       "message": "翻訳を手伝ってくれた人"

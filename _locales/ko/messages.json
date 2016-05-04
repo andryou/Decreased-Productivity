@@ -339,6 +339,10 @@
       "description": "Set",
       "message": "세트"
    },
+   "paranoidhotkey": {
+      "description": "Paranoid Hotkey",
+      "message": "편집증 핫키"
+   },
    "translators": {
       "description": "People who helped translate",
       "message": "번역 도와 사람"

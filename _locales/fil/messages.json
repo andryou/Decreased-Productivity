@@ -339,6 +339,10 @@
       "description": "Set",
       "message": "Itakda"
    },
+   "paranoidhotkey": {
+      "description": "Paranoid Hotkey",
+      "message": "Paranoid Hotkey"
+   },
    "translators": {
       "description": "People who helped translate",
       "message": "Mga tao na nakatulong isalin"

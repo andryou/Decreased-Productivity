@@ -14,8 +14,6 @@ function addCloak(sfw, f, fsize, u, bg, text, table, link, bold, o1, o2, collaps
 		var boldcss = '';
 		var fontType = '';
 		
-		// If the font isn't Calibri, make it 10pt
-		//if (f != 'Calibri') fsize='10';
 		if (f != 'Serif' && f != 'Monospace' && f != '-Unchanged-') f = '"' + f + '", sans-serif';
 		if (f != '-Unchanged-') fontType = 'font-size: ' + fsize + 'px !important; font-family: ' + f + ' !important; h1, h2, h3, h4, h5, h6, h7, h8 { font-size: ' + fsize + 'px !important; font-weight: bold !important; } ';
 		
@@ -187,9 +185,16 @@ chrome.extension.sendRequest({reqtype: "get-enabled"}, function(response) {
 	if (response.enableToggle == 'true') {
 		jQuery(document).ready(function() {
 			var listener = new window.keypress.Listener();
-			listener.simple_combo(response.hotkey, function() {
-				chrome.extension.sendRequest({reqtype: "toggle"});
-			});
+			if (response.hotkey) {
+				listener.simple_combo(response.hotkey.toLowerCase(), function() {
+					chrome.extension.sendRequest({reqtype: "toggle"});
+				});
+			}
+			if (response.paranoidhotkey) {
+				listener.simple_combo(response.paranoidhotkey.toLowerCase(), function() {
+					chrome.extension.sendRequest({reqtype: "toggleparanoid"});
+				});
+			}
 		});
 	}
 	if (response.enable == "true") {

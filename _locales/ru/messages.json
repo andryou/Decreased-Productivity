@@ -339,6 +339,10 @@
       "description": "Set",
       "message": "Задавать"
    },
+   "paranoidhotkey": {
+      "description": "Paranoid Hotkey",
+      "message": "Paranoid Hotkey"
+   },
    "translators": {
       "description": "People who helped translate",
       "message": "Те, кто помог с локализацией"

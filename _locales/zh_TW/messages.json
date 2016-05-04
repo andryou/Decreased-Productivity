@@ -339,6 +339,10 @@
       "description": "Set",
       "message": "組"
    },
+   "paranoidhotkey": {
+      "description": "Paranoid Hotkey",
+      "message": "偏執熱鍵"
+   },
    "translators": {
       "description": "People who helped translate",
       "message": "人們誰幫翻譯"

@@ -339,6 +339,10 @@
       "description": "Set",
       "message": "مجموعة"
    },
+   "paranoidhotkey": {
+      "description": "Paranoid Hotkey",
+      "message": "هوتكي بجنون العظمة"
+   },
    "translators": {
       "description": "People who helped translate",
       "message": "إذا كنت تستطيع مساعدة في ترجمة أو تحسين، يرجى الاتصال بي"

@@ -85,9 +85,11 @@ function setDefaultOptions() {
 	defaultOptionValue("enable", "true");
 	defaultOptionValue("enableToggle", "true");
 	defaultOptionValue("hotkey", "CTRL F12");
+	defaultOptionValue("paranoidhotkey", "ALT P");
 	defaultOptionValue("global", "false");
 	defaultOptionValue("newPages", "Uncloak");
 	defaultOptionValue("sfwmode", "SFW");
+	defaultOptionValue("savedsfwmode", "");
 	defaultOptionValue("opacity1", "0.05");
 	defaultOptionValue("opacity2", "0.5");
 	defaultOptionValue("collapseimage", "false");
@@ -127,19 +129,21 @@ function setDefaultOptions() {
 chrome.contextMenus.create({"title": chrome.i18n.getMessage("whitelistdomain"), "contexts": ['browser_action','page_action'], "onclick": function(info, tab){
 	if (tab.url.substring(0, 4) != 'http') return;
 	domainHandler(extractDomainFromURL(tab.url), 0);
-	magician('false', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id, 'true');
+	if (localStorage["enable"] == "true") magician('false', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id, 'true');
 }});
 chrome.contextMenus.create({"title": chrome.i18n.getMessage("blacklistdomain"), "contexts": ['browser_action','page_action'], "onclick": function(info, tab){
 	if (tab.url.substring(0, 4) != 'http') return;
 	domainHandler(extractDomainFromURL(tab.url), 1);
-	magician('true', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id, 'true');
+	if (localStorage["enable"] == "true") magician('true', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id, 'true');
 }});
 chrome.contextMenus.create({"title": chrome.i18n.getMessage("removelist"), "contexts": ['browser_action','page_action'], "onclick": function(info, tab){
 	if (tab.url.substring(0, 4) != 'http') return;
 	domainHandler(extractDomainFromURL(tab.url), 2);
-	if (localStorage['newPages'] == 'Cloak' || localStorage['global'] == 'true') flag = 'true';
-	else flag = 'false';
-	magician(flag, localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id, 'true');
+	if (localStorage["enable"] == "true")  {
+		if (localStorage['newPages'] == 'Cloak' || localStorage['global'] == 'true') flag = 'true';
+		else flag = 'false';
+		magician(flag, localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id, 'true');
+	}
 }});
 
 // Called by clicking on the context menu item
@@ -194,6 +198,14 @@ function recursiveCloak(enable, global, showIcon, hideFavicon, hidePageTitle, ti
 function setDPIcon() {
 	dpicon = localStorage["iconType"];
 	dptitle = localStorage["iconTitle"];
+	chrome.windows.getAll({"populate":true}, function(windows) {
+		for (var i=0; i<windows.length; i++) {
+			for (var x=0; x<windows[i].tabs.length; x++) {
+				chrome.pageAction.setIcon({path: "img/addressicon/"+dpicon+".png", tabId: windows[i].tabs[x].id});
+				chrome.pageAction.setTitle({title: dptitle, tabId: windows[i].tabs[x].id});
+			}
+		}
+	});
 }
 function magician(enable, showIcon, hideFavicon, hidePageTitle, titleText, tabId, tabSpecific) {
 	if (enable == 'true') {
@@ -289,9 +301,25 @@ var requestDispatchTable = {
 		var dpdomaincheck = domainCheck(extractDomainFromURL(sender.tab.url));
 		if (enabled(sender.tab.url) == "true" && dpdomaincheck != 0 && (localStorage["global"] == "true" || (localStorage["global"] == "false" && (cloakedTabs.indexOf(sender.tab.id) != -1 || localStorage["newPages"] == "Cloak" || dpdomaincheck == 1)))) enable = 'true';
 		else enable = 'false';
-		sendResponse({enable: enable, background: localStorage["s_bg"], favicon: localStorage["disableFavicons"], hidePageTitles: localStorage["hidePageTitles"], pageTitleText: localStorage["pageTitleText"], enableToggle: localStorage["enableToggle"], hotkey: localStorage["hotkey"]});
+		sendResponse({enable: enable, background: localStorage["s_bg"], favicon: localStorage["disableFavicons"], hidePageTitles: localStorage["hidePageTitles"], pageTitleText: localStorage["pageTitleText"], enableToggle: localStorage["enableToggle"], hotkey: localStorage["hotkey"], paranoidhotkey: localStorage["paranoidhotkey"]});
 	},
 	"toggle": function(request, sender, sendResponse) {
+		if (localStorage["savedsfwmode"] != "") {
+			localStorage["sfwmode"] = localStorage["savedsfwmode"];
+			localStorage["savedsfwmode"] = "";
+		}
+		dpHandle(sender.tab);
+	},
+	"toggleparanoid": function(request, sender, sendResponse) {
+		if (cloakedTabs.indexOf(sender.tab.id) == -1 || localStorage["savedsfwmode"] != "") {
+			if (localStorage["savedsfwmode"] == "") {
+				localStorage["savedsfwmode"] = localStorage["sfwmode"];
+				localStorage["sfwmode"] = "Paranoid";
+			} else {
+				localStorage["sfwmode"] = localStorage["savedsfwmode"];
+				localStorage["savedsfwmode"] = "";
+			}
+		}
 		dpHandle(sender.tab);
 	},
 	"get-settings": function(request, sender, sendResponse) {

@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 	// Hotkey
 	var listener;
+	var listener2;
 	var keysettings = {
 		is_solitary    : true,
 		is_unordered    : true,
@@ -72,9 +73,15 @@ document.addEventListener('DOMContentLoaded', function () {
 	};
 	listener = new window.keypress.Listener($("#hotkey"), keysettings);
 	listener.register_many(combos);
+	listener2 = new window.keypress.Listener($("#paranoidhotkey"), keysettings);
+	listener2.register_many(combos);
 	$("#hotkeyrecord").click(function() {
 		$("#hotkeyrecord").val(chrome.i18n.getMessage("hotkey_set"));
 		$("#hotkey").removeAttr('disabled').select().focus();
+	});
+	$("#paranoidhotkeyrecord").click(function() {
+		$("#paranoidhotkeyrecord").val(chrome.i18n.getMessage("hotkey_set"));
+		$("#paranoidhotkey").removeAttr('disabled').select().focus();
 	});
 	//
 	$("#iconType").change(function() {
@@ -88,9 +95,20 @@ document.addEventListener('DOMContentLoaded', function () {
 	$(".i18_close").click(closeOptions);
 });
 function keyhandle(keypressed) {
-	$("#hotkey").val(keypressed).attr('disabled', 'true');
-	$("#hotkeyrecord").val(chrome.i18n.getMessage("hotkey_record"));
-	saveOptions();
+	keypressed = keypressed.toUpperCase();
+	if ($("#hotkey").attr('disabled')) {
+		if (keypressed != $("#hotkey").val()) {
+			$("#paranoidhotkey").val(keypressed).attr('disabled', 'true');
+			$("#paranoidhotkeyrecord").val(chrome.i18n.getMessage("hotkey_record"));
+			saveOptions();
+		}
+	} else {
+		if (keypressed != $("#paranoidhotkey").val()) {
+			$("#hotkey").val(keypressed).attr('disabled', 'true');
+			$("#hotkeyrecord").val(chrome.i18n.getMessage("hotkey_record"));
+			saveOptions();
+		}
+	}
 }
 function loadCheckbox(id) {
 	document.getElementById(id).checked = typeof localStorage[id] == "undefined" ? false : localStorage[id] == "true";
@@ -130,6 +148,7 @@ function i18load() {
 	$(".i18_toggle").html(chrome.i18n.getMessage("toggle"));
 	$(".i18_toggle2").html(chrome.i18n.getMessage("toggle2"));
 	$(".i18_toggle_hotkey").html(chrome.i18n.getMessage("hotkey"));
+	$(".i18_toggle_paranoidhotkey").html(chrome.i18n.getMessage("paranoidhotkey"));
 	$(".i18_hotkey_record").val(chrome.i18n.getMessage("hotkey_record"));
 	$(".i18_opacity").html(chrome.i18n.getMessage("opacity"));
 	$(".i18_collapseimage").html(chrome.i18n.getMessage("collapseimage"));
@@ -199,6 +218,9 @@ function loadOptions() {
 	loadCheckbox("global");
 	loadCheckbox("enableToggle");
 	loadElement("hotkey");
+	loadElement("paranoidhotkey");
+	if ($("#hotkey").val()) $("#hotkey").val($("#hotkey").val().toUpperCase());
+	if ($("#paranoidhotkey").val()) $("#paranoidhotkey").val($("#paranoidhotkey").val().toUpperCase());
 	loadElement("newPages");
 	loadElement("sfwmode");
 	loadElement("opacity1");
@@ -226,7 +248,7 @@ function loadOptions() {
 	loadElement("s_link");
 	if ($('#global').is(':checked')) $("#newPagesRow").css('display', 'none');
 	if ($('#showIcon').is(':checked')) $(".discreeticonrow").show();
-	if ($('#enableToggle').is(':checked')) $("#hotkeyrow").show();
+	if ($('#enableToggle').is(':checked')) $("#hotkeyrow, #paranoidhotkeyrow").show();
 	$("#sampleicon").attr('src', '../img/addressicon/'+$('#iconType').val()+'.png');
 	if (!$('#hidePageTitles').is(':checked')) $("#pageTitle").css('display', 'none');
 	if ($('#opacity1').val() == 0) $("#collapseimageblock").css('display', 'block');
@@ -254,15 +276,16 @@ function saveOptions() {
 	}
 	if ($('#global').is(':checked')) $("#newPagesRow").css('display', 'none');
 	else $("#newPagesRow").css('display', 'block');
-	if ($('#enableToggle').is(':checked')) $("#hotkeyrow").show();
-	else $("#hotkeyrow").hide();
+	if ($('#enableToggle').is(':checked')) $("#hotkeyrow, #paranoidhotkeyrow").show();
+	else $("#hotkeyrow, #paranoidhotkeyrow").hide();
 	if ($('#hidePageTitles').is(':checked')) $("#pageTitle").css('display', 'block');
 	else $("#pageTitle").css('display', 'none');
 	if ($('#sfwmode').val() == 'SFW' || $('#sfwmode').val() == 'SFW1' || $('#sfwmode').val() == 'SFW2') $("#opacityrow").fadeIn("fast");
 	else $("#opacityrow").hide();
 	if ($('#font').val() == '-Custom-') $("#customfontrow").show();
 	else $("#customfontrow").hide();
-	if (!$("#hotkey").val()) $("#hotkey").val('CTRL+F12');
+	if (!$("#hotkey").val()) $("#hotkey").val('CTRL F12');
+	if (!$("#paranoidhotkey").val()) $("#paranoidhotkey").val('ALT P');
 	saveCheckbox("enable");
 	saveCheckbox("global");
 	saveCheckbox("enableToggle");

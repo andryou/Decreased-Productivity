@@ -339,6 +339,10 @@
       "description": "Set",
       "message": "Impostato"
    },
+   "paranoidhotkey": {
+      "description": "Paranoid Hotkey",
+      "message": "Paranoid Hotkey"
+   },
    "translators": {
       "description": "People who helped translate",
       "message": "Persone che hanno aiutato nella traduzione"

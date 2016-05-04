@@ -339,6 +339,10 @@
       "description": "Set",
       "message": "Bộ"
    },
+   "paranoidhotkey": {
+      "description": "Paranoid Hotkey",
+      "message": "Hotkey Paranoid"
+   },
    "translators": {
       "description": "People who helped translate",
       "message": "Những người đã giúp dịch"
