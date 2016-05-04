@@ -180,6 +180,12 @@ function titleBind(text) {
 		replaceTitle(text);
 	});
 }
+function blankPage(bg) {
+	var stealth = document.createElement("style");
+	stealth.setAttribute("__decreased__", "initialstealth");
+	stealth.innerText += "html, html *, html *[style], body *:before, body *:after { background-color: #" + bg + " !important; background-image: none !important; background: #" + bg+ " !important; } html * { visibility: hidden !important; }";
+	document.documentElement.appendChild(stealth, null);
+}
 // Initially hide all elements on page (injected code is removed when page is loaded)
 chrome.extension.sendRequest({reqtype: "get-enabled"}, function(response) {
 	if (response.enableToggle == 'true') {
@@ -203,10 +209,7 @@ chrome.extension.sendRequest({reqtype: "get-enabled"}, function(response) {
 			replaceTitle(response.pageTitleText);
 			titleBind(response.pageTitleText);
 		}
-		var stealth = document.createElement("style");
-		stealth.setAttribute("__decreased__", "initialstealth");
-		stealth.innerText += "html, html *, html *[style], body *:before, body *:after { background-color: #" + response.background + " !important; background-image: none !important; background: #" + response.background + " !important; } html * { visibility: hidden !important; }";
-		document.documentElement.appendChild(stealth, null);
+		blankPage(response.background);
 		init();
 	}
 });

@@ -311,14 +311,26 @@ var requestDispatchTable = {
 		dpHandle(sender.tab);
 	},
 	"toggleparanoid": function(request, sender, sendResponse) {
-		if (cloakedTabs.indexOf(sender.tab.id) == -1 || localStorage["savedsfwmode"] != "") {
-			if (localStorage["savedsfwmode"] == "") {
-				localStorage["savedsfwmode"] = localStorage["sfwmode"];
-				localStorage["sfwmode"] = "Paranoid";
+		if (localStorage["savedsfwmode"] == "") {
+			localStorage["savedsfwmode"] = localStorage["sfwmode"];
+			localStorage["sfwmode"] = "Paranoid";
+			if (localStorage["global"] == "true") {
+				if (localStorage["enable"] == "true") recursiveCloak('false', 'true', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"]);
+				recursiveCloak('true', 'true', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"]);
+				localStorage["enable"] = "true";
 			} else {
-				localStorage["sfwmode"] = localStorage["savedsfwmode"];
-				localStorage["savedsfwmode"] = "";
+				var dpcloakindex = cloakedTabs.indexOf(sender.tab.id);
+				var dpuncloakindex = uncloakedTabs.indexOf(sender.tab.id);
+				if (dpuncloakindex != -1) uncloakedTabs.splice(dpuncloakindex, 1);
+				if (dpcloakindex == -1) cloakedTabs.push(sender.tab.id);
+				else magician('false', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], sender.tab.id);
+				magician('true', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], sender.tab.id);
+				localStorage["enable"] = "true";
 			}
+			return;
+		} else {
+			localStorage["sfwmode"] = localStorage["savedsfwmode"];
+			localStorage["savedsfwmode"] = "";
 		}
 		dpHandle(sender.tab);
 	},
