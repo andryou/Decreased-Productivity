@@ -325,7 +325,8 @@ function saveOptions() {
 		error = true;
 	}
 	// Apply new settings
-	bkg.recursiveCloak(localStorage["enable"], localStorage["global"], localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"]);
+	bkg.recursiveCloak(localStorage["enable"], localStorage["global"]);
+	bkg.hotkeyChange();
 	// Remove any existing styling
 	if (!error) notification(chrome.i18n.getMessage("saved"));
 	else notification(chrome.i18n.getMessage("invalidcolour"));

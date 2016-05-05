@@ -129,12 +129,12 @@ function setDefaultOptions() {
 chrome.contextMenus.create({"title": chrome.i18n.getMessage("whitelistdomain"), "contexts": ['browser_action','page_action'], "onclick": function(info, tab){
 	if (tab.url.substring(0, 4) != 'http') return;
 	domainHandler(extractDomainFromURL(tab.url), 0);
-	if (localStorage["enable"] == "true") magician('false', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id);
+	if (localStorage["enable"] == "true") magician('false', tab.id);
 }});
 chrome.contextMenus.create({"title": chrome.i18n.getMessage("blacklistdomain"), "contexts": ['browser_action','page_action'], "onclick": function(info, tab){
 	if (tab.url.substring(0, 4) != 'http') return;
 	domainHandler(extractDomainFromURL(tab.url), 1);
-	if (localStorage["enable"] == "true") magician('true', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id);
+	if (localStorage["enable"] == "true") magician('true', tab.id);
 }});
 chrome.contextMenus.create({"title": chrome.i18n.getMessage("removelist"), "contexts": ['browser_action','page_action'], "onclick": function(info, tab){
 	if (tab.url.substring(0, 4) != 'http') return;
@@ -142,7 +142,7 @@ chrome.contextMenus.create({"title": chrome.i18n.getMessage("removelist"), "cont
 	if (localStorage["enable"] == "true")  {
 		if (localStorage['newPages'] == 'Cloak' || localStorage['global'] == 'true') flag = 'true';
 		else flag = 'false';
-		magician(flag, localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id);
+		magician(flag, tab.id);
 	}
 }});
 
@@ -152,9 +152,9 @@ function newCloak(info, tab) {
 	localStorage["enable"] = "true";
 	localStorage["sfwmode"] = "SFW";
 	// If it's an image, load the "src" attribute
-	if (info.mediaType) chrome.tabs.create({'url': info.srcUrl}, function(tab){cloakedTabs.push(tab.id);recursiveCloak('true', localStorage["global"], localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id);});
+	if (info.mediaType) chrome.tabs.create({'url': info.srcUrl}, function(tab){cloakedTabs.push(tab.id);recursiveCloak('true', localStorage["global"], tab.id);});
 	// Else, it's a normal link, so load the linkUrl.
-	else chrome.tabs.create({'url': info.linkUrl}, function(tab){cloakedTabs.push(tab.id);recursiveCloak('true', localStorage["global"], localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id);});
+	else chrome.tabs.create({'url': info.linkUrl}, function(tab){cloakedTabs.push(tab.id);recursiveCloak('true', localStorage["global"], tab.id);});
 }
 // Add context menu item that shows only if you right-click on links/images.
 function dpContext(boo) {
@@ -169,7 +169,16 @@ function uncloakAll(){
 	cloakedTabs=[];
 	uncloakedTabs=[];
 }
-function recursiveCloak(enable, global, showIcon, hideFavicon, hidePageTitle, titleText, tabId) {
+function hotkeyChange() {
+	chrome.windows.getAll({"populate":true}, function(windows) {
+		for (var i=0; i<windows.length; i++) {
+			for (var x=0; x<windows[i].tabs.length; x++) {
+				chrome.tabs.executeScript(windows[i].tabs[x].id, {code: 'hotkeySet("'+localStorage["enableToggle"]+'","'+localStorage["hotkey"]+'","'+localStorage["paranoidhotkey"]+'");', allFrames: true});
+			}
+		}
+	});
+}
+function recursiveCloak(enable, global, tabId) {
 	if (global == 'true') {
 		chrome.windows.getAll({"populate":true}, function(windows) {
 			for (var i=0; i<windows.length; i++) {
@@ -179,17 +188,17 @@ function recursiveCloak(enable, global, showIcon, hideFavicon, hidePageTitle, ti
 						var dpcloakindex = cloakedTabs.indexOf(windows[i].tabs[x].id);
 						if (dpcloakindex != -1) cloakedTabs.splice(dpcloakindex, 1);
 						else cloakedTabs.push(windows[i].tabs[x].id);
-						magician(enable, showIcon, hideFavicon, hidePageTitle, titleText, windows[i].tabs[x].id);
+						magician(enable, windows[i].tabs[x].id);
 					}
 				}
 			}
 		});
 	} else {
-		if (tabId) magician(enable, showIcon, hideFavicon, hidePageTitle, titleText, tabId);
+		if (tabId) magician(enable, tabId);
 		else {
 			// If no tabId is passed, it means the user changed an option on the Options page and we must go through all of the individual tabs that have cloaking enabled (we're in this section because global is false)
 			for (var i=cloakedTabs.length-1; i>=0; --i) {
-				magician(enable, showIcon, hideFavicon, hidePageTitle, titleText, cloakedTabs[i]);
+				magician(enable, cloakedTabs[i]);
 			}
 		}
 	}
@@ -206,16 +215,20 @@ function setDPIcon() {
 		}
 	});
 }
-function magician(enable, showIcon, hideFavicon, hidePageTitle, titleText, tabId) {
+function magician(enable, tabId) {
 	if (enable == 'true') {
-		if (hideFavicon == 'true' && hidePageTitle == 'true') chrome.tabs.executeScript(tabId, {code: 'init();faviconblank();replaceTitle("'+titleText+'");titleBind("'+titleText+'");', allFrames: true});
-		else if (hideFavicon == 'true' && hidePageTitle != 'true') chrome.tabs.executeScript(tabId, {code: "init();faviconblank();titleRestore();", allFrames: true});
-		else if (hideFavicon != 'true' && hidePageTitle == 'true') chrome.tabs.executeScript(tabId, {code: 'init();faviconrestore();replaceTitle("'+titleText+'");titleBind("'+titleText+'");', allFrames: true});
-		else if (hideFavicon != 'true' && hidePageTitle != 'true') chrome.tabs.executeScript(tabId, {code: 'init();faviconrestore();titleRestore();', allFrames: true});
+		if (localStorage["disableFavicons"] == 'true' && localStorage["hidePageTitles"] == 'true')
+			chrome.tabs.executeScript(tabId, {code: 'init();faviconblank();replaceTitle("'+localStorage["pageTitleText"]+'");titleBind("'+localStorage["pageTitleText"]+'");', allFrames: true});
+		else if (localStorage["disableFavicons"] == 'true' && localStorage["hidePageTitles"] != 'true')
+			chrome.tabs.executeScript(tabId, {code: 'init();faviconblank();titleRestore();', allFrames: true});
+		else if (localStorage["disableFavicons"] != 'true' && localStorage["hidePageTitles"] == 'true')
+			chrome.tabs.executeScript(tabId, {code: 'init();faviconrestore();replaceTitle("'+localStorage["pageTitleText"]+'");localStorage["pageTitleText"]("'+titleText+'");', allFrames: true});
+		else if (localStorage["disableFavicons"] != 'true' && localStorage["hidePageTitles"] != 'true')
+			chrome.tabs.executeScript(tabId, {code: 'init();faviconrestore();titleRestore();', allFrames: true});
 	} else {
 		chrome.tabs.executeScript(tabId, {code: "removeCss()", allFrames: true});
 	}
-	if (showIcon == 'true') {
+	if (localStorage["showIcon"] == 'true') {
 		if (enable == 'true') {
 			chrome.pageAction.setIcon({path: "img/addressicon/"+dpicon+".png", tabId: tabId});
 		} else {
@@ -230,11 +243,11 @@ function dpHandle(tab) {
 		if (localStorage["enable"] == "true") {
 			localStorage["enable"] = "false";
 			// Remove cloak in all windows and tabs.
-			recursiveCloak('false', 'true', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"]);
+			recursiveCloak('false', 'true');
 		} else {
 			localStorage["enable"] = "true";
 			// Activate cloak in all windows and tabs.
-			recursiveCloak('true', 'true', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"]);
+			recursiveCloak('true', 'true');
 		}
 	} else {
 		var dpcloakindex = cloakedTabs.indexOf(tab.id);
@@ -243,11 +256,11 @@ function dpHandle(tab) {
 		if (dpcloakindex != -1) {
 			if (dpuncloakindex == -1) uncloakedTabs.push(tab.id);
 			cloakedTabs.splice(dpcloakindex, 1);
-			magician('false', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id);
+			magician('false', tab.id);
 		} else {
 			if (dpcloakindex == -1) cloakedTabs.push(tab.id);
 			uncloakedTabs.splice(dpuncloakindex, 1);
-			magician('true', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id);
+			magician('true', tab.id);
 		}
 	}
 }
@@ -265,7 +278,7 @@ chrome.tabs.onUpdated.addListener(function(tabid, changeinfo, tab) {
 			if (dpcloakindex == -1) cloakedTabs.push(tabid);
 		// Cloak page if it meets the criteria
 		if (dpcheck) {
-			magician(enabled(tab.url), localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tabid);
+			magician(enabled(tab.url), tabid);
 			if (dpdomaincheck != 1 && localStorage["global"] == "false") localStorage["enable"] = "true";
 		}
 		if (localStorage["showIcon"] == "true") {
@@ -282,7 +295,7 @@ chrome.tabs.onUpdated.addListener(function(tabid, changeinfo, tab) {
 			if (tab.openerTabId) {
 				if (cloakedTabs.indexOf(tab.openerTabId) != -1 && dpuncloakindex == -1) {
 					if (dpcloakindex == -1) cloakedTabs.push(tabid);
-					magician('true', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tabid);
+					magician('true', tabid);
 				}
 			}
 		}
@@ -308,23 +321,32 @@ var requestDispatchTable = {
 		if (localStorage["savedsfwmode"] != "") {
 			localStorage["sfwmode"] = localStorage["savedsfwmode"];
 			localStorage["savedsfwmode"] = "";
+			if (localStorage["global"] == "true") {
+				recursiveCloak('true', 'true');
+			} else {
+				var dpuncloakindex = uncloakedTabs.indexOf(sender.tab.id);
+				if (dpuncloakindex != -1) uncloakedTabs.splice(dpuncloakindex, 1);
+				if (cloakedTabs.indexOf(sender.tab.id) == -1) cloakedTabs.push(sender.tab.id);
+				magician('true', sender.tab.id);
+			}
+			localStorage["enable"] = "true";
+		} else {
+			dpHandle(sender.tab);
 		}
-		dpHandle(sender.tab);
 	},
 	"toggleparanoid": function(request, sender, sendResponse) {
 		if (localStorage["savedsfwmode"] == "") {
 			localStorage["savedsfwmode"] = localStorage["sfwmode"];
 			localStorage["sfwmode"] = "Paranoid";
 			if (localStorage["global"] == "true") {
-				recursiveCloak('true', 'true', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"]);
-				localStorage["enable"] = "true";
+				recursiveCloak('true', 'true');
 			} else {
 				var dpuncloakindex = uncloakedTabs.indexOf(sender.tab.id);
 				if (dpuncloakindex != -1) uncloakedTabs.splice(dpuncloakindex, 1);
 				if (cloakedTabs.indexOf(sender.tab.id) == -1) cloakedTabs.push(sender.tab.id);
-				magician('true', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], sender.tab.id);
-				localStorage["enable"] = "true";
+				magician('true', sender.tab.id);
 			}
+			localStorage["enable"] = "true";
 		} else {
 			localStorage["sfwmode"] = localStorage["savedsfwmode"];
 			localStorage["savedsfwmode"] = "";

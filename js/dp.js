@@ -3,6 +3,7 @@
 // Supporting functions by AdThwart - T. Joseph
 var origtitle;
 var postloaddelay;
+var dphotkeylistener;
 var timestamp = Math.round(new Date().getTime()/1000.0);
 function addCloak(sfw, f, fsize, u, bg, text, table, link, bold, o1, o2, collapseimage) {
 	// Inject CSS into page
@@ -124,8 +125,8 @@ function dpPostLoad(dpheight, dpwidth, sfwmode, bold) {
 	}
 }
 function removeCss(name) {
-	if (typeof(name) === 'undefined') name = "productivity"+timestamp;
-	jQuery("style[__decreased__='"+name+"']").remove();
+	if (typeof(name) === 'undefined') jQuery("style[__decreased__='productivity"+timestamp+"']").remove();
+	else jQuery("style[__decreased__='"+name+"']").remove();
 	if (typeof(name) === 'undefined') {
 		faviconrestore();
 		titleRestore();
@@ -171,7 +172,7 @@ function faviconclear() {
 }
 function faviconrestore() {
 	jQuery("link#decreasedproductivity"+timestamp).remove();
-	jQuery("link:not(.intro)[data-rel='shortcut icon'], link[data-rel='icon']").each(function() {
+	jQuery("link[data-rel='shortcut icon'], link[data-rel='icon']").each(function() {
 		jQuery(this).attr('rel', jQuery(this).attr('data-rel')).removeAttr('data-rel');
 	});
 }
@@ -192,23 +193,27 @@ function titleRestore() {
 	jQuery('title').unbind('DOMSubtreeModified.decreasedproductivity'+timestamp);
 	if (origtitle) document.title = origtitle;
 }
+function hotkeySet(hotkeyenabled, hotkey, paranoidhotkey) {
+	if (dphotkeylistener) dphotkeylistener.reset();
+	if (hotkeyenabled == 'true') {
+		dphotkeylistener = new window.keypress.Listener();
+		if (hotkey) {
+			dphotkeylistener.simple_combo(hotkey.toLowerCase(), function() {
+				chrome.extension.sendRequest({reqtype: "toggle"});
+			});
+		}
+		if (paranoidhotkey) {
+			dphotkeylistener.simple_combo(paranoidhotkey.toLowerCase(), function() {
+				chrome.extension.sendRequest({reqtype: "toggleparanoid"});
+			});
+		}
+	}
+}
 // Initially hide all elements on page (injected code is removed when page is loaded)
 chrome.extension.sendRequest({reqtype: "get-enabled"}, function(response) {
-	if (response.enableToggle == 'true') {
-		jQuery(document).ready(function() {
-			var listener = new window.keypress.Listener();
-			if (response.hotkey) {
-				listener.simple_combo(response.hotkey.toLowerCase(), function() {
-					chrome.extension.sendRequest({reqtype: "toggle"});
-				});
-			}
-			if (response.paranoidhotkey) {
-				listener.simple_combo(response.paranoidhotkey.toLowerCase(), function() {
-					chrome.extension.sendRequest({reqtype: "toggleparanoid"});
-				});
-			}
-		});
-	}
+	jQuery(document).ready(function() {
+		hotkeySet(response.enableToggle, response.hotkey, response.paranoidhotkey);
+	});
 	if (response.enable == "true") {
 		if (response.favicon == 'true') faviconblank();
 		if (response.hidePageTitles == 'true') {

@@ -1,4 +1,5 @@
-v0.46.53 - Thursday, May 5, 2016
+v0.46.53.1 - Thursday, May 5, 2016
+- v0.46.53.1 = tweaked Paranoid Mode to Cloak behaviour, fixed page favicon and page titles toggling, and hotkey changes now take effect immediately
 - updated core DP cloaking functions so that DP Option setting changes and the Paranoid Hotkey toggle take effect immediately (without temporarily uncloaking and recloaking open tabs)
 - optimized number of calls when cloaking a page (from 3 to 1)
 - tweaked page favicon cloaking to be instant
