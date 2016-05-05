@@ -7,13 +7,22 @@
 <body id="updatepage">
 	<span id="title">Decreased Productivity</span> by Andrew Y.<br /><br />
 	<div id="main">
-	<h1>Updated to v0.46.52.2! (Wednesday, May 4, 2016)</h1>
+	<h1>Updated to v0.46.53! (Thursday, May 5, 2016)</h1>
 	<ul>
+		<li>v0.46.53:<ul>
+			<li>updated core DP cloaking functions so that DP Option setting changes and the Paranoid Hotkey toggle take effect immediately (without temporarily uncloaking and recloaking open tabs)</li>
+			<li>optimized number of calls when cloaking a page (from potentially up to 3 down to just 1)</li>
+			<li>tweaked page favicon cloaking so it is now instant</li>
+			<li>all DP cloaking identifiers now unique on every page load to avoid conflicts/being overwritten</li>
+			<li>more reliable "tab stickiness" (if enabled)</li>
+			<li>updated my list of generous coffee-buyers :) Thank you!</li>
+			<li><strong>if you do not want this page appearing every time DP auto-updates, you can disable them by unticking "Show Update Popup" in the <a href="options.html">Options page</a>.</strong></li>
+		</ul>
+		</li>
 		<li>v0.46.52.2:<ul>
 			<li>added new Paranoid Hotkey toggle (default: ALT+P) which toggles between Paranoid mode (all images/media hidden) and the Cloaking Level you chose. Like the cloaking toggle, you have full control over what the hotkeys are (the .1 in the version number v0.46.52.1 = a fix so that any change to the Paranoid Hotkey combo is actually saved; .2 = tweaked Paranoid behaviour)</li>
 			<li>toolbar icon action now respects DP enabled state</li>
 			<li>tweaked hotkey visual display and fixed potential issue</li>
-			<li>updated my list of generous coffee-buyers :) Thank you!</li>
 		</ul>
 		</li>
 		<li>If you like my work, want to interact with me, or see what I'm up to, you can <a href="https://twitter.com/andryou" target="_blank">follow me (@andryou) on Twitter!</a> :)</li>
@@ -21,7 +30,7 @@
 	<h2>Tips:</h2>
 	<ol>
 		<li>To access the Options page, right-click on the DP icon in the Chrome toolbar and click "Options", or click on <span class="i18_dpoptions">DP Options</span> below.</li>
-		<li>If you find these update notifications annoying, you can disable them by unticking "Show Update Popup" in the Options page.</li>
+		<li>If you find these update notifications annoying, you can disable them by unticking "Show Update Popup" in the <a href="options.html">Options page</a>.</li>
 		<li>You are able to use Decreased Productivity in Incognito Mode! In a new tab, paste <u>chrome://extensions/</u> in the address bar, press Enter, tick "Developer Mode", and tick "Allow in incognito" under Decreased Productivity.</li>
 		<li>Want to quickly cloak a page? Press CTRL/CMD + F12 on the page (requires "Enable Key Toggling" to be enabled; enabled by default).</li>
 	</ol>
@@ -33,7 +42,7 @@
 	<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIHiAYJKoZIhvcNAQcEoIIHeTCCB3UCAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBDNDNQaK4jxNNT/9ax3HKdG0JBS80pCwlkVizPyPhNENAN1Xx2zTpquYTM554Q8B9AvtYqu6ZleDBLPN6ntiQb9dJZZVNMidZpIGlgJrFkVPGBfWtpDOcryYYRumde+OG4fDHmDe+CmbGFGlbwIUuWyxVbQ4nO3d7RoMKGn4TVpzELMAkGBSsOAwIaBQAwggEEBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECHtvloSetOwngIHgm1D1G7oaarV2UEQJbhYpmTtQbhe97E67rNxTiSk4a1jO38zrBxFZVmKIg74y1PuKvhuAMUlQnGvWItK5Q1iGYKOCGOsmHNEy5aL4ySMbxWiv55uwKlxmXFrKg+2meDjSf8s+iLhZjSUwR/7QjVS4WwscFeO6aXuxMbG2BfVykA3iIbLcCbeYMuu1aeRfQ4hZjG5BwllGwWodU4UtnLw93U/YhYTanED6+i/jLPqMo7JKtH4HozriE2BeGHHqxX4EogJKiluhjd39ovrakNMqJd3MMQm8NlcWTT0kpcoMcNWgggOHMIIDgzCCAuygAwIBAgIBADANBgkqhkiG9w0BAQUFADCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20wHhcNMDQwMjEzMTAxMzE1WhcNMzUwMjEzMTAxMzE1WjCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMFHTt38RMxLXJyO2SmS+Ndl72T7oKJ4u4uw+6awntALWh03PewmIJuzbALScsTS4sZoS1fKciBGoh11gIfHzylvkdNe/hJl66/RGqrj5rFb08sAABNTzDTiqqNpJeBsYs/c2aiGozptX2RlnBktH+SUNpAajW724Nv2Wvhif6sFAgMBAAGjge4wgeswHQYDVR0OBBYEFJaffLvGbxe9WT9S1wob7BDWZJRrMIG7BgNVHSMEgbMwgbCAFJaffLvGbxe9WT9S1wob7BDWZJRroYGUpIGRMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbYIBADAMBgNVHRMEBTADAQH/MA0GCSqGSIb3DQEBBQUAA4GBAIFfOlaagFrl71+jq6OKidbWFSE+Q4FqROvdgIONth+8kSK//Y/4ihuE4Ymvzn5ceE3S/iBSQQMjyvb+s2TWbQYDwcp129OPIbD9epdr4tJOUNiSojw7BHwYRiPh58S1xGlFgHFXwrEBb3dgNbMUa+u4qectsMAXpVHnD9wIyfmHMYIBmjCCAZYCAQEwgZQwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tAgEAMAkGBSsOAwIaBQCgXTAYBgkqhkiG9w0BCQMxCwYJKoZIhvcNAQcBMBwGCSqGSIb3DQEJBTEPFw0xMTA1MjExNjM4MzBaMCMGCSqGSIb3DQEJBDEWBBRtvTUsMt9WPz42S0PIt3tWVZgkPzANBgkqhkiG9w0BAQEFAASBgKjzksgHn7HfD2z8ZmgLpFnQliQrE4Nevc6d+/vXSATCp+yFH5wElZEiTlj5FAmWqwjj3b67pHPj/5EXlYxHlASMcqasc38WX+S60VFCYIqHbOkgmpb0KnvczFRbQpCBrt+Xo/iKXwMlBU796NqeJP6JHq1FlzOsdbeU98vZ80VF-----END PKCS7-----">
 	<input type="image" src="./img/icon48.png" border="0" name="submit" class="i18_supportimg" alt="Support Andrew!" title="Support Andrew!">
 	</form> <span class="i18_support">Support Andrew!</span><br /><br />
-	<i style="width:937px; display:block;"><span class="i18_people">People who bought Andrew coffee</span>: Leonardo C., 朱之灏, Donald D., John B., Patrick H., Luke C., Eric G., Brian B., Daniel C., Joel D., Joseph W., David M., Rafal W., Ip L., Caillin P., Simon B., Keith T., Peter C., Gordon M., James M., Ranjan S., Philipp B., Rommel G., Todd A., Jason T., Vineet W., Adam C., Jim M., Alex U., Stanislav S., George T., Genere S., Kevin S., Jérémy P., Carlos S., Miguel L., Adrian H., Scott B., Daniel C., Mark M., Timothy D., Alexis B., Peter C., Christiaan E., Matthew L., Russell H., David D., Keith S., Elena G., Rafael V., Scott F., Paul M., Danielle F., 曾 信夫, Jon T., Barry D., Andrew H., Ma X., Frank E., Alex W., Roger S., Artem S., Wassim N., Rajat N., Vadim P., Celia D., Mikyas W., Reann M., Gabriel J., Anthony Z., Kai Cheong W., Jason T., Michael L., Maximilian B., Anton C., Koen de W., Juan de Dios Egido A.</i><br />
+	<i style="width:937px; display:block;"><span class="i18_people">People who bought Andrew coffee</span>: Leonardo C., 朱之灏, Donald D., John B., Patrick H., Luke C., Eric G., Brian B., Daniel C., Joel D., Joseph W., David M., Rafal W., Ip L., Caillin P., Simon B., Keith T., Peter C., Gordon M., James M., Ranjan S., Philipp B., Rommel G., Todd A., Jason T., Vineet W., Adam C., Jim M., Alex U., Stanislav S., George T., Genere S., Kevin S., Jérémy P., Carlos S., Miguel L., Adrian H., Scott B., Daniel C., Mark M., Timothy D., Alexis B., Peter C., Christiaan E., Matthew L., Russell H., David D., Keith S., Elena G., Rafael V., Scott F., Paul M., Danielle F., 曾 信夫, Jon T., Barry D., Andrew H., Ma X., Frank E., Alex W., Roger S., Artem S., Wassim N., Rajat N., Vadim P., Celia D., Mikyas W., Reann M., Gabriel J., Anthony Z., Kai Cheong W., Jason T., Michael L., Maximilian B., Anton C., Koen de W., Juan de Dios Egido A., Harry P.</i><br />
 	<i style="width:937px; display:block;"><span class="i18_translators">People who helped translate</span>: Christoph (Deutsch), Luciano (Español), Yamaji (Japanese), Jérémy (Français), VeryFriend (Russian), Lorenzo (Italian)</i><br />
 	<i><span class="i18_help">If you can help translate or improve, please contact me</span>: <a href="mailto:andryou@gmail.com">andryou@gmail.com</a></i><br /><br />
 	<i><a href="https://twitter.com/andryou" target="_blank">Follow me (@andryou) on Twitter!</a><br /><br />

@@ -129,12 +129,12 @@ function setDefaultOptions() {
 chrome.contextMenus.create({"title": chrome.i18n.getMessage("whitelistdomain"), "contexts": ['browser_action','page_action'], "onclick": function(info, tab){
 	if (tab.url.substring(0, 4) != 'http') return;
 	domainHandler(extractDomainFromURL(tab.url), 0);
-	if (localStorage["enable"] == "true") magician('false', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id, 'true');
+	if (localStorage["enable"] == "true") magician('false', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id);
 }});
 chrome.contextMenus.create({"title": chrome.i18n.getMessage("blacklistdomain"), "contexts": ['browser_action','page_action'], "onclick": function(info, tab){
 	if (tab.url.substring(0, 4) != 'http') return;
 	domainHandler(extractDomainFromURL(tab.url), 1);
-	if (localStorage["enable"] == "true") magician('true', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id, 'true');
+	if (localStorage["enable"] == "true") magician('true', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id);
 }});
 chrome.contextMenus.create({"title": chrome.i18n.getMessage("removelist"), "contexts": ['browser_action','page_action'], "onclick": function(info, tab){
 	if (tab.url.substring(0, 4) != 'http') return;
@@ -142,7 +142,7 @@ chrome.contextMenus.create({"title": chrome.i18n.getMessage("removelist"), "cont
 	if (localStorage["enable"] == "true")  {
 		if (localStorage['newPages'] == 'Cloak' || localStorage['global'] == 'true') flag = 'true';
 		else flag = 'false';
-		magician(flag, localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id, 'true');
+		magician(flag, localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id);
 	}
 }});
 
@@ -179,18 +179,17 @@ function recursiveCloak(enable, global, showIcon, hideFavicon, hidePageTitle, ti
 						var dpcloakindex = cloakedTabs.indexOf(windows[i].tabs[x].id);
 						if (dpcloakindex != -1) cloakedTabs.splice(dpcloakindex, 1);
 						else cloakedTabs.push(windows[i].tabs[x].id);
-						magician(enable, showIcon, hideFavicon, hidePageTitle, titleText, windows[i].tabs[x].id, 'false');
+						magician(enable, showIcon, hideFavicon, hidePageTitle, titleText, windows[i].tabs[x].id);
 					}
 				}
 			}
 		});
 	} else {
-		if (tabId) magician(enable, showIcon, hideFavicon, hidePageTitle, titleText, tabId, 'true');
+		if (tabId) magician(enable, showIcon, hideFavicon, hidePageTitle, titleText, tabId);
 		else {
 			// If no tabId is passed, it means the user changed an option on the Options page and we must go through all of the individual tabs that have cloaking enabled (we're in this section because global is false)
 			for (var i=cloakedTabs.length-1; i>=0; --i) {
-				chrome.tabs.executeScript(cloakedTabs[i], {code: "removeCss('productivity')", allFrames: true});
-				magician(enable, showIcon, hideFavicon, hidePageTitle, titleText, cloakedTabs[i], 'true');
+				magician(enable, showIcon, hideFavicon, hidePageTitle, titleText, cloakedTabs[i]);
 			}
 		}
 	}
@@ -207,22 +206,22 @@ function setDPIcon() {
 		}
 	});
 }
-function magician(enable, showIcon, hideFavicon, hidePageTitle, titleText, tabId, tabSpecific) {
+function magician(enable, showIcon, hideFavicon, hidePageTitle, titleText, tabId) {
 	if (enable == 'true') {
-		chrome.tabs.executeScript(tabId, {code: "init()", allFrames: true});
-		if (hideFavicon == 'true') chrome.tabs.executeScript(tabId, {code: "faviconblank()", allFrames: true});
-		if (hidePageTitle == 'true') chrome.tabs.executeScript(tabId, {code: 'replaceTitle("'+titleText+'");titleBind("'+titleText+'");', allFrames: true});
+		if (hideFavicon == 'true' && hidePageTitle == 'true') chrome.tabs.executeScript(tabId, {code: 'init();faviconblank();replaceTitle("'+titleText+'");titleBind("'+titleText+'");', allFrames: true});
+		else if (hideFavicon == 'true' && hidePageTitle != 'true') chrome.tabs.executeScript(tabId, {code: "init();faviconblank();titleRestore();", allFrames: true});
+		else if (hideFavicon != 'true' && hidePageTitle == 'true') chrome.tabs.executeScript(tabId, {code: 'init();faviconrestore();replaceTitle("'+titleText+'");titleBind("'+titleText+'");', allFrames: true});
+		else if (hideFavicon != 'true' && hidePageTitle != 'true') chrome.tabs.executeScript(tabId, {code: 'init();faviconrestore();titleRestore();', allFrames: true});
 	} else {
-		chrome.tabs.executeScript(tabId, {code: "removeCss('productivity')", allFrames: true});
+		chrome.tabs.executeScript(tabId, {code: "removeCss()", allFrames: true});
 	}
 	if (showIcon == 'true') {
 		if (enable == 'true') {
 			chrome.pageAction.setIcon({path: "img/addressicon/"+dpicon+".png", tabId: tabId});
-			chrome.pageAction.setTitle({title: dptitle, tabId: tabId});
 		} else {
 			chrome.pageAction.setIcon({path: "img/addressicon/"+dpicon+"-disabled.png", tabId: tabId});
-			chrome.pageAction.setTitle({title: dptitle, tabId: tabId});
 		}
+		chrome.pageAction.setTitle({title: dptitle, tabId: tabId});
 		chrome.pageAction.show(tabId);
 	} else chrome.pageAction.hide(tabId);
 }
@@ -244,11 +243,11 @@ function dpHandle(tab) {
 		if (dpcloakindex != -1) {
 			if (dpuncloakindex == -1) uncloakedTabs.push(tab.id);
 			cloakedTabs.splice(dpcloakindex, 1);
-			recursiveCloak('false', 'false', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id);
+			magician('false', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id);
 		} else {
 			if (dpcloakindex == -1) cloakedTabs.push(tab.id);
 			uncloakedTabs.splice(dpuncloakindex, 1);
-			recursiveCloak('true', 'false', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id);
+			magician('true', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tab.id);
 		}
 	}
 }
@@ -266,7 +265,7 @@ chrome.tabs.onUpdated.addListener(function(tabid, changeinfo, tab) {
 			if (dpcloakindex == -1) cloakedTabs.push(tabid);
 		// Cloak page if it meets the criteria
 		if (dpcheck) {
-			magician(enabled(tab.url), localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tabid, 'true');
+			magician(enabled(tab.url), localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tabid);
 			if (dpdomaincheck != 1 && localStorage["global"] == "false") localStorage["enable"] = "true";
 		}
 		if (localStorage["showIcon"] == "true") {
@@ -283,7 +282,7 @@ chrome.tabs.onUpdated.addListener(function(tabid, changeinfo, tab) {
 			if (tab.openerTabId) {
 				if (cloakedTabs.indexOf(tab.openerTabId) != -1 && dpuncloakindex == -1) {
 					if (dpcloakindex == -1) cloakedTabs.push(tabid);
-					magician('true', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tabid, 'true');
+					magician('true', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], tabid);
 				}
 			}
 		}
@@ -299,8 +298,10 @@ var requestDispatchTable = {
 	"get-enabled": function(request, sender, sendResponse) {
 		var enable;
 		var dpdomaincheck = domainCheck(extractDomainFromURL(sender.tab.url));
-		if (enabled(sender.tab.url) == "true" && dpdomaincheck != 0 && (localStorage["global"] == "true" || (localStorage["global"] == "false" && (cloakedTabs.indexOf(sender.tab.id) != -1 || localStorage["newPages"] == "Cloak" || dpdomaincheck == 1)))) enable = 'true';
+		var dpcloakindex = cloakedTabs.indexOf(sender.tab.id);
+		if (enabled(sender.tab.url) == "true" && dpdomaincheck != 0 && (localStorage["global"] == "true" || (localStorage["global"] == "false" && (dpcloakindex != -1 || localStorage["newPages"] == "Cloak" || dpdomaincheck == 1)))) enable = 'true';
 		else enable = 'false';
+		if (enable == 'true' && dpcloakindex == -1) cloakedTabs.push(sender.tab.id);
 		sendResponse({enable: enable, background: localStorage["s_bg"], favicon: localStorage["disableFavicons"], hidePageTitles: localStorage["hidePageTitles"], pageTitleText: localStorage["pageTitleText"], enableToggle: localStorage["enableToggle"], hotkey: localStorage["hotkey"], paranoidhotkey: localStorage["paranoidhotkey"]});
 	},
 	"toggle": function(request, sender, sendResponse) {
@@ -315,24 +316,20 @@ var requestDispatchTable = {
 			localStorage["savedsfwmode"] = localStorage["sfwmode"];
 			localStorage["sfwmode"] = "Paranoid";
 			if (localStorage["global"] == "true") {
-				if (localStorage["enable"] == "true") recursiveCloak('false', 'true', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"]);
 				recursiveCloak('true', 'true', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"]);
 				localStorage["enable"] = "true";
 			} else {
-				var dpcloakindex = cloakedTabs.indexOf(sender.tab.id);
 				var dpuncloakindex = uncloakedTabs.indexOf(sender.tab.id);
 				if (dpuncloakindex != -1) uncloakedTabs.splice(dpuncloakindex, 1);
-				if (dpcloakindex == -1) cloakedTabs.push(sender.tab.id);
-				else magician('false', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], sender.tab.id);
+				if (cloakedTabs.indexOf(sender.tab.id) == -1) cloakedTabs.push(sender.tab.id);
 				magician('true', localStorage["showIcon"], localStorage["disableFavicons"], localStorage["hidePageTitles"], localStorage["pageTitleText"], sender.tab.id);
 				localStorage["enable"] = "true";
 			}
-			return;
 		} else {
 			localStorage["sfwmode"] = localStorage["savedsfwmode"];
 			localStorage["savedsfwmode"] = "";
+			dpHandle(sender.tab);
 		}
-		dpHandle(sender.tab);
 	},
 	"get-settings": function(request, sender, sendResponse) {
 		if (localStorage["font"] == '-Custom-') {
