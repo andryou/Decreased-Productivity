@@ -222,7 +222,7 @@ function magician(enable, tabId) {
 		else if (localStorage["disableFavicons"] == 'true' && localStorage["hidePageTitles"] != 'true')
 			chrome.tabs.executeScript(tabId, {code: 'init();faviconblank();titleRestore();', allFrames: true});
 		else if (localStorage["disableFavicons"] != 'true' && localStorage["hidePageTitles"] == 'true')
-			chrome.tabs.executeScript(tabId, {code: 'init();faviconrestore();replaceTitle("'+localStorage["pageTitleText"]+'");localStorage["pageTitleText"]("'+titleText+'");', allFrames: true});
+			chrome.tabs.executeScript(tabId, {code: 'init();faviconrestore();replaceTitle("'+localStorage["pageTitleText"]+'");titleBind("'+localStorage["pageTitleText"]+'");', allFrames: true});
 		else if (localStorage["disableFavicons"] != 'true' && localStorage["hidePageTitles"] != 'true')
 			chrome.tabs.executeScript(tabId, {code: 'init();faviconrestore();titleRestore();', allFrames: true});
 	} else {
