@@ -113,6 +113,10 @@ function setDefaultOptions() {
 	defaultOptionValue("s_link", "000099");
 	defaultOptionValue("s_table", "cccccc");
 	defaultOptionValue("s_text", "000000");
+	// fix hotkey shortcut if in old format (if using + as separator instead of space)
+	if (localStorage["hotkey"].indexOf('+') != -1) {
+		localStorage["hotkey"] = localStorage["hotkey"].replace(/\+$/, "APLUSA").replace(/\+/g, " ").replace(/APLUSA/, "+");
+	}
 	// delete old option if exists
 	if (optionExists("globalEnable"))
 		delete localStorage["globalEnable"];
@@ -150,7 +154,6 @@ chrome.contextMenus.create({"title": chrome.i18n.getMessage("removelist"), "cont
 function newCloak(info, tab) {
 	// Enable cloaking (in case its been disabled) and open the link in a new tab
 	localStorage["enable"] = "true";
-	localStorage["sfwmode"] = "SFW";
 	// If it's an image, load the "src" attribute
 	if (info.mediaType) chrome.tabs.create({'url': info.srcUrl}, function(tab){cloakedTabs.push(tab.id);recursiveCloak('true', localStorage["global"], tab.id);});
 	// Else, it's a normal link, so load the linkUrl.
@@ -158,7 +161,6 @@ function newCloak(info, tab) {
 }
 // Add context menu item that shows only if you right-click on links/images.
 function dpContext(boo) {
-	// Remove all existing DP context menus
 	if (boo == 'true' && !contextLoaded) {
 		chrome.contextMenus.create({"title": chrome.i18n.getMessage("opensafely"), "contexts": ['link', 'image'], "onclick": function(info, tab){newCloak(info, tab);}});
 		contextLoaded = true;
@@ -169,10 +171,15 @@ function uncloakAll(){
 	cloakedTabs=[];
 	uncloakedTabs=[];
 }
+function checkChrome(url) {
+	if (url.substring(0, 6) == 'chrome') return true;
+	return false;
+}
 function hotkeyChange() {
 	chrome.windows.getAll({"populate":true}, function(windows) {
 		for (var i=0; i<windows.length; i++) {
 			for (var x=0; x<windows[i].tabs.length; x++) {
+				if (checkChrome(windows[i].tabs[x].url)) continue;
 				chrome.tabs.executeScript(windows[i].tabs[x].id, {code: 'hotkeySet("'+localStorage["enableToggle"]+'","'+localStorage["hotkey"]+'","'+localStorage["paranoidhotkey"]+'");', allFrames: true});
 			}
 		}
@@ -183,6 +190,7 @@ function recursiveCloak(enable, global, tabId) {
 		chrome.windows.getAll({"populate":true}, function(windows) {
 			for (var i=0; i<windows.length; i++) {
 				for (var x=0; x<windows[i].tabs.length; x++) {
+					if (checkChrome(windows[i].tabs[x].url)) continue;
 					// leave blacklisted sites cloaked (when in global mode)
 					if (domainCheck(extractDomainFromURL(windows[i].tabs[x].url)) != 1) {
 						var dpcloakindex = cloakedTabs.indexOf(windows[i].tabs[x].id);
@@ -209,8 +217,11 @@ function setDPIcon() {
 	chrome.windows.getAll({"populate":true}, function(windows) {
 		for (var i=0; i<windows.length; i++) {
 			for (var x=0; x<windows[i].tabs.length; x++) {
-				chrome.pageAction.setIcon({path: "img/addressicon/"+dpicon+".png", tabId: windows[i].tabs[x].id});
+				if (cloakedTabs.indexOf(windows[i].tabs[x].id) != -1) chrome.pageAction.setIcon({path: "img/addressicon/"+dpicon+".png", tabId: windows[i].tabs[x].id});
+				else chrome.pageAction.setIcon({path: "img/addressicon/"+dpicon+"-disabled.png", tabId: windows[i].tabs[x].id});
 				chrome.pageAction.setTitle({title: dptitle, tabId: windows[i].tabs[x].id});
+				if (localStorage["showIcon"] == 'true') chrome.pageAction.show(windows[i].tabs[x].id);
+				else chrome.pageAction.hide(windows[i].tabs[x].id);
 			}
 		}
 	});
@@ -239,6 +250,7 @@ function magician(enable, tabId) {
 	} else chrome.pageAction.hide(tabId);
 }
 function dpHandle(tab) {
+	if (checkChrome(tab.url)) return;
 	if (localStorage["global"] == "true" && domainCheck(extractDomainFromURL(tab.url)) != 1) {
 		if (localStorage["enable"] == "true") {
 			localStorage["enable"] = "false";
@@ -267,6 +279,7 @@ function dpHandle(tab) {
 // ----- Request library to support content script communication
 chrome.tabs.onUpdated.addListener(function(tabid, changeinfo, tab) {
 	if (changeinfo.status == "loading") {
+		if (checkChrome(tab.url)) return;
 		var dpcheck = false;
 		var dpdomaincheck = domainCheck(extractDomainFromURL(tab.url));
 		var dpcloakindex = cloakedTabs.indexOf(tabid);
@@ -284,11 +297,10 @@ chrome.tabs.onUpdated.addListener(function(tabid, changeinfo, tab) {
 		if (localStorage["showIcon"] == "true") {
 			if (dpcheck) {
 				chrome.pageAction.setIcon({path: "img/addressicon/"+dpicon+".png", tabId: tabid});
-				chrome.pageAction.setTitle({title: dptitle, tabId: tabid});
 			} else {
 				chrome.pageAction.setIcon({path: "img/addressicon/"+dpicon+"-disabled.png", tabId: tabid});
-				chrome.pageAction.setTitle({title: dptitle, tabId: tabid});
 			}
+			chrome.pageAction.setTitle({title: dptitle, tabId: tabid});
 			chrome.pageAction.show(tabid);
 		} else chrome.pageAction.hide(tabid);
 		if (localStorage["enableStickiness"] == "true") {
@@ -382,7 +394,7 @@ chrome.pageAction.onClicked.addListener(function(tab) {
 setDefaultOptions();
 setDPIcon();
 if ((!optionExists("version") || localStorage["version"] != version) && localStorage["showUpdateNotifications"] == 'true') {
-	chrome.tabs.create({ url: chrome.extension.getURL('updated.html'), selected: true });
+	chrome.tabs.create({ url: chrome.extension.getURL('updated.html'), selected: false });
 	localStorage["version"] = version;
 }
 dpContext(localStorage["showContext"]);

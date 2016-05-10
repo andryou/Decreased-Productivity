@@ -1,3 +1,10 @@
+v0.46.53.3 - Tuesday, May 10, 2016
+- auto-update hotkey toggle if stored in old format, fixing issue where the toggle doesn't work after recent updates
+- fixed potential issue where DP icon won't appear in the address bar
+- now the "Safely open in new tab" context menu item doesn't override your Cloaking Level (previously it was resetting it to SFW0)
+- added checks so DP won't try to cloak internal Chrome pages (improving efficiency since extensions don't have permissions to modify them)
+- made Update page open in a background tab instead of the foreground (if "Show Update Popup" is enabled in the Options page)
+
 v0.46.53.2 - Thursday, May 5, 2016
 - v0.46.53.2 = tweaked Paranoid Mode to Cloak behaviour, fixed page favicon and page titles toggling, and hotkey changes now take effect immediately
 - updated core DP cloaking functions so that DP Option setting changes and the Paranoid Hotkey toggle take effect immediately (without temporarily uncloaking and recloaking open tabs)
