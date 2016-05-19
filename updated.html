@@ -7,25 +7,24 @@
 <body id="updatepage">
 	<span id="title">Decreased Productivity</span> by Andrew Y.<br /><br />
 	<div id="main">
-	<h1>Updated to v0.46.53.3! (Tuesday, May 10, 2016)</h1>
+	<h1>Updated to v0.46.54! (Wednesday, May 18, 2016)</h1>
 	<ul>
+		<li>v0.46.54:<ul>
+			<li>optimized foundation code (this is a significant update, too many to list: below are some of the major improvements)</li>
+			<li>improved whitelist/blacklist checks</li>
+			<li>tab cloak data now includes window IDs for guaranteed tab-specific cloaking</li>
+			<li>toggling Global Mode in Options is now enforced immediately (e.g. favicons and page titles) (thanks Vineet)</li>
+			<li>"Stickiness" feature (cloaking new tabs opened from cloaked pages) now checks if the new tab's domain is whitelisted or not before cloaking</li>
+			<li>eliminated various redundant lookups (e.g. whitelist/blacklist checks)</li>
+			<li><strong>if you do not want this page appearing every time DP auto-updates, you can disable them by unticking "Show Update Popup" in the <a href="options.html">Options page</a>.</strong></li>
+		</ul>
+		</li>
 		<li>v0.46.53.3:<ul>
 			<li>auto-update hotkey toggle if stored in old format, fixing issue where the toggle doesn't work after recent updates</li>
 			<li>fixed potential issue where DP icon won't appear in the address bar</li>
 			<li>now the "Safely open in new tab" context menu item doesn't override your Cloaking Level (previously it was resetting it to SFW0)</li>
 			<li>added checks so DP won't try to cloak internal Chrome pages (improving efficiency since extensions don't have permissions to modify them)</li>
 			<li>made Update page open in a background tab instead of the foreground (if "Show Update Popup" is enabled in the Options page)</li>
-			<li>updated my list of generous coffee-buyers :) Thank you!</li>
-			<li><strong>if you do not want this page appearing every time DP auto-updates, you can disable them by unticking "Show Update Popup" in the <a href="options.html">Options page</a>.</strong></li>
-		</ul>
-		</li>
-		<li>v0.46.53.2:<ul>
-			<li>v0.46.53.2 = tweaked Paranoid Mode to Cloak behaviour, fixed page favicon and page titles toggling, and hotkey changes now take effect immediately</li>
-			<li>updated core DP cloaking functions so that DP Option setting changes and the Paranoid Hotkey toggle take effect immediately (without temporarily uncloaking and recloaking open tabs)</li>
-			<li>optimized number of calls when cloaking a page (from potentially up to 3 down to just 1)</li>
-			<li>tweaked page favicon cloaking so it is now instant</li>
-			<li>all DP cloaking identifiers now unique on every page load to avoid conflicts/being overwritten</li>
-			<li>more reliable "tab stickiness" (if enabled)</li>
 		</ul>
 		</li>
 		<li>If you like my work, want to interact with me, or see what I'm up to, you can <a href="https://twitter.com/andryou" target="_blank">follow me (@andryou) on Twitter!</a> :)</li>

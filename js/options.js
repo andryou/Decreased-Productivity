@@ -9,6 +9,7 @@ var version = (function () {
 }());
 var bkg = chrome.extension.getBackgroundPage();
 var error = false;
+var oldglobalstate = false;
 document.addEventListener('DOMContentLoaded', function () {
 	$("#tabs").tabs();
 	$("#o1").slider({min: 0, max: 1, step: 0.05, slide: function(event, ui) { $("#opacity1").val(ui.value); opacitytest(); }, stop: function(event, ui) { 
@@ -39,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	$("#s_bg, #s_text, #s_link, #s_table").keyup(updateDemo);
 	$("#global").click(function() {
 		saveOptions();
-		uncloak()
 	});
 	$("#opacity1").blur(function() {
 		intValidate(this, 0.05);
@@ -214,6 +214,7 @@ function i18load() {
 function loadOptions() {
 	document.title = chrome.i18n.getMessage("dpoptions");
 	i18load();
+	oldglobalstate = localStorage["global"];
 	loadCheckbox("enable");
 	loadCheckbox("global");
 	loadCheckbox("enableToggle");
@@ -325,8 +326,9 @@ function saveOptions() {
 		error = true;
 	}
 	// Apply new settings
-	bkg.recursiveCloak(localStorage["enable"], localStorage["global"]);
+	bkg.optionsSaveTrigger(oldglobalstate, localStorage["global"]);
 	bkg.hotkeyChange();
+	oldglobalstate = localStorage["global"];
 	// Remove any existing styling
 	if (!error) notification(chrome.i18n.getMessage("saved"));
 	else notification(chrome.i18n.getMessage("invalidcolour"));
@@ -400,10 +402,6 @@ function updateDemo() {
 	if ($("#sfwmode").val() == 'Paranoid') $(".sampleimage").attr('style','visibility: hidden');
 	else if ($("#sfwmode").val() == 'NSFW') $(".sampleimage").attr('style','visibility: visible; opacity: 1 !important;').unbind();
 	else opacitytest();
-}
-
-function uncloak() {
-	bkg.uncloakAll();
 }
 
 function stylePreset(s) {

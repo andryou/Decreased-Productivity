@@ -1,3 +1,11 @@
+v0.46.54 - Wednesday, May 18, 2016
+- optimized foundation code (this is a significant update, too many to list: below are some of the major improvements)
+- improved whitelist/blacklist checks
+- tab cloak data now includes window IDs for guaranteed tab-specific cloaking
+- toggling Global Mode in Options is now enforced immediately (e.g. favicons and page titles) (thanks Vineet)
+- "Stickiness" feature (cloaking new tabs opened from cloaked pages) now checks if the new tab's domain is whitelisted or not before cloaking
+- eliminated various redundant lookups (e.g. whitelist/blacklist checks)
+
 v0.46.53.3 - Tuesday, May 10, 2016
 - auto-update hotkey toggle if stored in old format, fixing issue where the toggle doesn't work after recent updates
 - fixed potential issue where DP icon won't appear in the address bar
