@@ -317,7 +317,7 @@ chrome.tabs.onUpdated.addListener(function(tabid, changeinfo, tab) {
 					}
 				} else {
 					chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-						if (cloakedTabs.indexOf(tabs[0].windowId+"|"+tabs[0].id) != -1 && uncloakedTabs.indexOf(dpTabId) == -1) {
+						if (tabs[0].windowId == tab.windowId && cloakedTabs.indexOf(tabs[0].windowId+"|"+tabs[0].id) != -1 && uncloakedTabs.indexOf(dpTabId) == -1) {
 							if (domainCheck(extractDomainFromURL(tab.url)) != '0') {
 								cloakedTabs.push(dpTabId);
 								magician('true', tabid);
