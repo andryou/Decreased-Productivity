@@ -1,4 +1,6 @@
-v0.46.54 - Wednesday, May 18, 2016
+v0.46.54.1 - Thursday, May 19, 2016
+- v0.46.54.1 - fixed issue where DP icon was showing it was enabled even when it wasn't
+- v0.46.54.1 - fixed situations where the default coffee cup DP icon would be shown despite a custom icon being selected (e.g. creating a new tab)
 - optimized foundation code (this is a significant update, too many to list: below are some of the major improvements)
 - improved whitelist/blacklist checks
 - tab cloak data now includes window IDs for guaranteed tab-specific cloaking

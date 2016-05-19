@@ -292,25 +292,24 @@ function setDPIcon() {
 // ----- Request library to support content script communication
 chrome.tabs.onUpdated.addListener(function(tabid, changeinfo, tab) {
 	if (changeinfo.status == "loading") {
-		if (checkChrome(tab.url)) return;
 		dpTabId = tab.windowId+"|"+tabid;
 		dpcloakindex = cloakedTabs.indexOf(dpTabId);
-		dpuncloakindex = uncloakedTabs.indexOf(dpTabId);
 		enable = enabled(tab, dpcloakindex);
+		if (localStorage["showIcon"] == "true") {
+			if (enable == "true") chrome.pageAction.setIcon({path: "img/addressicon/"+dpicon+".png", tabId: tabid});
+			else chrome.pageAction.setIcon({path: "img/addressicon/"+dpicon+"-disabled.png", tabId: tabid});
+			chrome.pageAction.setTitle({title: dptitle, tabId: tabid});
+			chrome.pageAction.show(tabid);
+		} else chrome.pageAction.hide(tabid);
+		if (checkChrome(tab.url)) return;
 		if (enable == "true") {
 			if (dpcloakindex == -1) cloakedTabs.push(dpTabId);
 			magician('true', tabid);
 			if (localStorage["global"] == "false" && localStorage["enable"] == "false") localStorage["enable"] = "true";
 		}
-		if (localStorage["showIcon"] == "true") {
-			if (enable) chrome.pageAction.setIcon({path: "img/addressicon/"+dpicon+".png", tabId: tabid});
-			else chrome.pageAction.setIcon({path: "img/addressicon/"+dpicon+"-disabled.png", tabId: tabid});
-			chrome.pageAction.setTitle({title: dptitle, tabId: tabid});
-			chrome.pageAction.show(tabid);
-		} else chrome.pageAction.hide(tabid);
-		if (localStorage["enableStickiness"] == "true" && dpuncloakindex == -1) {
+		if (localStorage["enableStickiness"] == "true") {
 			if (tab.openerTabId) {
-				if (cloakedTabs.indexOf(tab.windowId+"|"+tab.openerTabId) != -1) {
+				if (cloakedTabs.indexOf(tab.windowId+"|"+tab.openerTabId) != -1 && uncloakedTabs.indexOf(dpTabId) == -1) {
 					if (domainCheck(extractDomainFromURL(tab.url)) != '0') {
 						if (dpcloakindex == -1) cloakedTabs.push(dpTabId);
 						magician('true', tabid);
