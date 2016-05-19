@@ -308,21 +308,26 @@ chrome.tabs.onUpdated.addListener(function(tabid, changeinfo, tab) {
 			if (localStorage["global"] == "false" && localStorage["enable"] == "false") localStorage["enable"] = "true";
 		} else {
 			if (localStorage["enableStickiness"] == "true") {
+				dpuncloakindex = uncloakedTabs.indexOf(dpTabId);
 				if (tab.openerTabId) {
-					if (cloakedTabs.indexOf(tab.windowId+"|"+tab.openerTabId) != -1 && uncloakedTabs.indexOf(dpTabId) == -1) {
+					if (cloakedTabs.indexOf(tab.windowId+"|"+tab.openerTabId) != -1 && dpuncloakindex == -1) {
 						if (domainCheck(extractDomainFromURL(tab.url)) != '0') {
 							cloakedTabs.push(dpTabId);
 							magician('true', tabid);
-						} else uncloakedTabs.push(dpTabId);
+							return;
+						}
 					}
+					uncloakedTabs.push(dpTabId);
 				} else {
 					chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-						if (tabs[0].windowId == tab.windowId && cloakedTabs.indexOf(tabs[0].windowId+"|"+tabs[0].id) != -1 && uncloakedTabs.indexOf(dpTabId) == -1) {
+						if (tabs[0].windowId == tab.windowId && cloakedTabs.indexOf(tabs[0].windowId+"|"+tabs[0].id) != -1 && dpuncloakindex == -1) {
 							if (domainCheck(extractDomainFromURL(tab.url)) != '0') {
 								cloakedTabs.push(dpTabId);
 								magician('true', tabid);
-							} else uncloakedTabs.push(dpTabId);
+								return;
+							}
 						}
+						uncloakedTabs.push(dpTabId);
 					});
 				}
 			}
