@@ -317,7 +317,7 @@ chrome.tabs.onUpdated.addListener(function(tabid, changeinfo, tab) {
 							return;
 						}
 					}
-					uncloakedTabs.push(dpTabId);
+					if (dpuncloakindex == -1) uncloakedTabs.push(dpTabId);
 				} else {
 					chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 						if (tabs[0].windowId == tab.windowId && cloakedTabs.indexOf(tabs[0].windowId+"|"+tabs[0].id) != -1 && dpuncloakindex == -1) {
@@ -327,7 +327,7 @@ chrome.tabs.onUpdated.addListener(function(tabid, changeinfo, tab) {
 								return;
 							}
 						}
-						uncloakedTabs.push(dpTabId);
+						if (dpuncloakindex == -1) uncloakedTabs.push(dpTabId);
 					});
 				}
 			}
