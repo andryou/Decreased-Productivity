@@ -7,7 +7,7 @@ var dphotkeylistener;
 var timestamp = Math.round(new Date().getTime()/1000.0);
 function addCloak(sfw, f, fsize, u, bg, text, table, link, bold, o1, o2, collapseimage) {
 	// Inject CSS into page
-	var cssinject  = document.createElement("style");
+	var cssinject = document.createElement("style");
 	cssinject.setAttribute("__decreased__", "productivity"+timestamp);
 	
 	var curlocation = document.location.href;

@@ -12,43 +12,37 @@ var cloakedTabs = [];
 var uncloakedTabs = [];
 var contextLoaded = false;
 var dpicon, dptitle;
+var blackList, whiteList;
 
 // ----- Supporting Functions
 
 function enabled(tab, dpcloakindex) {
-	dpdomaincheck = domainCheck(extractDomainFromURL(tab.url));
-	dpcloakindex = dpcloakindex || cloakedTabs.indexOf(tab.windowId+"|"+tab.id);
+	var dpdomaincheck = domainCheck(extractDomainFromURL(tab.url));
+	var dpcloakindex = dpcloakindex || cloakedTabs.indexOf(tab.windowId+"|"+tab.id);
 	if ((localStorage["enable"] == "true" || dpdomaincheck == '1') && dpdomaincheck != '0' && (localStorage["global"] == "true" || (localStorage["global"] == "false" && (dpcloakindex != -1 || localStorage["newPages"] == "Cloak" || dpdomaincheck == '1')))) return 'true';
 	return 'false';
 }
-function in_array(needle,haystack) {
-	for (key in haystack) if (haystack[key]==needle) {
-		return true;
-		break;
-	}
-	return false;
-}
 function domainCheck(domain) {
-	blackList = JSON.parse(localStorage['blackList']);
-	whiteList = JSON.parse(localStorage['whiteList']);
+	if (whiteList.indexOf(domain) != -1) return '0';
+	if (blackList.indexOf(domain) != -1) return '1';
 	if (domain.substr(0,4)=='www.') {
-		if (in_array(domain.substr(4), whiteList)) return '0';
-		if (in_array(domain.substr(4), blackList)) return '1';
+		var truncdomain = domain.substr(4);
+		if (whiteList.indexOf(truncdomain) != -1) return '0';
+		if (blackList.indexOf(truncdomain) != -1) return '1';
 	} else {
 		// temp until regex support is coded
-		if (in_array('www.'+domain, whiteList)) return '0';
-		if (in_array('www.'+domain, blackList)) return '1';
+		var wwwdomain = 'www.'+domain;
+		if (whiteList.indexOf(wwwdomain) != -1) return '0';
+		if (blackList.indexOf(wwwdomain) != -1) return '1';
 	}
-	if (in_array(domain, whiteList)) return '0';
-	if (in_array(domain, blackList)) return '1';
 	return '-1';
 }
 function extractDomainFromURL(url) {
 	if (!url) return "";
-	z = url.substr(url.indexOf("://") + 3);
+	var z = url.substr(url.indexOf("://") + 3);
 	z = z.substr(0, z.indexOf("/"));
 	z = z.substr(z.indexOf("@") + 1);
-	colPos = z.indexOf(":");
+	var colPos = z.indexOf(":");
 	if (colPos >= 0) z = z.substr(0, colPos);
 	return z;
 }
@@ -56,14 +50,12 @@ function domainHandler(domain,action) {
 	// Initialize local storage
 	if (typeof(localStorage['whiteList'])=='undefined') localStorage['whiteList'] = JSON.stringify([]);
 	if (typeof(localStorage['blackList'])=='undefined') localStorage['blackList'] = JSON.stringify([]);
-	whiteList = JSON.parse(localStorage['whiteList']);
-	blackList = JSON.parse(localStorage['blackList']);
 	
 	// Remove domain from whitelist and blacklist
-	pos = whiteList.indexOf(domain);
+	var pos = whiteList.indexOf(domain);
 	if (pos>-1) whiteList.splice(pos,1);
 	pos = blackList.indexOf(domain);
-	if (pos>-1) blackList.splice(blackList.indexOf(domain),1);
+	if (pos>-1) blackList.splice(pos,1);
 	
 	switch(action) {
 		case 0:	// Whitelist
@@ -75,6 +67,7 @@ function domainHandler(domain,action) {
 		case 2:	// Remove
 			break;
 	}
+	
 	localStorage['whiteList'] = JSON.stringify(whiteList);
 	localStorage['blackList'] = JSON.stringify(blackList);
 	return false;
@@ -150,8 +143,8 @@ chrome.contextMenus.create({"title": chrome.i18n.getMessage("removelist"), "cont
 	if (tab.url.substring(0, 4) != 'http') return;
 	domainHandler(extractDomainFromURL(tab.url), 2);
 	if (localStorage["enable"] == "true")  {
+		var flag = 'false';
 		if (localStorage['newPages'] == 'Cloak' || localStorage['global'] == 'true') flag = 'true';
-		else flag = 'false';
 		magician(flag, tab.id);
 	}
 }});
@@ -166,8 +159,8 @@ function newCloak(info, tab) {
 	else chrome.tabs.create({'url': info.linkUrl}, function(tab){ cloakedTabs.push(tab.windowId+"|"+tab.id);recursiveCloak('true', localStorage["global"], tab.id); });
 }
 // Add context menu item that shows only if you right-click on links/images.
-function dpContext(boo) {
-	if (boo == 'true' && !contextLoaded) {
+function dpContext() {
+	if (localStorage["showContext"] == 'true' && !contextLoaded) {
 		chrome.contextMenus.create({"title": chrome.i18n.getMessage("opensafely"), "contexts": ['link', 'image'], "onclick": function(info, tab){newCloak(info, tab);}});
 		contextLoaded = true;
 	}
@@ -179,23 +172,23 @@ function checkChrome(url) {
 }
 function hotkeyChange() {
 	chrome.windows.getAll({"populate":true}, function(windows) {
-		for (i=0; i<windows.length; i++) {
-			for (x=0; x<windows[i].tabs.length; x++) {
-				if (checkChrome(windows[i].tabs[x].url)) continue;
-				chrome.tabs.executeScript(windows[i].tabs[x].id, {code: 'hotkeySet("'+localStorage["enableToggle"]+'","'+localStorage["hotkey"]+'","'+localStorage["paranoidhotkey"]+'");', allFrames: true});
-			}
-		}
+		windows.map(function(window) {
+			window.tabs.map(function(tab) {
+				if (checkChrome(tab.url)) continue;
+				chrome.tabs.executeScript(tab.id, {code: 'hotkeySet("'+localStorage["enableToggle"]+'","'+localStorage["hotkey"]+'","'+localStorage["paranoidhotkey"]+'");', allFrames: true});
+			});
+		});
 	});
 }
 function optionsSaveTrigger(prevglob, newglob) {
-	enable = localStorage["enable"];
-	global = newglob;
+	var enable = localStorage["enable"];
+	var global = newglob;
 	if (prevglob == 'true' && newglob == 'false') {
 		global = 'true';
 		enable = 'false';
 	}
 	if (global == 'false') {
-		for (i=cloakedTabs.length-1; i>=0; --i) {
+		for (var i=cloakedTabs.length-1; i>=0; --i) {
 			magician(enable, parseInt(cloakedTabs[i].split("|")[1]));
 		}
 		if (enable == 'false') cloakedTabs = [];
@@ -204,17 +197,17 @@ function optionsSaveTrigger(prevglob, newglob) {
 function recursiveCloak(enable, global, tabId) {
 	if (global == 'true') {
 		chrome.windows.getAll({"populate":true}, function(windows) {
-			for (i=0; i<windows.length; i++) {
-				for (x=0; x<windows[i].tabs.length; x++) {
-					if (checkChrome(windows[i].tabs[x].url)) continue;
-					enabletemp = enable;
-					dpdomaincheck = domainCheck(extractDomainFromURL(windows[i].tabs[x].url));
+			windows.map(function(window) {
+				window.tabs.map(function(tab) {
+					if (checkChrome(tab.url)) continue;
+					var enabletemp = enable;
+					var dpdomaincheck = domainCheck(extractDomainFromURL(tab.url));
 					// Ensure whitelisted or blacklisted tabs stay as they are
 					if (enabletemp == 'true' && dpdomaincheck == '0') enabletemp = 'false';
 					else if (enabletemp == 'false' && dpdomaincheck == '1') enabletemp = 'true';
-					dpTabId = windows[i].tabs[x].windowId+"|"+windows[i].tabs[x].id;
-					dpcloakindex = cloakedTabs.indexOf(dpTabId);
-					dpuncloakindex = uncloakedTabs.indexOf(dpTabId);
+					var dpTabId = tab.windowId+"|"+tab.id;
+					var dpcloakindex = cloakedTabs.indexOf(dpTabId);
+					var dpuncloakindex = uncloakedTabs.indexOf(dpTabId);
 					if (enabletemp == 'false') {
 						if (dpuncloakindex == -1) uncloakedTabs.push(dpTabId);
 						if (dpcloakindex != -1) cloakedTabs.splice(dpcloakindex, 1);
@@ -222,9 +215,9 @@ function recursiveCloak(enable, global, tabId) {
 						if (dpcloakindex == -1) cloakedTabs.push(dpTabId);
 						if (dpuncloakindex != -1) uncloakedTabs.splice(dpuncloakindex, 1);
 					}
-					magician(enabletemp, windows[i].tabs[x].id);
-				}
-			}
+					magician(enabletemp, tab.id);
+				});
+			});
 		});
 	} else {
 		if (tabId) magician(enable, tabId);
@@ -259,9 +252,9 @@ function dpHandle(tab) {
 			recursiveCloak('true', 'true');
 		}
 	} else {
-		dpTabId = tab.windowId+"|"+tab.id;
-		dpcloakindex = cloakedTabs.indexOf(dpTabId);
-		dpuncloakindex = uncloakedTabs.indexOf(dpTabId);
+		var dpTabId = tab.windowId+"|"+tab.id;
+		var dpcloakindex = cloakedTabs.indexOf(dpTabId);
+		var dpuncloakindex = uncloakedTabs.indexOf(dpTabId);
 		localStorage["enable"] = "true";
 		if (dpcloakindex != -1) {
 			if (dpuncloakindex == -1) uncloakedTabs.push(dpTabId);
@@ -278,23 +271,23 @@ function setDPIcon() {
 	dpicon = localStorage["iconType"];
 	dptitle = localStorage["iconTitle"];
 	chrome.windows.getAll({"populate":true}, function(windows) {
-		for (i=0; i<windows.length; i++) {
-			for (x=0; x<windows[i].tabs.length; x++) {
-				if (cloakedTabs.indexOf(windows[i].tabs[x].windowId+"|"+windows[i].tabs[x].id) != -1) chrome.pageAction.setIcon({path: "img/addressicon/"+dpicon+".png", tabId: windows[i].tabs[x].id});
-				else chrome.pageAction.setIcon({path: "img/addressicon/"+dpicon+"-disabled.png", tabId: windows[i].tabs[x].id});
-				chrome.pageAction.setTitle({title: dptitle, tabId: windows[i].tabs[x].id});
-				if (localStorage["showIcon"] == 'true') chrome.pageAction.show(windows[i].tabs[x].id);
-				else chrome.pageAction.hide(windows[i].tabs[x].id);
-			}
-		}
+		windows.map(function(window) {
+			window.tabs.map(function(tab) {
+				if (cloakedTabs.indexOf(tab.windowId+"|"+tab.id) != -1) chrome.pageAction.setIcon({path: "img/addressicon/"+dpicon+".png", tabId: tab.id});
+				else chrome.pageAction.setIcon({path: "img/addressicon/"+dpicon+"-disabled.png", tabId: tab.id});
+				chrome.pageAction.setTitle({title: dptitle, tabId: tab.id});
+				if (localStorage["showIcon"] == 'true') chrome.pageAction.show(tab.id);
+				else chrome.pageAction.hide(tab.id);				
+			});
+		});
 	});
 }
 // ----- Request library to support content script communication
 chrome.tabs.onUpdated.addListener(function(tabid, changeinfo, tab) {
 	if (changeinfo.status == "loading") {
-		dpTabId = tab.windowId+"|"+tabid;
-		dpcloakindex = cloakedTabs.indexOf(dpTabId);
-		enable = enabled(tab, dpcloakindex);
+		var dpTabId = tab.windowId+"|"+tabid;
+		var dpcloakindex = cloakedTabs.indexOf(dpTabId);
+		var enable = enabled(tab, dpcloakindex);
 		if (localStorage["showIcon"] == "true") {
 			if (enable == "true") chrome.pageAction.setIcon({path: "img/addressicon/"+dpicon+".png", tabId: tabid});
 			else chrome.pageAction.setIcon({path: "img/addressicon/"+dpicon+"-disabled.png", tabId: tabid});
@@ -311,21 +304,17 @@ chrome.tabs.onUpdated.addListener(function(tabid, changeinfo, tab) {
 				dpuncloakindex = uncloakedTabs.indexOf(dpTabId);
 				if (tab.openerTabId) {
 					if (cloakedTabs.indexOf(tab.windowId+"|"+tab.openerTabId) != -1 && dpuncloakindex == -1) {
-						if (domainCheck(extractDomainFromURL(tab.url)) != '0') {
-							cloakedTabs.push(dpTabId);
-							magician('true', tabid);
-							return;
-						}
+						cloakedTabs.push(dpTabId);
+						magician('true', tabid);
+						return;
 					}
 					if (dpuncloakindex == -1) uncloakedTabs.push(dpTabId);
 				} else {
 					chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 						if (tabs[0].windowId == tab.windowId && cloakedTabs.indexOf(tabs[0].windowId+"|"+tabs[0].id) != -1 && dpuncloakindex == -1) {
-							if (domainCheck(extractDomainFromURL(tab.url)) != '0') {
-								cloakedTabs.push(dpTabId);
-								magician('true', tabid);
-								return;
-							}
+							cloakedTabs.push(dpTabId);
+							magician('true', tabid);
+							return;
 						}
 						if (dpuncloakindex == -1) uncloakedTabs.push(dpTabId);
 					});
@@ -335,28 +324,28 @@ chrome.tabs.onUpdated.addListener(function(tabid, changeinfo, tab) {
 	}
 });	
 chrome.tabs.onRemoved.addListener(function(tabid, windowInfo) {
-	dpTabId = windowInfo.windowId+"|"+tabid;
-	dpcloakindex = cloakedTabs.indexOf(dpTabId);
-	dpuncloakindex = uncloakedTabs.indexOf(dpTabId);
+	var dpTabId = windowInfo.windowId+"|"+tabid;
+	var dpcloakindex = cloakedTabs.indexOf(dpTabId);
+	var dpuncloakindex = uncloakedTabs.indexOf(dpTabId);
 	if (dpcloakindex != -1) cloakedTabs.splice(dpcloakindex, 1);
 	if (dpuncloakindex != -1) uncloakedTabs.splice(dpuncloakindex, 1);
 });
 requestDispatchTable = {
 	"get-enabled": function(request, sender, sendResponse) {
-		dpTabId = sender.tab.windowId+"|"+sender.tab.id;
-		dpcloakindex = cloakedTabs.indexOf(dpTabId);
-		enable = enabled(sender.tab, dpcloakindex);
+		var dpTabId = sender.tab.windowId+"|"+sender.tab.id;
+		var dpcloakindex = cloakedTabs.indexOf(dpTabId);
+		var enable = enabled(sender.tab, dpcloakindex);
 		if (enable == 'true' && dpcloakindex == -1) cloakedTabs.push(dpTabId);
 		sendResponse({enable: enable, background: localStorage["s_bg"], favicon: localStorage["disableFavicons"], hidePageTitles: localStorage["hidePageTitles"], pageTitleText: localStorage["pageTitleText"], enableToggle: localStorage["enableToggle"], hotkey: localStorage["hotkey"], paranoidhotkey: localStorage["paranoidhotkey"]});
 	},
 	"toggle": function(request, sender, sendResponse) {
 		if (localStorage["savedsfwmode"] != "") {
-			dpTabId = sender.tab.windowId+"|"+sender.tab.id;
 			localStorage["sfwmode"] = localStorage["savedsfwmode"];
 			localStorage["savedsfwmode"] = "";
 			if (localStorage["global"] == "true") recursiveCloak('true', 'true');
 			else {
-				dpuncloakindex = uncloakedTabs.indexOf(dpTabId);
+				var dpTabId = sender.tab.windowId+"|"+sender.tab.id;
+				var dpuncloakindex = uncloakedTabs.indexOf(dpTabId);
 				if (dpuncloakindex != -1) uncloakedTabs.splice(dpuncloakindex, 1);
 				if (cloakedTabs.indexOf(dpTabId) == -1) cloakedTabs.push(dpTabId);
 				magician('true', sender.tab.id);
@@ -372,8 +361,8 @@ requestDispatchTable = {
 			localStorage["sfwmode"] = "Paranoid";
 			if (localStorage["global"] == "true") recursiveCloak('true', 'true');
 			else {
-				dpTabId = sender.tab.windowId+"|"+sender.tab.id;
-				dpuncloakindex = uncloakedTabs.indexOf(dpTabId);
+				var dpTabId = sender.tab.windowId+"|"+sender.tab.id;
+				var dpuncloakindex = uncloakedTabs.indexOf(dpTabId);
 				if (dpuncloakindex != -1) uncloakedTabs.splice(dpuncloakindex, 1);
 				if (cloakedTabs.indexOf(dpTabId) == -1) cloakedTabs.push(dpTabId);
 				magician('true', sender.tab.id);
@@ -386,6 +375,7 @@ requestDispatchTable = {
 		}
 	},
 	"get-settings": function(request, sender, sendResponse) {
+		var enable, fontface;
 		if (localStorage["font"] == '-Custom-') {
 			if (localStorage["customfont"]) fontface = localStorage["customfont"];
 			else fontface = 'Arial';
@@ -405,9 +395,12 @@ chrome.pageAction.onClicked.addListener(function(tab) {
 });
 // Execute
 setDefaultOptions();
+// save blacklist and whitelist in global variable for faster lookups
+blackList = JSON.parse(localStorage['blackList']);
+whiteList = JSON.parse(localStorage['whiteList']);
 setDPIcon();
+dpContext();
 if ((!optionExists("version") || localStorage["version"] != version) && localStorage["showUpdateNotifications"] == 'true') {
 	chrome.tabs.create({ url: chrome.extension.getURL('updated.html'), selected: false });
 	localStorage["version"] = version;
 }
-dpContext(localStorage["showContext"]);
