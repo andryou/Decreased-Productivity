@@ -205,6 +205,7 @@ function recursiveCloak(enable, global, tabId) {
 					// Ensure whitelisted or blacklisted tabs stay as they are
 					if (enabletemp == 'true' && dpdomaincheck == '0') enabletemp = 'false';
 					else if (enabletemp == 'false' && dpdomaincheck == '1') enabletemp = 'true';
+					magician(enabletemp, tab.id);
 					var dpTabId = tab.windowId+"|"+tab.id;
 					var dpcloakindex = cloakedTabs.indexOf(dpTabId);
 					var dpuncloakindex = uncloakedTabs.indexOf(dpTabId);
@@ -215,7 +216,6 @@ function recursiveCloak(enable, global, tabId) {
 						if (dpcloakindex == -1) cloakedTabs.push(dpTabId);
 						if (dpuncloakindex != -1) uncloakedTabs.splice(dpuncloakindex, 1);
 					}
-					magician(enabletemp, tab.id);
 				});
 			});
 		});
@@ -245,11 +245,11 @@ function dpHandle(tab) {
 	if (checkChrome(tab.url)) return;
 	if (localStorage["global"] == "true" && domainCheck(extractDomainFromURL(tab.url)) != 1) {
 		if (localStorage["enable"] == "true") {
-			localStorage["enable"] = "false";
 			recursiveCloak('false', 'true');
+			localStorage["enable"] = "false";
 		} else {
-			localStorage["enable"] = "true";
 			recursiveCloak('true', 'true');
+			localStorage["enable"] = "true";
 		}
 	} else {
 		var dpTabId = tab.windowId+"|"+tab.id;
@@ -257,13 +257,13 @@ function dpHandle(tab) {
 		var dpuncloakindex = uncloakedTabs.indexOf(dpTabId);
 		localStorage["enable"] = "true";
 		if (dpcloakindex != -1) {
+			magician('false', tab.id);
 			if (dpuncloakindex == -1) uncloakedTabs.push(dpTabId);
 			cloakedTabs.splice(dpcloakindex, 1);
-			magician('false', tab.id);
 		} else {
+			magician('true', tab.id);
 			cloakedTabs.push(dpTabId);
 			if (dpuncloakindex != -1) uncloakedTabs.splice(dpuncloakindex, 1);
-			magician('true', tab.id);
 		}
 	}
 }
@@ -277,7 +277,7 @@ function setDPIcon() {
 				else chrome.pageAction.setIcon({path: "img/addressicon/"+dpicon+"-disabled.png", tabId: tab.id});
 				chrome.pageAction.setTitle({title: dptitle, tabId: tab.id});
 				if (localStorage["showIcon"] == 'true') chrome.pageAction.show(tab.id);
-				else chrome.pageAction.hide(tab.id);				
+				else chrome.pageAction.hide(tab.id);
 			});
 		});
 	});
@@ -295,28 +295,35 @@ chrome.tabs.onUpdated.addListener(function(tabid, changeinfo, tab) {
 			chrome.pageAction.show(tabid);
 		} else chrome.pageAction.hide(tabid);
 		if (checkChrome(tab.url)) return;
+		var dpuncloakindex = uncloakedTabs.indexOf(dpTabId);
 		if (enable == "true") {
-			if (dpcloakindex == -1) cloakedTabs.push(dpTabId);
 			magician('true', tabid);
 			if (localStorage["global"] == "false" && localStorage["enable"] == "false") localStorage["enable"] = "true";
+			if (dpcloakindex == -1) cloakedTabs.push(dpTabId);
+			if (dpuncloakindex != -1) uncloakedTabs.splice(dpuncloakindex, 1);
 		} else {
 			if (localStorage["enableStickiness"] == "true") {
-				dpuncloakindex = uncloakedTabs.indexOf(dpTabId);
 				if (tab.openerTabId) {
 					if (cloakedTabs.indexOf(tab.windowId+"|"+tab.openerTabId) != -1 && dpuncloakindex == -1) {
-						cloakedTabs.push(dpTabId);
-						magician('true', tabid);
-						return;
+						if (domainCheck(extractDomainFromURL(tab.url)) != '0') {
+							magician('true', tabid);
+							cloakedTabs.push(dpTabId);
+							return;
+						}
 					}
 					if (dpuncloakindex == -1) uncloakedTabs.push(dpTabId);
+					if (dpcloakindex != -1) cloakedTabs.splice(dpcloakindex, 1);
 				} else {
 					chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
 						if (tabs[0].windowId == tab.windowId && cloakedTabs.indexOf(tabs[0].windowId+"|"+tabs[0].id) != -1 && dpuncloakindex == -1) {
-							cloakedTabs.push(dpTabId);
-							magician('true', tabid);
-							return;
+							if (domainCheck(extractDomainFromURL(tab.url)) != '0') {
+								magician('true', tabid);
+								cloakedTabs.push(dpTabId);
+								return;
+							}
 						}
 						if (dpuncloakindex == -1) uncloakedTabs.push(dpTabId);
+						if (dpcloakindex != -1) cloakedTabs.splice(dpcloakindex, 1);
 					});
 				}
 			}
@@ -344,11 +351,11 @@ requestDispatchTable = {
 			localStorage["savedsfwmode"] = "";
 			if (localStorage["global"] == "true") recursiveCloak('true', 'true');
 			else {
+				magician('true', sender.tab.id);
 				var dpTabId = sender.tab.windowId+"|"+sender.tab.id;
 				var dpuncloakindex = uncloakedTabs.indexOf(dpTabId);
 				if (dpuncloakindex != -1) uncloakedTabs.splice(dpuncloakindex, 1);
 				if (cloakedTabs.indexOf(dpTabId) == -1) cloakedTabs.push(dpTabId);
-				magician('true', sender.tab.id);
 			}
 			localStorage["enable"] = "true";
 		} else {
@@ -361,11 +368,11 @@ requestDispatchTable = {
 			localStorage["sfwmode"] = "Paranoid";
 			if (localStorage["global"] == "true") recursiveCloak('true', 'true');
 			else {
+				magician('true', sender.tab.id);
 				var dpTabId = sender.tab.windowId+"|"+sender.tab.id;
 				var dpuncloakindex = uncloakedTabs.indexOf(dpTabId);
 				if (dpuncloakindex != -1) uncloakedTabs.splice(dpuncloakindex, 1);
 				if (cloakedTabs.indexOf(dpTabId) == -1) cloakedTabs.push(dpTabId);
-				magician('true', sender.tab.id);
 			}
 			localStorage["enable"] = "true";
 		} else {
