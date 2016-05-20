@@ -1,4 +1,4 @@
-v0.46.55 - Friday, May 20, 2016
+v0.46.55.1 - Friday, May 20, 2016
 - further significant foundation code optimization, resulting in (probably noticeably) faster and more efficient logic and processing
 
 v0.46.54.4 - Thursday, May 19, 2016

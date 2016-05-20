@@ -174,8 +174,7 @@ function hotkeyChange() {
 	chrome.windows.getAll({"populate":true}, function(windows) {
 		windows.map(function(window) {
 			window.tabs.map(function(tab) {
-				if (checkChrome(tab.url)) continue;
-				chrome.tabs.executeScript(tab.id, {code: 'hotkeySet("'+localStorage["enableToggle"]+'","'+localStorage["hotkey"]+'","'+localStorage["paranoidhotkey"]+'");', allFrames: true});
+				if (!checkChrome(tab.url)) chrome.tabs.executeScript(tab.id, {code: 'hotkeySet("'+localStorage["enableToggle"]+'","'+localStorage["hotkey"]+'","'+localStorage["paranoidhotkey"]+'");', allFrames: true});
 			});
 		});
 	});
@@ -199,22 +198,23 @@ function recursiveCloak(enable, global, tabId) {
 		chrome.windows.getAll({"populate":true}, function(windows) {
 			windows.map(function(window) {
 				window.tabs.map(function(tab) {
-					if (checkChrome(tab.url)) continue;
-					var enabletemp = enable;
-					var dpdomaincheck = domainCheck(extractDomainFromURL(tab.url));
-					// Ensure whitelisted or blacklisted tabs stay as they are
-					if (enabletemp == 'true' && dpdomaincheck == '0') enabletemp = 'false';
-					else if (enabletemp == 'false' && dpdomaincheck == '1') enabletemp = 'true';
-					magician(enabletemp, tab.id);
-					var dpTabId = tab.windowId+"|"+tab.id;
-					var dpcloakindex = cloakedTabs.indexOf(dpTabId);
-					var dpuncloakindex = uncloakedTabs.indexOf(dpTabId);
-					if (enabletemp == 'false') {
-						if (dpuncloakindex == -1) uncloakedTabs.push(dpTabId);
-						if (dpcloakindex != -1) cloakedTabs.splice(dpcloakindex, 1);
-					} else {
-						if (dpcloakindex == -1) cloakedTabs.push(dpTabId);
-						if (dpuncloakindex != -1) uncloakedTabs.splice(dpuncloakindex, 1);
+					if (!checkChrome(tab.url)) {
+						var enabletemp = enable;
+						var dpdomaincheck = domainCheck(extractDomainFromURL(tab.url));
+						// Ensure whitelisted or blacklisted tabs stay as they are
+						if (enabletemp == 'true' && dpdomaincheck == '0') enabletemp = 'false';
+						else if (enabletemp == 'false' && dpdomaincheck == '1') enabletemp = 'true';
+						magician(enabletemp, tab.id);
+						var dpTabId = tab.windowId+"|"+tab.id;
+						var dpcloakindex = cloakedTabs.indexOf(dpTabId);
+						var dpuncloakindex = uncloakedTabs.indexOf(dpTabId);
+						if (enabletemp == 'false') {
+							if (dpuncloakindex == -1) uncloakedTabs.push(dpTabId);
+							if (dpcloakindex != -1) cloakedTabs.splice(dpcloakindex, 1);
+						} else {
+							if (dpcloakindex == -1) cloakedTabs.push(dpTabId);
+							if (dpuncloakindex != -1) uncloakedTabs.splice(dpuncloakindex, 1);
+						}
 					}
 				});
 			});
