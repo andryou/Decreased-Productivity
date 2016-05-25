@@ -41,15 +41,15 @@ function addCloak(sfw, f, fsize, u, bg, text, table, link, bold, o1, o2, collaps
 	else magic += 'none !important; }';
 	
 	if (sfw == 'SFW' || sfw == 'SFW1' || sfw == 'SFW2') {
-		if (o1 == 0 && collapseimage == 'true') magic += ' iframe, img, input[type=image], path, polygon { display: none !important; }';
-		else magic += ' iframe, img, input[type=image], path, polygon { opacity: '+o1+' !important; } iframe:hover, img:hover, input[type=image]:hover, path:hover, polygon:hover { opacity: '+o2+' !important; }';
+		if (o1 == 0 && collapseimage == 'true') magic += ' iframe, img, input[type=image], path, polygon, picture { display: none !important; }';
+		else magic += ' iframe, img, input[type=image], path, polygon, picture { opacity: '+o1+' !important; } iframe:hover, img:hover, input[type=image]:hover, path:hover, polygon:hover { opacity: '+o2+' !important; }';
 	}
 	if (sfw == 'SFW') {
 		if (o1 == 0 && collapseimage == 'true') magic += ' object, embed, param, video, audio { display: none !important; }';
 		else magic += ' object, embed, param, video, audio { opacity: '+o1+' !important; } object:hover, embed:hover, param:hover, video:hover, audio:hover { opacity: '+o2+' !important; }';
 	}
 	if (sfw == 'SFW1') magic += ' object, embed, param, video, audio { display: none !important; opacity: 0 !important; }';
-	if (sfw == 'Paranoid') magic += ' iframe, img, input[type=image], path, polygon, object, embed, param, video, audio { display: none !important; opacity: 0 !important; }';
+	if (sfw == 'Paranoid') magic += ' iframe, img, input[type=image], path, polygon, object, embed, param, video, audio, picture { display: none !important; opacity: 0 !important; }';
 	
 	magic += ' .dp'+timestamp+'_visible { visibility: visible !important; opacity: 1 !important; }';
 	magic += ' .dp'+timestamp+'_unbold { font-weight: normal !important }';

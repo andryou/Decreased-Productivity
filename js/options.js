@@ -471,9 +471,10 @@ function stylePreset(s) {
 // <!-- modified from KB SSL Enforcer: https://code.google.com/p/kbsslenforcer/
 function addList(type) {
 	var domain = $('#url').val();
-	var domainValidator = new RegExp('^[\\-\\w]+(\\.[\\-\\w]+)*(:[0-9]+)?$'); // https://stackoverflow.com/posts/18696953/revisions
+	var domainValidator = new RegExp('^[\\-\\w\\*\\?]+(\\.[\\-\\w\\*\\?]+)*(:[0-9]+)?$'); // https://stackoverflow.com/posts/18696953/revisions
+	domain = domain.toLowerCase();
 	
-	if (!(domainValidator.test(domain.toLowerCase()))) {
+	if (!(domainValidator.test(domain))) {
 		$('#listMsg').html(chrome.i18n.getMessage("invaliddomain")).stop().fadeIn("slow").delay(2000).fadeOut("slow");
 	} else {
 		bkg.domainHandler(domain, type);

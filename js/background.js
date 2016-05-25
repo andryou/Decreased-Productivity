@@ -23,18 +23,8 @@ function enabled(tab, dpcloakindex) {
 	return 'false';
 }
 function domainCheck(domain) {
-	if (whiteList.indexOf(domain) != -1) return '0';
-	if (blackList.indexOf(domain) != -1) return '1';
-	if (domain.substr(0,4)=='www.') {
-		var truncdomain = domain.substr(4);
-		if (whiteList.indexOf(truncdomain) != -1) return '0';
-		if (blackList.indexOf(truncdomain) != -1) return '1';
-	} else {
-		// temp until regex support is coded
-		var wwwdomain = 'www.'+domain;
-		if (whiteList.indexOf(wwwdomain) != -1) return '0';
-		if (blackList.indexOf(wwwdomain) != -1) return '1';
-	}
+	if (whiteList && new RegExp(whiteList).test(domain)) return '0';
+	if (blackList && new RegExp(blackList).test(domain)) return '1';
 	return '-1';
 }
 function extractDomainFromURL(url) {
@@ -50,26 +40,30 @@ function domainHandler(domain,action) {
 	// Initialize local storage
 	if (typeof(localStorage['whiteList'])=='undefined') localStorage['whiteList'] = JSON.stringify([]);
 	if (typeof(localStorage['blackList'])=='undefined') localStorage['blackList'] = JSON.stringify([]);
+	var tempWhitelist = JSON.parse(localStorage['whiteList']);
+	var tempBlacklist = JSON.parse(localStorage['blackList']);
 	
 	// Remove domain from whitelist and blacklist
-	var pos = whiteList.indexOf(domain);
-	if (pos>-1) whiteList.splice(pos,1);
-	pos = blackList.indexOf(domain);
-	if (pos>-1) blackList.splice(pos,1);
+	var pos = tempWhitelist.indexOf(domain);
+	if (pos>-1) tempWhitelist.splice(pos,1);
+	pos = tempBlacklist.indexOf(domain);
+	if (pos>-1) tempBlacklist.splice(pos,1);
 	
 	switch(action) {
 		case 0:	// Whitelist
-			whiteList.push(domain);
+			tempWhitelist.push(domain);
 			break;
 		case 1:	// Blacklist
-			blackList.push(domain);
+			tempBlacklist.push(domain);
 			break;
 		case 2:	// Remove
 			break;
 	}
 	
-	localStorage['whiteList'] = JSON.stringify(whiteList);
-	localStorage['blackList'] = JSON.stringify(blackList);
+	localStorage['blackList'] = JSON.stringify(tempBlacklist);
+	localStorage['whiteList'] = JSON.stringify(tempWhitelist);
+	blackList = regexify(tempBlacklist);
+	whiteList = regexify(tempWhitelist);
 	return false;
 }
 // ----- Options
@@ -282,6 +276,10 @@ function setDPIcon() {
 		});
 	});
 }
+function regexify(arr) {
+	if (arr.length == 0) return '';
+	return '(?:www\\.)?(?:'+arr.join('|').replace(/\./g, '\\.').replace(/\*/g, '\\w+').replace(/\?/g, '.')+')';
+}
 // ----- Request library to support content script communication
 chrome.tabs.onUpdated.addListener(function(tabid, changeinfo, tab) {
 	if (changeinfo.status == "loading") {
@@ -403,8 +401,8 @@ chrome.pageAction.onClicked.addListener(function(tab) {
 // Execute
 setDefaultOptions();
 // save blacklist and whitelist in global variable for faster lookups
-blackList = JSON.parse(localStorage['blackList']);
-whiteList = JSON.parse(localStorage['whiteList']);
+blackList = regexify(JSON.parse(localStorage['blackList']));
+whiteList = regexify(JSON.parse(localStorage['whiteList']));
 setDPIcon();
 dpContext();
 if ((!optionExists("version") || localStorage["version"] != version) && localStorage["showUpdateNotifications"] == 'true') {

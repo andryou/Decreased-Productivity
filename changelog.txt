@@ -1,3 +1,13 @@
+v0.46.56 - Wednesday, May 25, 2016
+- Proudly presenting a long-awaited feature: wildcards and single character matching support:
+--- Domain Matching: domain.com matches domain.com and www.domain.com
+--- Wildcard Matching: *.domain.com matches anything.domain.com (but not domain.com (no subdomain))
+--- Single Character Matching: ?.abc.com matches a.abc.com, b.abc.com, 2.abc.com, etc.
+--- Note 1: the * and ? can be placed anywhere and/or combined (e.g. ab?.com, cat*.c?)
+--- Note 2: if there are any duplicates, the whitelist always takes precedence over the blacklist
+- the above update should also result in further improved performance
+- added cloaking support for <picture> elements
+
 v0.46.55.1 - Friday, May 20, 2016
 - further significant foundation code optimization, resulting in (probably noticeably) faster and more efficient logic and processing
 
@@ -77,7 +87,7 @@ v0.46.45 - Tuesday, February 9, 2016
 - improved compatibility with Engadget (thanks Dan), Google+ (scrolling stuttering), YouTube (thanks Jason), Reddit (if using Reddit Enhancement Suite (Night Mode))
 
 v0.46.44 - Friday, February 5, 2016
-- polished cloaking so more sites should be readable</li>
+- polished cloaking so more sites should be readable
 - improved compatibility with Facebook (main timeline post box and Instagram photos), Reddit (if using Reddit Enhancement Suite), the Gawker sites (e.g. Lifehacker, Gizmodo, etc)
 
 v0.46.43 - Friday, February 5, 2016
