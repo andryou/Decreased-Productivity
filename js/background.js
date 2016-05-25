@@ -278,7 +278,7 @@ function setDPIcon() {
 }
 function regexify(arr) {
 	if (arr.length == 0) return '';
-	return '(?:www\\.)?(?:'+arr.join('|').replace(/\./g, '\\.').replace(/\*/g, '\\w+').replace(/\?/g, '.')+')';
+	return '(?:www\\.)?(?:'+arr.join('|').replace(/(^|\|)www\./g, '$1').replace(/\./g, '\\.').replace(/\*/g, '\\w+').replace(/\?/g, '.')+')';
 }
 // ----- Request library to support content script communication
 chrome.tabs.onUpdated.addListener(function(tabid, changeinfo, tab) {

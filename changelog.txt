@@ -1,4 +1,4 @@
-v0.46.56 - Wednesday, May 25, 2016
+v0.46.56.1 - Wednesday, May 25, 2016
 - Proudly presenting a long-awaited feature: wildcards and single character matching support:
 --- Domain Matching: domain.com matches domain.com and www.domain.com
 --- Wildcard Matching: *.domain.com matches anything.domain.com (but not domain.com (no subdomain))
