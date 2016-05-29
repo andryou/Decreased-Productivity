@@ -278,7 +278,7 @@ function setDPIcon() {
 }
 function regexify(arr) {
 	if (arr.length == 0) return '';
-	return '(?:www\\.|^)(?:'+arr.join('|').replace(/(^|\|)www\./g, '$1').replace(/\./g, '\\.').replace(/\*/g, '\\w+').replace(/\?/g, '.')+')';
+	return '(?:www\\.|^)(?:'+arr.join('|').replace(/(^|\|)www\./g, '$1').replace(/\./g, '\\.').replace(/\*/g, '[^.]+').replace(/\?/g, '.')+')';
 }
 // ----- Request library to support content script communication
 chrome.tabs.onUpdated.addListener(function(tabid, changeinfo, tab) {
@@ -407,6 +407,6 @@ setDPIcon();
 dpContext();
 if ((!optionExists("version") || localStorage["version"] != version) && localStorage["showUpdateNotifications"] == 'true') {
 	//chrome.tabs.create({ url: chrome.extension.getURL('updated.html'), selected: false });
-	// v0.46.56.2 is a minor update, so no need to show update notification.
+	// v0.46.56.2 and 3 are a minor update, so no need to show update notification.
 	localStorage["version"] = version;
 }
