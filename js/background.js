@@ -23,8 +23,19 @@ function enabled(tab, dpcloakindex) {
 	return 'false';
 }
 function domainCheck(domain) {
-	if (whiteList && new RegExp(whiteList).test(domain)) return '0';
-	if (blackList && new RegExp(blackList).test(domain)) return '1';
+	if (!domain) return '-1';
+	for (var i in whiteList) {
+		if (new RegExp('(?:www\\.)?(?:'+whiteList[i].replace(/^www\./, '').replace(/\./g, '\\.').replace(/\*/g, '\\w+').replace(/\?/g, '.')+')').test(domain)) {
+			return '0';
+			break;
+		}
+	}
+	for (var i in blackList) {
+		if (new RegExp('(?:www\\.)?(?:'+blackList[i].replace(/^www\./, '').replace(/\./g, '\\.').replace(/\*/g, '\\w+').replace(/\?/g, '.')+')').test(domain)) {
+			return '1';
+			break;
+		}
+	}
 	return '-1';
 }
 function extractDomainFromURL(url) {
@@ -62,8 +73,8 @@ function domainHandler(domain,action) {
 	
 	localStorage['blackList'] = JSON.stringify(tempBlacklist);
 	localStorage['whiteList'] = JSON.stringify(tempWhitelist);
-	blackList = regexify(tempBlacklist);
-	whiteList = regexify(tempWhitelist);
+	blackList = tempBlacklist;
+	whiteList = tempWhitelist;
 	return false;
 }
 // ----- Options
@@ -276,10 +287,6 @@ function setDPIcon() {
 		});
 	});
 }
-function regexify(arr) {
-	if (arr.length == 0) return '';
-	return '(?:www\\.)?(?:'+arr.join('|').replace(/(^|\|)www\./g, '$1').replace(/\./g, '\\.').replace(/\*/g, '\\w+').replace(/\?/g, '.')+')';
-}
 // ----- Request library to support content script communication
 chrome.tabs.onUpdated.addListener(function(tabid, changeinfo, tab) {
 	if (changeinfo.status == "loading") {
@@ -401,11 +408,11 @@ chrome.pageAction.onClicked.addListener(function(tab) {
 // Execute
 setDefaultOptions();
 // save blacklist and whitelist in global variable for faster lookups
-blackList = regexify(JSON.parse(localStorage['blackList']));
-whiteList = regexify(JSON.parse(localStorage['whiteList']));
+blackList = JSON.parse(localStorage['blackList']);
+whiteList = JSON.parse(localStorage['whiteList']);
 setDPIcon();
 dpContext();
 if ((!optionExists("version") || localStorage["version"] != version) && localStorage["showUpdateNotifications"] == 'true') {
-	chrome.tabs.create({ url: chrome.extension.getURL('updated.html'), selected: false });
+	if (!optionExists("version")) chrome.tabs.create({ url: chrome.extension.getURL('updated.html'), selected: false }); // very minor update, so only show to new installations.
 	localStorage["version"] = version;
 }
