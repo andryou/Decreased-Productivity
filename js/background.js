@@ -25,13 +25,13 @@ function enabled(tab, dpcloakindex) {
 function domainCheck(domain) {
 	if (!domain) return '-1';
 	for (var i in whiteList) {
-		if (new RegExp('(?:www\\.)?(?:'+whiteList[i].replace(/^www\./, '').replace(/\./g, '\\.').replace(/\*/g, '\\w+').replace(/\?/g, '.')+')').test(domain)) {
+		if (new RegExp('(?:www\\.|^)(?:'+whiteList[i].replace(/^www\./, '').replace(/\./g, '\\.').replace(/\*/g, '[^.]+').replace(/\?/g, '.')+')').test(domain)) {
 			return '0';
 			break;
 		}
 	}
 	for (var i in blackList) {
-		if (new RegExp('(?:www\\.)?(?:'+blackList[i].replace(/^www\./, '').replace(/\./g, '\\.').replace(/\*/g, '\\w+').replace(/\?/g, '.')+')').test(domain)) {
+		if (new RegExp('(?:www\\.|^)(?:'+blackList[i].replace(/^www\./, '').replace(/\./g, '\\.').replace(/\*/g, '[^.]+').replace(/\?/g, '.')+')').test(domain)) {
 			return '1';
 			break;
 		}
@@ -413,6 +413,6 @@ whiteList = JSON.parse(localStorage['whiteList']);
 setDPIcon();
 dpContext();
 if ((!optionExists("version") || localStorage["version"] != version) && localStorage["showUpdateNotifications"] == 'true') {
-	if (!optionExists("version")) chrome.tabs.create({ url: chrome.extension.getURL('updated.html'), selected: false }); // very minor update, so only show to new installations.
+	// chrome.tabs.create({ url: chrome.extension.getURL('updated.html'), selected: false }); // very minor update
 	localStorage["version"] = version;
 }
