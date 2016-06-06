@@ -416,3 +416,6 @@ if ((!optionExists("version") || localStorage["version"] != version) && localSto
 	// chrome.tabs.create({ url: chrome.extension.getURL('updated.html'), selected: false }); // very minor update
 	localStorage["version"] = version;
 }
+chrome.runtime.onUpdateAvailable.addListener(function (details) {
+	// an update is available, but wait until user restarts their browser as to not disrupt their current session and cloaked tabs.
+});
