@@ -25,12 +25,20 @@ function enabled(tab, dpcloakindex) {
 function domainCheck(domain) {
 	if (!domain) return '-1';
 	for (var i in whiteList) {
+		if (needle == whiteList[i]) {
+			return '0';
+			break;
+		}
 		if (new RegExp('(?:www\\.|^)(?:'+whiteList[i].replace(/^www\./, '').replace(/\./g, '\\.').replace(/\*/g, '[^.]+').replace(/\?/g, '.')+')').test(domain)) {
 			return '0';
 			break;
 		}
 	}
 	for (var i in blackList) {
+		if (needle == blackList[i]) {
+			return '1';
+			break;
+		}
 		if (new RegExp('(?:www\\.|^)(?:'+blackList[i].replace(/^www\./, '').replace(/\./g, '\\.').replace(/\*/g, '[^.]+').replace(/\?/g, '.')+')').test(domain)) {
 			return '1';
 			break;
