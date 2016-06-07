@@ -25,7 +25,7 @@ function enabled(tab, dpcloakindex) {
 function domainCheck(domain) {
 	if (!domain) return '-1';
 	for (var i in whiteList) {
-		if (needle == whiteList[i]) {
+		if (domain == whiteList[i]) {
 			return '0';
 			break;
 		}
@@ -35,7 +35,7 @@ function domainCheck(domain) {
 		}
 	}
 	for (var i in blackList) {
-		if (needle == blackList[i]) {
+		if (domain == blackList[i]) {
 			return '1';
 			break;
 		}
