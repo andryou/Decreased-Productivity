@@ -1,3 +1,7 @@
+v0.46.56.5 - Monday, June 20, 2016
+- Added support for IPv6 addresses
+- Improved performance for users with large lists
+
 v0.46.56.1 - Wednesday, May 25, 2016
 - Proudly presenting a long-awaited feature: wildcards and single character matching support:
 --- Domain Matching: domain.com matches domain.com and www.domain.com
