@@ -2,6 +2,7 @@
 // Icon by dunedhel: http://dunedhel.deviantart.com/
 // Supporting functions by AdThwart - T. Joseph
 
+//'use strict'; - enable after testing
 var version = (function () {
 	var xhr = new XMLHttpRequest();
 	xhr.open('GET', chrome.extension.getURL('manifest.json'), false);
@@ -24,36 +25,60 @@ function enabled(tab, dpcloakindex) {
 }
 function domainCheck(domain) {
 	if (!domain) return '-1';
-	for (var i in whiteList) {
-		if (domain == whiteList[i]) {
-			return '0';
-			break;
-		}
-		if (new RegExp('(?:www\\.|^)(?:'+whiteList[i].replace(/^www\./, '').replace(/\./g, '\\.').replace(/\*/g, '[^.]+').replace(/\?/g, '.')+')').test(domain)) {
-			return '0';
-			break;
-		}
-	}
-	for (var i in blackList) {
-		if (domain == blackList[i]) {
-			return '1';
-			break;
-		}
-		if (new RegExp('(?:www\\.|^)(?:'+blackList[i].replace(/^www\./, '').replace(/\./g, '\\.').replace(/\*/g, '[^.]+').replace(/\?/g, '.')+')').test(domain)) {
-			return '1';
-			break;
-		}
-	}
+	if (in_array(domain, whiteList) == '1') return '0';
+	if (in_array(domain, blackList) == '1') return '1';
 	return '-1';
+}
+function in_array(needle, haystack) {
+	if (!haystack || !needle) return false;
+	if (binarySearch(haystack, needle) != -1) return '1';
+	if (needle.indexOf('www.') == 0) {
+		needle = needle.substring(4);
+		if (binarySearch(haystack, needle) != -1) return '1';
+	}
+	for (var i in haystack) {
+		if (haystack[i].indexOf("*") == -1 && haystack[i].indexOf("?") == -1) continue;
+		if (new RegExp('^(?:www\\.|^)(?:'+haystack[i].replace(/\./g, '\\.').replace(/^\[/, '\\[').replace(/\]$/, '\\]').replace(/\?/g, '.').replace(/\*/g, '[^.]+')+')').test(needle)) return '1';
+	}
+	return false;
+}
+function binarySearch(list, item) {
+    var min = 0;
+    var max = list.length - 1;
+    var guess;
+	var bitwise = (max <= 2147483647) ? true : false;
+	if (bitwise) {
+		while (min <= max) {
+			guess = (min + max) >> 1;
+			if (list[guess] === item) { return guess; }
+			else {
+				if (list[guess] < item) { min = guess + 1; }
+				else { max = guess - 1; }
+			}
+		}
+	} else {
+		while (min <= max) {
+			guess = Math.floor((min + max) / 2);
+			if (list[guess] === item) { return guess; }
+			else {
+				if (list[guess] < item) { min = guess + 1; }
+				else { max = guess - 1; }
+			}
+		}
+	}
+    return -1;
 }
 function extractDomainFromURL(url) {
 	if (!url) return "";
-	var z = url.substr(url.indexOf("://") + 3);
-	z = z.substr(0, z.indexOf("/"));
-	z = z.substr(z.indexOf("@") + 1);
-	var colPos = z.indexOf(":");
-	if (colPos >= 0) z = z.substr(0, colPos);
-	return z;
+	if (url.indexOf("://") != -1) url = url.substr(url.indexOf("://") + 3);
+	if (url.indexOf("/") != -1) url = url.substr(0, url.indexOf("/"));
+	if (url.indexOf("@") != -1) url = url.substr(url.indexOf("@") + 1);
+	if (url.match(/^(?:\[[A-Fa-f0-9:.]+\])(:[0-9]+)?$/g)) {
+		if (url.indexOf("]:") != -1) return url.substr(0, url.indexOf("]:")+1);
+		return url;
+	}
+	if (url.indexOf(":") > 0) url = url.substr(0, url.indexOf(":"));
+	return url;
 }
 function domainHandler(domain,action) {
 	// Initialize local storage
@@ -81,8 +106,8 @@ function domainHandler(domain,action) {
 	
 	localStorage['blackList'] = JSON.stringify(tempBlacklist);
 	localStorage['whiteList'] = JSON.stringify(tempWhitelist);
-	blackList = tempBlacklist;
-	whiteList = tempWhitelist;
+	blackList = tempBlacklist.sort();
+	whiteList = tempWhitelist.sort();
 	return false;
 }
 // ----- Options
@@ -350,7 +375,7 @@ chrome.tabs.onRemoved.addListener(function(tabid, windowInfo) {
 	if (dpcloakindex != -1) cloakedTabs.splice(dpcloakindex, 1);
 	if (dpuncloakindex != -1) uncloakedTabs.splice(dpuncloakindex, 1);
 });
-requestDispatchTable = {
+var requestDispatchTable = {
 	"get-enabled": function(request, sender, sendResponse) {
 		var dpTabId = sender.tab.windowId+"|"+sender.tab.id;
 		var dpcloakindex = cloakedTabs.indexOf(dpTabId);
@@ -416,12 +441,12 @@ chrome.pageAction.onClicked.addListener(function(tab) {
 // Execute
 setDefaultOptions();
 // save blacklist and whitelist in global variable for faster lookups
-blackList = JSON.parse(localStorage['blackList']);
-whiteList = JSON.parse(localStorage['whiteList']);
+blackList = JSON.parse(localStorage['blackList']).sort();
+whiteList = JSON.parse(localStorage['whiteList']).sort();
 setDPIcon();
 dpContext();
 if ((!optionExists("version") || localStorage["version"] != version) && localStorage["showUpdateNotifications"] == 'true') {
-	// chrome.tabs.create({ url: chrome.extension.getURL('updated.html'), selected: false }); // very minor update
+	chrome.tabs.create({ url: chrome.extension.getURL('updated.html'), selected: false });
 	localStorage["version"] = version;
 }
 chrome.runtime.onUpdateAvailable.addListener(function (details) {

@@ -27,5 +27,5 @@
    },
    "permissions": [ "http://*/*", "https://*/*", "contextMenus", "tabs" ],
    "update_url": "http://clients2.google.com/service/update2/crx",
-   "version": "0.46.56.4"
+   "version": "0.46.56.5"
 }

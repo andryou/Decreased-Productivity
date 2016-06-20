@@ -29,4 +29,5 @@ Featured on Lifehacker: http://lifehacker.com/5666312/decreased-productivity-for
 2. (optional) Allow in Incognito Mode (Incognito Mode and this extension complement each other!)
 
 ## Showing Thanks
-* Click on the coffee-cup icon in the Options page to support me :)
+* Click on the coffee-cup icon in the Options page to support me via PayPal :)
+* Bitcoin: **39VJ5L9Yd6WocG6r88uE7ZZnM5J2M5bW92**
