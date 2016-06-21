@@ -33,8 +33,7 @@ function in_array(needle, haystack) {
 	if (!haystack || !needle) return false;
 	if (binarySearch(haystack, needle) != -1) return '1';
 	if (needle.indexOf('www.') == 0) {
-		needle = needle.substring(4);
-		if (binarySearch(haystack, needle) != -1) return '1';
+		if (binarySearch(haystack, needle.substring(4)) != -1) return '1';
 	}
 	for (var i in haystack) {
 		if (haystack[i].indexOf("*") == -1 && haystack[i].indexOf("?") == -1) continue;

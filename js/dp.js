@@ -65,7 +65,7 @@ function addCloak(sfw, f, fsize, u, bg, text, table, link, bold, o1, o2, collaps
 		magic += " ._ovg3g, ._njmhc { position: initial !important; } ._sppa1 { display: none !important; } ";
 	}
 	else if (curlocation.match(/^https?:\/\/www\.youtube\.com\//i)) {
-		magic += " .like-button-renderer-like-button:before, .like-button-renderer-dislike-button:before { content: '' !important; } ";
+		magic += " .like-button-renderer-like-button:before, .like-button-renderer-dislike-button:before, .yt-high-contrast-mode-white .yt-uix-button-subscribe-branded:before { content: '' !important; } ";
 	}
 	else if (curlocation.match(/^https?:\/\/web\.whatsapp\.com\//i)) {
 		magic += " .message-in { float: none !important; } "; // fix incoming message display
