@@ -1,3 +1,6 @@
+v0.46.56.6 - Tuesday, June 21, 2016
+- minor fixes and improved YouTube cloaking
+
 v0.46.56.5 - Monday, June 20, 2016
 - Added support for IPv6 addresses
 - Improved performance for users with large lists
