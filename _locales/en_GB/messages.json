@@ -63,6 +63,10 @@
       "description": "Text",
       "message": "Text"
    },
+   "customcss": {
+      "description": "Enter custom CSS code to be applied to all websites (advanced users)",
+      "message": "Enter custom CSS code to be applied to all websites (advanced users)"
+   },
    "darkbrown": {
       "description": "Dark Brown",
       "message": "Dark Brown"
@@ -147,6 +151,14 @@
       "description": "Hovered",
       "message": "Hovered"
    },
+   "importsuccessoptions": {
+      "description": "Settings imported successfully",
+      "message": "Settings imported successfully"
+   },
+   "importsuccesscond": {
+      "description": "Settings imported successfully, except the following (unrecognized name): ",
+      "message": "Settings imported successfully, except the following (unrecognized name): "
+   },
    "invalidcolour": {
       "description": "Your colors weren't saved as one or more were invalid. Please revert your colors or re-enter a correct color.",
       "message": "Your colours weren't saved as one or more were invalid. Please revert your colours or re-enter a correct colour."
@@ -194,6 +206,10 @@
    "paranoid": {
       "description": "Paranoid (hide everything)",
       "message": "Paranoid (hide everything)"
+   },
+   "pastesettings": {
+      "description": "Paste in settings and try again",
+      "message": "Paste in settings and try again"
    },
    "people": {
       "description": "People who bought Andrew coffee",

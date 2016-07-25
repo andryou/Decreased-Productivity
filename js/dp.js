@@ -5,7 +5,7 @@ var origtitle;
 var postloaddelay;
 var dphotkeylistener;
 var timestamp = Math.round(new Date().getTime()/1000.0);
-function addCloak(sfw, f, fsize, u, bg, text, table, link, bold, o1, o2, collapseimage) {
+function addCloak(sfw, f, fsize, u, bg, text, table, link, bold, o1, o2, collapseimage, customcss) {
 	// Inject CSS into page
 	var cssinject = document.createElement("style");
 	cssinject.setAttribute("__decreased__", "productivity"+timestamp);
@@ -41,15 +41,15 @@ function addCloak(sfw, f, fsize, u, bg, text, table, link, bold, o1, o2, collaps
 	else magic += 'none !important; }';
 	
 	if (sfw == 'SFW' || sfw == 'SFW1' || sfw == 'SFW2') {
-		if (o1 == 0 && collapseimage == 'true') magic += ' iframe, img, input[type=image], path, polygon, picture { display: none !important; }';
-		else magic += ' iframe, img, input[type=image], path, polygon, picture { opacity: '+o1+' !important; } iframe:hover, img:hover, input[type=image]:hover, path:hover, polygon:hover { opacity: '+o2+' !important; }';
+		if (o1 == 0 && collapseimage == 'true') magic += ' iframe, img, canvas, input[type=image], path, polygon, picture { display: none !important; }';
+		else magic += ' iframe, img, canvas, input[type=image], path, polygon, picture { opacity: '+o1+' !important; } iframe:hover, img:hover, input[type=image]:hover, path:hover, polygon:hover { opacity: '+o2+' !important; }';
 	}
 	if (sfw == 'SFW') {
 		if (o1 == 0 && collapseimage == 'true') magic += ' object, embed, param, video, audio { display: none !important; }';
 		else magic += ' object, embed, param, video, audio { opacity: '+o1+' !important; } object:hover, embed:hover, param:hover, video:hover, audio:hover { opacity: '+o2+' !important; }';
 	}
 	if (sfw == 'SFW1') magic += ' object, embed, param, video, audio { display: none !important; opacity: 0 !important; }';
-	if (sfw == 'Paranoid') magic += ' iframe, img, input[type=image], path, polygon, object, embed, param, video, audio, picture { display: none !important; opacity: 0 !important; }';
+	if (sfw == 'Paranoid') magic += ' iframe, img, canvas, input[type=image], path, polygon, object, embed, param, video, audio, picture { display: none !important; opacity: 0 !important; }';
 	
 	magic += ' .dp'+timestamp+'_visible { visibility: visible !important; opacity: 1 !important; }';
 	magic += ' .dp'+timestamp+'_unbold { font-weight: normal !important }';
@@ -96,6 +96,7 @@ function addCloak(sfw, f, fsize, u, bg, text, table, link, bold, o1, o2, collaps
 		magic += ' .res-nightmode #header-bottom-right a, .res-nightmode a.title, .res-nightmode a.title:visited, .res-nightmode .RES-keyNav-activeElement > .tagline, .res-nightmode .RES-keyNav-activeElement .md-container > .md, .res-nightmode .RES-keyNav-activeElement .md-container > .md p, .res-nightmode #search input[type="text"] { color: #' + text + ' !important; } ';
 		magic += ' .usertext-edit textarea { border: 1px dotted #' + table + ' !important; } ';
 	}
+	if (customcss) magic += customcss.replace(/(?:\r\n|\r|\n)/g, ' ');
 	removeCss('initialstealth'+timestamp);
 	if (jQuery("style[__decreased__='productivity"+timestamp+"']").length) {
 		jQuery("style[__decreased__='productivity"+timestamp+"']").remove();
@@ -139,7 +140,7 @@ function removeCss(name) {
 function init() {
 	chrome.extension.sendRequest({reqtype: "get-settings"}, function(response) {
 		if (response.enable == "true") {
-			addCloak(response.sfwmode, response.font, response.fontsize, response.underline, response.background, response.text, response.table, response.link, response.bold, response.opacity1, response.opacity2, response.collapseimage);
+			addCloak(response.sfwmode, response.font, response.fontsize, response.underline, response.background, response.text, response.table, response.link, response.bold, response.opacity1, response.opacity2, response.collapseimage, response.customcss);
 			dpPostLoad(response.maxheight, response.maxwidth, response.sfwmode, response.bold);
 			jQuery('body').unbind('DOMSubtreeModified.decreasedproductivity'+timestamp);
 			jQuery('body').bind('DOMSubtreeModified.decreasedproductivity'+timestamp, function() {

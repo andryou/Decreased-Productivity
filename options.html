@@ -14,13 +14,16 @@
 </head>
 <body>
 	<span id="title">Decreased Productivity</span> by Andrew Y.<br /><br />
+	<div id="message"></div>
 	<div id="main">
-		<div class="right"><span class="message"></span> <input type="button" class="i18_save" value="Save" /> <input type="button" class="i18_close" value="Close" /><br /><br /></div> 
+		<div class="right"><input type="button" class="i18_save" value="Save" /> <input type="button" class="i18_close" value="Close" /><br /><br /></div> 
 		<div id="tabs" class="clear">
 			<ul>
 				<li><a href="#general">General</a></li>
 				<li><a href="#cloak">Cloak</a></li>
 				<li><a href="#lists">Lists</a></li>
+				<li><a href="#advanced">Custom CSS</a></li>
+				<li><a href="#importexport">Import/Export Settings</a></li>
 			</ul>
 			<div id="general">
 				<table cellspacing="5" cellpadding="0" border="0">
@@ -230,8 +233,18 @@
 				</tr>
 				</table>
 			</div>
+			<div id="advanced">
+				<p><span id="customcssdesc"></span>:</p>
+				<p><textarea id="customcss"></textarea></p>
+			</div>
+			<div id="importexport">
+				<table cellspacing="5" cellpadding="0" border="0">
+					<tr class="first"><td><strong>Import</strong></div></td><td><strong>Export</strong> (<a href="javascript:;" id="settingsall">select all</a>)</td></tr>
+					<tr><td><textarea id="settingsimport"></textarea><br/><br /><input type="button" value="Import" id="importsettings" /></td><td><strong><textarea id="settingsexport" readonly="readonly"></textarea></strong><br/><br /><input type="button" value="Save as Text File" id="savetxt" /></td></tr>
+				</table>
+			</div>
 		</div>
-		<div class="right"><br /><span class="message"></span> <input type="button" class="i18_save" value="Save" /> <input type="button" value="Close" class="i18_close" /></div>
+		<div class="right"><br /><input type="button" class="i18_save" value="Save" /> <input type="button" value="Close" class="i18_close" /></div>
 		<br class="clear">
 		
 	</div>

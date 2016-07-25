@@ -10,6 +10,7 @@ var version = (function () {
 var bkg = chrome.extension.getBackgroundPage();
 var error = false;
 var oldglobalstate = false;
+var settingnames = [];
 document.addEventListener('DOMContentLoaded', function () {
 	$("#tabs").tabs();
 	$("#o1").slider({min: 0, max: 1, step: 0.05, slide: function(event, ui) { $("#opacity1").val(ui.value); opacitytest(); }, stop: function(event, ui) { 
@@ -36,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 	$("#enable, #enableToggle, #enableStickiness, #disableFavicons, #hidePageTitles, #showUnderline, #collapseimage, #removeBold, #showContext, #showIcon, #showUpdateNotifications").click(saveOptions);
-	$("#iconTitle").blur(saveOptions);
+	$("#iconTitle, #customcss").blur(saveOptions);
 	$("#s_bg, #s_text, #s_link, #s_table").keyup(updateDemo);
 	$("#global").click(function() {
 		saveOptions();
@@ -92,6 +93,9 @@ document.addEventListener('DOMContentLoaded', function () {
 	$("#s_preset").change(function() {
 		stylePreset($(this).val());
 	});
+	$("#settingsall").click(settingsall);
+	$("#importsettings").click(settingsImport);
+	$("#savetxt").click(downloadtxt);
 	$(".i18_close").click(closeOptions);
 });
 function keyhandle(keypressed) {
@@ -127,6 +131,12 @@ function saveElement(id) {
 }
 function closeOptions() {
 	window.open('', '_self', '');window.close();
+}
+function settingsall() {
+	selectAll('settingsexport');
+}
+function selectAll(id) {
+	$("#"+id).select();
 }
 function i18load() {
 	$("#title").html("Decreased Productivity v"+version);
@@ -209,6 +219,7 @@ function i18load() {
 	$(".i18_translators").html(chrome.i18n.getMessage("translators"));
 	$(".i18_help").html(chrome.i18n.getMessage("help"));
 	$(".i18_support").html(chrome.i18n.getMessage("support"));
+	$("#customcssdesc").html(chrome.i18n.getMessage("customcss"));
 	$(".i18_supportimg").attr({alt: chrome.i18n.getMessage("support"), title:  chrome.i18n.getMessage("support")});
 }
 function loadOptions() {
@@ -261,6 +272,7 @@ function loadOptions() {
 			$("#customfontrow").hide();
 		}
 	}
+	loadElement("customcss");
 	listUpdate();
 	opacitytest();
 	updateDemo();
@@ -325,6 +337,9 @@ function saveOptions() {
 	} else {
 		error = true;
 	}
+	$("#customcss").val($("#customcss").val().replace(/\s*<([^>]+)>\s*/ig, ""));
+	saveElement("customcss");
+	updateExport();
 	// Apply new settings
 	bkg.optionsSaveTrigger(oldglobalstate, localStorage["global"]);
 	bkg.hotkeyChange();
@@ -372,7 +387,7 @@ function fontsizeValidation() {
 }
 
 function notification(msg) {
-	$('.message').html(msg).stop().fadeIn("slow").delay(2000).fadeOut("slow")
+	$('#message').html(msg).stop().fadeIn("slow").delay(2000).fadeOut("slow")
 }
 function truncText(str) {
 	if (str.length > 16) return str.substr(0, 16)+'...';
@@ -509,6 +524,8 @@ function listUpdate() {
 	$('#blacklist').html(blacklistCompiled);
 	$(".domainRemover").unbind('click');
 	$(".domainRemover").click(function() { domainRemover($(this).attr('rel'));});
+	bkg.initLists();
+	updateExport();
 }
 function listclear(type) {
 	if (confirm([chrome.i18n.getMessage("removefromwhitelist"),chrome.i18n.getMessage("removefromblacklist")][type]+'?')) {
@@ -537,4 +554,60 @@ function colorPickLoad(id) {
 			updateDemo();
 		}
 	});
+}
+
+function downloadtxt() {
+	var textToWrite = $("#settingsexport").val();
+	var textFileAsBlob = new Blob([textToWrite], {type:'text/plain'});
+	var fileNameToSaveAs = "dp-settings-"+new Date().toJSON()+".txt";
+	var downloadLink = document.createElement("a");
+	downloadLink.download = fileNameToSaveAs;
+	downloadLink.innerHTML = "Download File";
+	downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+	downloadLink.click();
+	downloadLink.remove();
+}
+function updateExport() {
+	$("#settingsexport").val("");
+	settingnames = [];
+	for (var i in localStorage) {
+		if (i != "version") {
+			settingnames.push(i);
+			$("#settingsexport").val($("#settingsexport").val()+i+"|"+localStorage[i].replace(/(?:\r\n|\r|\n)/g, ' ')+"\n");
+		}
+	}
+	$("#settingsexport").val($("#settingsexport").val().slice(0,-1));
+}
+function settingsImport() {
+	var error = "";
+	var settings = $("#settingsimport").val().split("\n");
+	if ($.trim($("#settingsimport").val()) == "") {
+		notification(chrome.i18n.getMessage("pastesettings"));
+		return false;
+	}
+	if (settings.length > 0) {
+		$.each(settings, function(i, v) {
+			if ($.trim(v) != "") {
+				var settingentry = $.trim(v).split("|");
+				if (settingnames.indexOf($.trim(settingentry[0])) != -1) {
+					if ($.trim(settingentry[0]) == 'whiteList' || $.trim(settingentry[0]) == 'blackList') {
+						var listarray = $.trim(settingentry[1]).replace(/(\[|\]|")/g,"").split(",");
+						if ($.trim(settingentry[0]) == 'whiteList' && listarray.toString() != '') localStorage['whiteList'] = JSON.stringify(listarray);
+						else if ($.trim(settingentry[0]) == 'blackList' && listarray.toString() != '') localStorage['blackList'] = JSON.stringify(listarray);
+					} else 
+						localStorage[$.trim(settingentry[0])] = $.trim(settingentry[1]);
+				} else {
+					error += $.trim(settingentry[0])+", ";
+				}
+			}
+		});
+	}
+	loadOptions();
+	listUpdate();
+	if (!error) {
+		notification(chrome.i18n.getMessage("importsuccessoptions"));
+		$("#settingsimport").val("");
+	} else {
+		notification(chrome.i18n.getMessage("importsuccesscond")+error.slice(0, -2));
+	}
 }

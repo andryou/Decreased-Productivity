@@ -149,6 +149,7 @@ function setDefaultOptions() {
 	defaultOptionValue("s_link", "000099");
 	defaultOptionValue("s_table", "cccccc");
 	defaultOptionValue("s_text", "000000");
+	defaultOptionValue("customcss", "");
 	// fix hotkey shortcut if in old format (if using + as separator instead of space)
 	if (localStorage["hotkey"].indexOf('+') != -1) {
 		localStorage["hotkey"] = localStorage["hotkey"].replace(/\+$/, "APLUSA").replace(/\+/g, " ").replace(/APLUSA/, "+");
@@ -319,6 +320,10 @@ function setDPIcon() {
 		});
 	});
 }
+function initLists() {
+	blackList = JSON.parse(localStorage['blackList']).sort();
+	whiteList = JSON.parse(localStorage['whiteList']).sort();	
+}
 // ----- Request library to support content script communication
 chrome.tabs.onUpdated.addListener(function(tabid, changeinfo, tab) {
 	if (changeinfo.status == "loading") {
@@ -426,7 +431,7 @@ var requestDispatchTable = {
 		} else fontface = localStorage["font"];
 		if (localStorage["global"] == "false") enable = 'true';
 		else enable = enabled(sender.tab);
-		sendResponse({enable: enable, sfwmode: localStorage["sfwmode"], font: fontface, fontsize: localStorage["fontsize"], underline: localStorage["showUnderline"], background: localStorage["s_bg"], text: localStorage["s_text"], table: localStorage["s_table"], link: localStorage["s_link"], bold: localStorage["removeBold"], opacity1: localStorage["opacity1"], opacity2: localStorage["opacity2"], collapseimage: localStorage["collapseimage"], maxheight: localStorage["maxheight"], maxwidth: localStorage["maxwidth"]});
+		sendResponse({enable: enable, sfwmode: localStorage["sfwmode"], font: fontface, fontsize: localStorage["fontsize"], underline: localStorage["showUnderline"], background: localStorage["s_bg"], text: localStorage["s_text"], table: localStorage["s_table"], link: localStorage["s_link"], bold: localStorage["removeBold"], opacity1: localStorage["opacity1"], opacity2: localStorage["opacity2"], collapseimage: localStorage["collapseimage"], maxheight: localStorage["maxheight"], maxwidth: localStorage["maxwidth"], customcss: localStorage["customcss"]});
 	}
 }
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
@@ -440,8 +445,7 @@ chrome.pageAction.onClicked.addListener(function(tab) {
 // Execute
 setDefaultOptions();
 // save blacklist and whitelist in global variable for faster lookups
-blackList = JSON.parse(localStorage['blackList']).sort();
-whiteList = JSON.parse(localStorage['whiteList']).sort();
+initLists();
 setDPIcon();
 dpContext();
 if ((!optionExists("version") || localStorage["version"] != version) && localStorage["showUpdateNotifications"] == 'true') {

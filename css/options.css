@@ -14,13 +14,15 @@ div#newPagesRow { font-size: 12px; }
 div#pageTitle { font-size: 12px; }
 a { color: blue; }
 input[type=image] { opacity: 0.5; }
+#message { z-index: 999; color: #000; margin: 5px; position: fixed; top: 0; left: 0; padding: 5px; font-weight: bold; border: 1px solid #ffcc66; background-color: #ffffcc; }
 #main:hover, input[type=image]:hover { opacity: 1; }
 #test { width: 411px; height: 188px; background-image: url('../img/option/demo/background.png'); }
-.list {	width: 250px; max-height: 300px; overflow-y: auto; border: 1px solid #ccc; background-color: #eee; padding: 5px; }
-.listentry:hover { background-color: #fff; }
+.list, textarea { width: 250px; max-height: 300px; overflow-y: auto; border: 1px solid #ccc; background-color: #eee; padding: 5px; }
+textarea { min-height: 100px; font-family: Arial, Sans-Serif; }
+#customcss { width: 100%; height: 200px; }
+.listentry:hover, #customcss, #settingsimport { background-color: #fff; }
 .clear { clear: both; }
 .right, #sampleimage { float: right; }
-.message { display: none; color: #000; margin-top: 5px; }
 .hide { display: none; }
 #listMsg { display: none; color: #000; margin-left: 5px; }
 #demo_favicon {
