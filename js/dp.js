@@ -28,7 +28,7 @@ function addCloak(sfw, f, fsize, u, bg, text, table, link, bold, o1, o2, collaps
 		else if (o1 == 0 && collapseimage == 'true') magic += 'i.img { display: none !important; } ';
 		else if (sfw == 'Paranoid') magic += 'i.img { visibility: hidden !important; opacity: 0 !important; } ';
 	} else {
-		magic += 'html, html *, body *:before, body *:after { background-image: none !important; } ';
+		if (!curlocation.match(/^https?:\/\/web\.whatsapp\.com\//i)) magic += 'html, html *, body *:before, body *:after { background-image: none !important; } ';
 	}
 	if (curlocation.match(/^https?:\/\/www\.engadget\.com\//i)) {
 		magic += 'html, html *, html *[style], body *:before, body *:after { border-width: 0px !important; }';
@@ -54,12 +54,16 @@ function addCloak(sfw, f, fsize, u, bg, text, table, link, bold, o1, o2, collaps
 	magic += ' .dp'+timestamp+'_visible { visibility: visible !important; opacity: 1 !important; }';
 	magic += ' .dp'+timestamp+'_unbold { font-weight: normal !important }';
 	magic += ' .dp'+timestamp+'_link { color: #'+link+' !important; background-color: #'+bg+' !important; background-image: none !important; }';
-	magic += ' .dp'+timestamp+'_text { color: #'+text+' !important; background-color: #'+bg+' !important; background-image: none !important; }';
+	if (curlocation.match(/^https?:\/\/web\.whatsapp\.com\//i)) magic += ' .dp'+timestamp+'_text { color: #'+text+' !important; background-color: #'+bg+' !important; }';
+	else magic += ' .dp'+timestamp+'_text { color: #'+text+' !important; background-color: #'+bg+' !important; background-image: none !important; }';
 	magic += ' .dp'+timestamp+'_hide { display: none !important }';
 	
 	if (curlocation.match(/^https?:\/\/www\.facebook\.com\//i)) {
 		magic += " ._52c6, ._5ine, .__cy, .fbPhotosPhotoTagboxes, ._jfi, ._5vb_ ._5aqh::before { position: initial !important; } "; // fix link caption, event cover photo, full-screen photo mode (._jfi = uploaded image thumbnail), instagram
 		magic += " ._4zoz._4zoz._4zoz, ._559p { clear: both !important; } "; // fix main timeline post status box
+		magic += " ._2yq ._4-u2::before { background-color: transparent !important; } "; // fix main timeline post title bars
+		magic += " ._2-sx { position: absolute !important; top: 0 !important; left: 0 !important; } "; // fix spotlight photo positioning
+		magic += " ._4d3w._2nw8 ._4g9v, ._4d3w._2nw8 ._4g9v *, ._4d3w._2nw8 .snowliftOverlayBar, ._4d3w .rightButtons .overlayBarButtons, ._4d3w .rightButtons .overlayBarButtons * { background-color: transparent !important; } "; // make spotlight top/bottom bars transparent
 	}
 	else if (curlocation.match(/^https?:\/\/www\.instagram\.com\//i)) {
 		magic += " ._ovg3g, ._njmhc { position: initial !important; } ._sppa1 { display: none !important; } ";
@@ -73,9 +77,11 @@ function addCloak(sfw, f, fsize, u, bg, text, table, link, bold, o1, o2, collaps
 		magic += " .message-meta { position: initial !important; } "; // fix message timestamping
 		magic += ' .bubble { border: 1px dotted #' + table + ' !important; } '; // distinguish bubbles
 		magic += ' .drawer-manager, .drawer-manager > .pane { background-color: transparent !important; } '; // fix white screen bug
+		magic += ' .intro-image { opacity: '+o1+' !important; } .intro-image:hover { opacity: '+o2+' !important; } '; // add cloak support for welcome graphic
+		magic += ' .emoji, .icon { opacity: '+o2+' !important; } '; // make emojis and icons at cloak-hover opacity
 	}	
 	else if (curlocation.match(/^https?:\/\/twitter\.com\//i)) {
-		magic += " .QuoteTweet, .QuoteTweet *, #playerContainer, #playerContainer * { background-color: transparent !important; } ";
+		magic += " .QuoteTweet, .QuoteTweet *, #playerContainer, #playerContainer *, .Gallery, .Gallery * { background-color: transparent !important; } ";
 		if (sfw != 'Paranoid' && sfw != 'SFW1') magic += " #playerContainer video { opacity: 1 !important; } ";
 		magic += " .Grid--withGutter>.Grid-cell { margin-right: -1px !important; margin-left: -1px !important; } ";
 	}
