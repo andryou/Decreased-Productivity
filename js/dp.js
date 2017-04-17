@@ -49,7 +49,7 @@ function addCloak(sfw, f, fsize, u, bg, text, table, link, bold, o1, o2, collaps
 		else magic += ' object, embed, param, video, audio { opacity: '+o1+' !important; } object:hover, embed:hover, param:hover, video:hover, audio:hover { opacity: '+o2+' !important; }';
 	}
 	if (sfw == 'SFW1') magic += ' object, embed, param, video, audio { display: none !important; opacity: 0 !important; }';
-	if (sfw == 'Paranoid') magic += ' iframe, img, canvas, input[type=image], path, polygon, object, embed, param, video, audio, picture { display: none !important; opacity: 0 !important; }';
+	if (sfw == 'Paranoid') magic += ' img, canvas, input[type=image], path, polygon, object, embed, param, video, audio, picture { display: none !important; opacity: 0 !important; } iframe { opacity: 0.05 !important; } iframe:hover { opacity: 0.5 !important; }';
 	
 	magic += ' .dp'+timestamp+'_visible { visibility: visible !important; opacity: 1 !important; }';
 	magic += ' .dp'+timestamp+'_unbold { font-weight: normal !important }';
@@ -64,6 +64,13 @@ function addCloak(sfw, f, fsize, u, bg, text, table, link, bold, o1, o2, collaps
 		magic += " ._2yq ._4-u2::before { background-color: transparent !important; } "; // fix main timeline post title bars
 		magic += " ._2-sx { position: absolute !important; top: 0 !important; left: 0 !important; } "; // fix spotlight photo positioning
 		magic += " ._4d3w._2nw8 ._4g9v, ._4d3w._2nw8 ._4g9v *, ._4d3w._2nw8 .snowliftOverlayBar, ._4d3w .rightButtons .overlayBarButtons, ._4d3w .rightButtons .overlayBarButtons * { background-color: transparent !important; } "; // make spotlight top/bottom bars transparent
+		magic += " ._1ift { pointer-events: initial !important; } "; // make chat icons react to hover
+		magic += " ._3htz { display: none !important; } "; // hide video overlay
+	}
+	else if (curlocation.match(/^https?:\/\/www\.youtube\.com\//i)) {
+		magic += " .ytp-gradient-top, .ytp-gradient-bottom { display: none !important; } "; // improve embedded youtube display
+		magic += " .ytp-chrome-top, .ytp-title, .ytp-title *, .ytp-chrome-bottom[style], .ytp-chrome-bottom * { background-color: transparent !important; } "; // improve embedded youtube display
+		magic += " .ytp-play-button:not(.ytp-play-button-playlist)::before, .ytp-fullscreen-button::after { display: none !important; } "; // improve embedded youtube display
 	}
 	else if (curlocation.match(/^https?:\/\/www\.instagram\.com\//i)) {
 		magic += " ._ovg3g, ._njmhc { position: initial !important; } ._sppa1 { display: none !important; } ";
@@ -77,8 +84,13 @@ function addCloak(sfw, f, fsize, u, bg, text, table, link, bold, o1, o2, collaps
 		magic += " .message-meta { position: initial !important; } "; // fix message timestamping
 		magic += ' .bubble { border: 1px dotted #' + table + ' !important; } '; // distinguish bubbles
 		magic += ' .drawer-manager, .drawer-manager > .pane { background-color: transparent !important; } '; // fix white screen bug
-		magic += ' .intro-image { opacity: '+o1+' !important; } .intro-image:hover { opacity: '+o2+' !important; } '; // add cloak support for welcome graphic
-		magic += ' .emoji, .icon { opacity: '+o2+' !important; } '; // make emojis and icons at cloak-hover opacity
+		magic += ' .context.context-out { background: transparent !important; } '; // hide message options green gradient
+		magic += ' .tail.message-out { display: none !important; } '; // hide message out tail
+		if (sfw == 'SFW' || sfw == 'SFW1' || sfw == 'SFW2') {
+			magic += ' .intro-image { opacity: '+o1+' !important; } .intro-image:hover { opacity: '+o2+' !important; } '; // add cloak support for welcome graphic
+			magic += ' .icon { opacity: '+o1+' !important; } .icon:hover { opacity: '+o2+' !important; } '; // add cloak support for welcome graphic
+		} else if (sfw == 'Paranoid') magic += ' .intro-image { display: none !important; } '; // hide welcome graphic
+		magic += ' .message .message-text .emojitext .emoji { pointer-events: initial !important; } '; // make emojis and icons at cloak-hover opacity
 	}	
 	else if (curlocation.match(/^https?:\/\/twitter\.com\//i)) {
 		magic += " .QuoteTweet, .QuoteTweet *, #playerContainer, #playerContainer *, .Gallery, .Gallery * { background-color: transparent !important; } ";
@@ -91,6 +103,9 @@ function addCloak(sfw, f, fsize, u, bg, text, table, link, bold, o1, o2, collaps
 	else if (curlocation.match(/^https?:\/\/www\.engadget\.com\//i)) {
 		magic += " .o-hit { cursor: initial !important; } ";
 		magic += " .o-hit .o-hit__link { position: initial !important; } ";
+	}
+	else if (curlocation.match(/^https?:\/\/.+\.wikia\.com\//i)) {
+		magic += " body.background-dynamic.skin-oasis::after, body.background-dynamic.skin-oasis::before { background-image: none !important; } ";
 	}
 	else if (curlocation.match(/^https?:\/\/.*\.?((lifehack|gawk)er|deadspin|jalopnik|gizmodo|jezebel|kotaku)\.com\//i)) {
 		magic += " .img-border:after { position: initial !important; } ";

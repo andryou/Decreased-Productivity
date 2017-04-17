@@ -1,7 +1,10 @@
-v0.46.56.8 - Thursday, April 13, 2017
-- Improve Facebook compatibility: show main timeline titles, overlayed photos
-- Improve WhatsApp Web compatibility: show emojis and message indicators
-- Improve Twitter compatibility: show overlayed photos
+v0.46.56.8 - Monday, April 17, 2017
+- Tweaked Paranoid Mode - increased usability (e.g. Disqus comment threads now readable) - iframes now visible; cloaked at conservative opacity levels: 5% unhovered / 50% on hover
+- Improve Facebook compatibility: main timeline titles, overlayed photos, and chat emojis
+- Improve WhatsApp Web compatibility: emojis and message indicators
+- Improve Twitter compatibility: overlayed photos
+- Improve YouTube compatibility: remove top and bottom bars to increase cloaked video visibility
+- Add Wikia compatibility: hide background images
 
 v0.46.56.7 - Monday, July 25, 2016
 - Added capability to Import/Export Settings (and even save your settings to a text file)
