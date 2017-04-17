@@ -71,12 +71,10 @@ function addCloak(sfw, f, fsize, u, bg, text, table, link, bold, o1, o2, collaps
 		magic += " .ytp-gradient-top, .ytp-gradient-bottom { display: none !important; } "; // improve embedded youtube display
 		magic += " .ytp-chrome-top, .ytp-title, .ytp-title *, .ytp-chrome-bottom[style], .ytp-chrome-bottom * { background-color: transparent !important; } "; // improve embedded youtube display
 		magic += " .ytp-play-button:not(.ytp-play-button-playlist)::before, .ytp-fullscreen-button::after { display: none !important; } "; // improve embedded youtube display
+		magic += " .like-button-renderer-like-button:before, .like-button-renderer-dislike-button:before, .yt-high-contrast-mode-white .yt-uix-button-subscribe-branded:before { content: '' !important; } ";
 	}
 	else if (curlocation.match(/^https?:\/\/www\.instagram\.com\//i)) {
 		magic += " ._ovg3g, ._njmhc { position: initial !important; } ._sppa1 { display: none !important; } ";
-	}
-	else if (curlocation.match(/^https?:\/\/www\.youtube\.com\//i)) {
-		magic += " .like-button-renderer-like-button:before, .like-button-renderer-dislike-button:before, .yt-high-contrast-mode-white .yt-uix-button-subscribe-branded:before { content: '' !important; } ";
 	}
 	else if (curlocation.match(/^https?:\/\/web\.whatsapp\.com\//i)) {
 		magic += " .message-in { float: none !important; } "; // fix incoming message display
@@ -85,7 +83,7 @@ function addCloak(sfw, f, fsize, u, bg, text, table, link, bold, o1, o2, collaps
 		magic += ' .bubble { border: 1px dotted #' + table + ' !important; } '; // distinguish bubbles
 		magic += ' .drawer-manager, .drawer-manager > .pane { background-color: transparent !important; } '; // fix white screen bug
 		magic += ' .context.context-out { background: transparent !important; } '; // hide message options green gradient
-		magic += ' .tail.message-out { display: none !important; } '; // hide message out tail
+		magic += ' .message-out .tail-container { display: none !important; } '; // hide message out tail
 		if (sfw == 'SFW' || sfw == 'SFW1' || sfw == 'SFW2') {
 			magic += ' .intro-image { opacity: '+o1+' !important; } .intro-image:hover { opacity: '+o2+' !important; } '; // add cloak support for welcome graphic
 			magic += ' .icon { opacity: '+o1+' !important; } .icon:hover { opacity: '+o2+' !important; } '; // add cloak support for welcome graphic

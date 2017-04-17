@@ -1,4 +1,4 @@
-v0.46.56.8 - Monday, April 17, 2017
+v0.46.56.9 - Monday, April 17, 2017
 - Tweaked Paranoid Mode - increased usability (e.g. Disqus comment threads now readable) - iframes now visible; cloaked at conservative opacity levels: 5% unhovered / 50% on hover
 - Improve Facebook compatibility: main timeline titles, overlayed photos, and chat emojis
 - Improve WhatsApp Web compatibility: emojis and message indicators
