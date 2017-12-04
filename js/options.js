@@ -571,9 +571,11 @@ function updateExport() {
 	$("#settingsexport").val("");
 	settingnames = [];
 	for (var i in localStorage) {
-		if (i != "version") {
-			settingnames.push(i);
-			$("#settingsexport").val($("#settingsexport").val()+i+"|"+localStorage[i].replace(/(?:\r\n|\r|\n)/g, ' ')+"\n");
+		if (localStorage.hasOwnProperty(i)) {
+			if (i != "version") {
+				settingnames.push(i);
+				$("#settingsexport").val($("#settingsexport").val()+i+"|"+localStorage[i].replace(/(?:\r\n|\r|\n)/g, ' ')+"\n");
+			}
 		}
 	}
 	$("#settingsexport").val($("#settingsexport").val().slice(0,-1));

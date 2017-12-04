@@ -20,5 +20,5 @@ function i18load() {
 	$(".i18_translators").html(chrome.i18n.getMessage("translators"));
 	$(".i18_help").html(chrome.i18n.getMessage("help"));
 	$(".i18_support").html(chrome.i18n.getMessage("support"));
-	$(".i18_supportimg").attr({alt: chrome.i18n.getMessage("support"), title:  chrome.i18n.getMessage("support")});
+	$(".i18_supportimg").attr({alt: chrome.i18n.getMessage("support"), title: chrome.i18n.getMessage("support")});
 }

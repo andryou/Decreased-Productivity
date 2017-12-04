@@ -77,6 +77,7 @@ function addCloak(sfw, f, fsize, u, bg, text, table, link, bold, o1, o2, collaps
 		magic += " ._ovg3g, ._njmhc { position: initial !important; } ._sppa1 { display: none !important; } ";
 	}
 	else if (curlocation.match(/^https?:\/\/web\.whatsapp\.com\//i)) {
+		magic += " .app > div:nth-of-type(1) { display: none !important; } "; // fix blank white screen
 		magic += " .message-in { float: none !important; } "; // fix incoming message display
 		magic += " .msg { clear: both !important; } "; // fix outgoing message display
 		magic += " .message-meta { position: initial !important; } "; // fix message timestamping
@@ -85,9 +86,9 @@ function addCloak(sfw, f, fsize, u, bg, text, table, link, bold, o1, o2, collaps
 		magic += ' .context.context-out { background: transparent !important; } '; // hide message options green gradient
 		magic += ' .message-out .tail-container { display: none !important; } '; // hide message out tail
 		if (sfw == 'SFW' || sfw == 'SFW1' || sfw == 'SFW2') {
-			magic += ' .intro-image { opacity: '+o1+' !important; } .intro-image:hover { opacity: '+o2+' !important; } '; // add cloak support for welcome graphic
+			magic += ' div[data-asset-intro-image="true"] { opacity: '+o1+' !important; } div[data-asset-intro-image="true"]:hover { opacity: '+o2+' !important; } '; // add cloak support for welcome graphic
 			magic += ' .icon { opacity: '+o1+' !important; } .icon:hover { opacity: '+o2+' !important; } '; // add cloak support for welcome graphic
-		} else if (sfw == 'Paranoid') magic += ' .intro-image { display: none !important; } '; // hide welcome graphic
+		} else if (sfw == 'Paranoid') magic += ' div[data-asset-intro-image="true"] { display: none !important; } '; // hide welcome graphic
 		magic += ' .message .message-text .emojitext .emoji { pointer-events: initial !important; } '; // make emojis and icons at cloak-hover opacity
 	}	
 	else if (curlocation.match(/^https?:\/\/twitter\.com\//i)) {
@@ -157,7 +158,7 @@ function removeCss(name) {
 	}
 }
 function init() {
-	chrome.extension.sendRequest({reqtype: "get-settings"}, function(response) {
+	chrome.runtime.sendMessage({reqtype: "get-settings"}, function(response) {
 		if (response.enable == "true") {
 			addCloak(response.sfwmode, response.font, response.fontsize, response.underline, response.background, response.text, response.table, response.link, response.bold, response.opacity1, response.opacity2, response.collapseimage, response.customcss);
 			dpPostLoad(response.maxheight, response.maxwidth, response.sfwmode, response.bold);
@@ -219,18 +220,18 @@ function hotkeySet(hotkeyenabled, hotkey, paranoidhotkey) {
 		dphotkeylistener = new window.keypress.Listener();
 		if (hotkey) {
 			dphotkeylistener.simple_combo(hotkey.toLowerCase(), function() {
-				chrome.extension.sendRequest({reqtype: "toggle"});
+				chrome.runtime.sendMessage({reqtype: "toggle"});
 			});
 		}
 		if (paranoidhotkey) {
 			dphotkeylistener.simple_combo(paranoidhotkey.toLowerCase(), function() {
-				chrome.extension.sendRequest({reqtype: "toggleparanoid"});
+				chrome.runtime.sendMessage({reqtype: "toggleparanoid"});
 			});
 		}
 	}
 }
 // Initially hide all elements on page (injected code is removed when page is loaded)
-chrome.extension.sendRequest({reqtype: "get-enabled"}, function(response) {
+chrome.runtime.sendMessage({reqtype: "get-enabled"}, function(response) {
 	jQuery(document).ready(function() {
 		hotkeySet(response.enableToggle, response.hotkey, response.paranoidhotkey);
 	});
