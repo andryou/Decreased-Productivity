@@ -1,3 +1,7 @@
+v0.46.56.10 - Monday, December 4, 2017
+- Improve WhatsApp Web compatibility: fix blank white screen upon login
+- Firefox
+
 v0.46.56.9 - Monday, April 17, 2017
 - Tweaked Paranoid Mode - increased usability (e.g. Disqus comment threads now readable) - iframes now visible; cloaked at conservative opacity levels: 5% unhovered / 50% on hover
 - Improve Facebook compatibility: main timeline titles, overlayed photos, and chat emojis
