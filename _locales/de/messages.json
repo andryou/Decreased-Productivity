@@ -9,7 +9,7 @@
    },
    "blacklistdomain": {
       "description": "Blacklist this Domain",
-      "message": "Schwarze Liste wird diese Domain"
+      "message": "Domain auf Blacklist"
    },
    "blacklisted": {
       "description": "Blacklisted",
@@ -33,7 +33,7 @@
    },
    "collapseimage": {
       "description": "Remove whitespace taken up by hidden element(s)",
-      "message": "Entfernen Sie Leerraum durch versteckte Elemente aufgenommen"
+      "message": "Entfernen Sie durch versteckte Elemente erzeugten Leerraum"
    },
    "color": {
       "description": "Color",
@@ -49,7 +49,7 @@
    },
    "colorpresets": {
       "description": "Presets",
-      "message": "Schemas"
+      "message": "Presets"
    },
    "colorpresetselect": {
       "description": "Select a Preset",
@@ -137,7 +137,7 @@
    },
    "help": {
       "description": "If you can help translate or improve, please contact me",
-      "message": "Wenn Sie helfen können zu übersetzen oder zu verbessern, kontaktieren Sie mich bitte"
+      "message": "Wenn Sie helfen können, zu übersetzen oder zu verbessern, kontaktieren Sie mich bitte"
    },
    "hidetitles": {
       "description": "Hide Page Titles",
@@ -145,7 +145,7 @@
    },
    "hovered": {
       "description": "Hovered",
-      "message": "Schwebte"
+      "message": "Hovered"
    },
    "invalidcolour": {
       "description": "Your colors weren't saved as one or more were invalid. Please revert your colors or re-enter a correct color.",
@@ -169,7 +169,7 @@
    },
    "nsfw": {
       "description": "NSFW (show images/Flash, but change colors)",
-      "message": "NSFW (zeige Bilder/Flash, aber ü die Farbe)"
+      "message": "NSFW (zeige Bilder/Flash, aber ändere die Farbe)"
    },
    "offwhite": {
       "description": "Off-White",
@@ -213,7 +213,7 @@
    },
    "removelist": {
       "description": "Remove from lists",
-      "message": "Entfernen von Listen"
+      "message": "Aus Listen entfernen"
    },
    "removefromblacklist": {
       "description": "Remove all entries from the blacklist?",
@@ -273,7 +273,7 @@
    },
    "showicon_type2": {
       "description": "icon to show in address bar",
-      "message": "Symbol zu zeigen, in der Adressleiste"
+      "message": "Symbol zur Anzeige in der Adressleiste"
    },
    "showicon_title": {
       "description": "Icon Title",
@@ -321,11 +321,11 @@
    },
    "toggle": {
       "description": "Enable Key Toggling",
-      "message": "Aktivieren Key Makeln"
+      "message": "Aktiviere Key-Umschalten"
    },
    "toggle2": {
       "description": "press the set hotkey to toggle",
-      "message": "Drücken Sie die Set-Hotkey wechseln"
+      "message": "Drücken Sie den eingestellten Hotkey zum Umschalten"
    },
    "hotkey": {
       "description": "Hotkey Combination",
@@ -345,7 +345,7 @@
    },
    "translators": {
       "description": "People who helped translate",
-      "message": "Menschen, die übersetzen half"
+      "message": "Menschen, die übersetzen halfen"
    },
    "uncloak": {
       "description": "Uncloak",
@@ -365,7 +365,7 @@
    },
    "whitelistdomain": {
       "description": "Whitelist this Domain",
-      "message": "Whitelist wird diese Domain"
+      "message": "Domain auf Whitelist"
    },
    "whitelisted": {
       "description": "Whitelisted",
