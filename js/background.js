@@ -81,8 +81,8 @@ function extractDomainFromURL(url) {
 }
 function domainHandler(domain,action) {
 	// Initialize local storage
-	if (typeof(localStorage['whiteList'])=='undefined') localStorage['whiteList'] = JSON.stringify([]);
-	if (typeof(localStorage['blackList'])=='undefined') localStorage['blackList'] = JSON.stringify([]);
+	if (typeof(localStorage['whiteList'])=='undefined') saveSetting('whiteList', JSON.stringify([]));
+	if (typeof(localStorage['blackList'])=='undefined') saveSetting('blackList', JSON.stringify([]));
 	var tempWhitelist = JSON.parse(localStorage['whiteList']);
 	var tempBlacklist = JSON.parse(localStorage['blackList']);
 	
@@ -102,9 +102,8 @@ function domainHandler(domain,action) {
 		case 2:	// Remove
 			break;
 	}
-	
-	localStorage['blackList'] = JSON.stringify(tempBlacklist);
-	localStorage['whiteList'] = JSON.stringify(tempWhitelist);
+	saveSetting('blackList', JSON.stringify(tempBlacklist));
+	saveSetting('whiteList', JSON.stringify(tempWhitelist));
 	blackList = tempBlacklist.sort();
 	whiteList = tempWhitelist.sort();
 	return false;
@@ -114,7 +113,30 @@ function optionExists(opt) {
 	return (typeof localStorage[opt] != "undefined");
 }
 function defaultOptionValue(opt, val) {
-	if (!optionExists(opt)) localStorage[opt] = val;
+	if (!optionExists(opt)) saveSetting(opt, val);
+}
+function deleteSetting(opt) {
+	delete localStorage[opt];
+	browser.storage.local.remove([opt]);
+}
+function saveSetting(opt, val) {
+	localStorage[opt] = val;
+	browser.storage.local.set({[opt]: val});
+}
+function checkLocalStorage() {
+	if (!optionExists('version')) {
+		loadSettingsFromStorage();
+		return false;
+	}
+	return true;
+}
+function loadSettingsFromStorage() {
+	let getSettings = browser.storage.local.get();
+	getSettings.then(function(setting) {
+		for (var i in setting) {
+			localStorage[i] = setting[i];
+		}
+	}, null);
 }
 function setDefaultOptions() {
 	defaultOptionValue("version", version);
@@ -134,7 +156,7 @@ function setDefaultOptions() {
 	defaultOptionValue("iconTitle", "Decreased Productivity");
 	defaultOptionValue("disableFavicons", "false");
 	defaultOptionValue("hidePageTitles", "false");
-	defaultOptionValue("pageTitleText", "Google Chrome");
+	defaultOptionValue("pageTitleText", "Mozilla Firefox");
 	defaultOptionValue("enableStickiness", "false");
 	defaultOptionValue("maxwidth", "0");
 	defaultOptionValue("maxheight", "0");
@@ -152,19 +174,19 @@ function setDefaultOptions() {
 	defaultOptionValue("customcss", "");
 	// fix hotkey shortcut if in old format (if using + as separator instead of space)
 	if (localStorage["hotkey"].indexOf('+') != -1) {
-		localStorage["hotkey"] = localStorage["hotkey"].replace(/\+$/, "APLUSA").replace(/\+/g, " ").replace(/APLUSA/, "+");
+		saveSetting('hotkey', localStorage["hotkey"].replace(/\+$/, "APLUSA").replace(/\+/g, " ").replace(/APLUSA/, "+"));
 	}
 	// delete old option if exists
 	if (optionExists("globalEnable"))
-		delete localStorage["globalEnable"];
+		deleteSetting("globalEnable");
 	// delete old option if exists
 	if (optionExists("style"))
-		delete localStorage["style"];
+		deleteSetting("style");
 	// set SFW Level to SFW (for new change in v0.46.3)
 	if (localStorage["sfwmode"] == "true")
-		localStorage["sfwmode"] = "SFW";
-	if (!optionExists("blackList")) localStorage['blackList'] = JSON.stringify([]);
-	if (!optionExists("whiteList")) localStorage['whiteList'] = JSON.stringify([]);
+		saveSetting('sfwmode', "SFW");
+	if (!optionExists("blackList")) saveSetting('blackList', JSON.stringify([]));
+	if (!optionExists("whiteList")) saveSetting('whiteList', JSON.stringify([]));
 }
 // Context Menu
 chrome.contextMenus.create({"title": chrome.i18n.getMessage("whitelistdomain"), "contexts": ['browser_action','page_action'], "onclick": function(info, tab){
@@ -186,11 +208,14 @@ chrome.contextMenus.create({"title": chrome.i18n.getMessage("removelist"), "cont
 		magician(flag, tab.id);
 	}
 }});
+chrome.contextMenus.create({"title": chrome.i18n.getMessage("dpoptions"), "contexts": ['browser_action','page_action'], "onclick": function(info, tab){
+	chrome.tabs.create({ url: chrome.extension.getURL('options.html'), active: true });
+}});
 
 // Called by clicking on the context menu item
 function newCloak(info, tab) {
 	// Enable cloaking (in case its been disabled) and open the link in a new tab
-	localStorage["enable"] = "true";
+	saveSetting('enable', "true");
 	// If it's an image, load the "src" attribute
 	if (info.mediaType) chrome.tabs.create({'url': info.srcUrl}, function(tab){ cloakedTabs.push(tab.windowId+"|"+tab.id);recursiveCloak('true', localStorage["global"], tab.id); });
 	// Else, it's a normal link, so load the linkUrl.
@@ -284,16 +309,16 @@ function dpHandle(tab) {
 	if (localStorage["global"] == "true" && domainCheck(extractDomainFromURL(tab.url)) != 1) {
 		if (localStorage["enable"] == "true") {
 			recursiveCloak('false', 'true');
-			localStorage["enable"] = "false";
+			saveSetting('enable', "false");
 		} else {
 			recursiveCloak('true', 'true');
-			localStorage["enable"] = "true";
+			saveSetting('enable', "true");
 		}
 	} else {
 		var dpTabId = tab.windowId+"|"+tab.id;
 		var dpcloakindex = cloakedTabs.indexOf(dpTabId);
 		var dpuncloakindex = uncloakedTabs.indexOf(dpTabId);
-		localStorage["enable"] = "true";
+		saveSetting('enable', "true");
 		if (dpcloakindex != -1) {
 			magician('false', tab.id);
 			if (dpuncloakindex == -1) uncloakedTabs.push(dpTabId);
@@ -340,7 +365,7 @@ chrome.tabs.onUpdated.addListener(function(tabid, changeinfo, tab) {
 		var dpuncloakindex = uncloakedTabs.indexOf(dpTabId);
 		if (enable == "true") {
 			magician('true', tabid);
-			if (localStorage["global"] == "false" && localStorage["enable"] == "false") localStorage["enable"] = "true";
+			if (localStorage["global"] == "false" && localStorage["enable"] == "false") saveSetting('enable', "true");
 			if (dpcloakindex == -1) cloakedTabs.push(dpTabId);
 			if (dpuncloakindex != -1) uncloakedTabs.splice(dpuncloakindex, 1);
 		} else {
@@ -381,6 +406,7 @@ chrome.tabs.onRemoved.addListener(function(tabid, windowInfo) {
 });
 var requestDispatchTable = {
 	"get-enabled": function(request, sender, sendResponse) {
+		checkLocalStorage();
 		var dpTabId = sender.tab.windowId+"|"+sender.tab.id;
 		var dpcloakindex = cloakedTabs.indexOf(dpTabId);
 		var enable = enabled(sender.tab, dpcloakindex);
@@ -389,8 +415,8 @@ var requestDispatchTable = {
 	},
 	"toggle": function(request, sender, sendResponse) {
 		if (localStorage["savedsfwmode"] != "") {
-			localStorage["sfwmode"] = localStorage["savedsfwmode"];
-			localStorage["savedsfwmode"] = "";
+			saveSetting('sfwmode', localStorage["savedsfwmode"]);
+			saveSetting('savedsfwmode', "");
 			if (localStorage["global"] == "true") recursiveCloak('true', 'true');
 			else {
 				magician('true', sender.tab.id);
@@ -399,15 +425,15 @@ var requestDispatchTable = {
 				if (dpuncloakindex != -1) uncloakedTabs.splice(dpuncloakindex, 1);
 				if (cloakedTabs.indexOf(dpTabId) == -1) cloakedTabs.push(dpTabId);
 			}
-			localStorage["enable"] = "true";
+			saveSetting('enable', "true");
 		} else {
 			dpHandle(sender.tab);
 		}
 	},
 	"toggleparanoid": function(request, sender, sendResponse) {
 		if (localStorage["savedsfwmode"] == "") {
-			localStorage["savedsfwmode"] = localStorage["sfwmode"];
-			localStorage["sfwmode"] = "Paranoid";
+			saveSetting('savedsfwmode', localStorage["sfwmode"]);
+			saveSetting('sfwmode', "Paranoid");
 			if (localStorage["global"] == "true") recursiveCloak('true', 'true');
 			else {
 				magician('true', sender.tab.id);
@@ -416,10 +442,10 @@ var requestDispatchTable = {
 				if (dpuncloakindex != -1) uncloakedTabs.splice(dpuncloakindex, 1);
 				if (cloakedTabs.indexOf(dpTabId) == -1) cloakedTabs.push(dpTabId);
 			}
-			localStorage["enable"] = "true";
+			saveSetting('enable', "true");
 		} else {
-			localStorage["sfwmode"] = localStorage["savedsfwmode"];
-			localStorage["savedsfwmode"] = "";
+			saveSetting('sfwmode', localStorage["savedsfwmode"]);
+			saveSetting('savedsfwmode', "");
 			dpHandle(sender.tab);
 		}
 	},
@@ -443,6 +469,7 @@ chrome.pageAction.onClicked.addListener(function(tab) {
 	dpHandle(tab);
 });
 // Execute
+loadSettingsFromStorage();
 setDefaultOptions();
 // save blacklist and whitelist in global variable for faster lookups
 initLists();
@@ -450,7 +477,7 @@ setDPIcon();
 dpContext();
 if ((!optionExists("version") || localStorage["version"] != version) && localStorage["showUpdateNotifications"] == 'true') {
 	chrome.tabs.create({ url: chrome.extension.getURL('updated.html'), selected: false });
-	localStorage["version"] = version;
+	saveSetting('version', version);
 }
 chrome.runtime.onUpdateAvailable.addListener(function (details) {
 	// an update is available, but wait until user restarts their browser as to not disrupt their current session and cloaked tabs.

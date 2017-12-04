@@ -12,6 +12,11 @@ var error = false;
 var oldglobalstate = false;
 var settingnames = [];
 document.addEventListener('DOMContentLoaded', function () {
+	var localStorageReady = bkg.checkLocalStorage();
+	if (!localStorageReady) {
+		setTimeout(function() { window.location.reload(1); }, 100);
+		return;
+	}
 	$("#tabs").tabs();
 	$("#o1").slider({min: 0, max: 1, step: 0.05, slide: function(event, ui) { $("#opacity1").val(ui.value); opacitytest(); }, stop: function(event, ui) { 
 		if (ui.value == 0) $("#collapseimageblock").show();
@@ -117,17 +122,14 @@ function keyhandle(keypressed) {
 function loadCheckbox(id) {
 	document.getElementById(id).checked = typeof localStorage[id] == "undefined" ? false : localStorage[id] == "true";
 }
-
 function loadElement(id) {
 	$("#"+id).val(localStorage[id]);
 }
-
 function saveCheckbox(id) {
-	localStorage[id] = document.getElementById(id).checked;
+	bkg.saveSetting(id, document.getElementById(id).checked);
 }
-
 function saveElement(id) {
-	localStorage[id] = $("#"+id).val();
+	bkg.saveSetting(id, $("#"+id).val());
 }
 function closeOptions() {
 	window.open('', '_self', '');window.close();
@@ -594,8 +596,8 @@ function settingsImport() {
 				if (settingnames.indexOf($.trim(settingentry[0])) != -1) {
 					if ($.trim(settingentry[0]) == 'whiteList' || $.trim(settingentry[0]) == 'blackList') {
 						var listarray = $.trim(settingentry[1]).replace(/(\[|\]|")/g,"").split(",");
-						if ($.trim(settingentry[0]) == 'whiteList' && listarray.toString() != '') localStorage['whiteList'] = JSON.stringify(listarray);
-						else if ($.trim(settingentry[0]) == 'blackList' && listarray.toString() != '') localStorage['blackList'] = JSON.stringify(listarray);
+						if ($.trim(settingentry[0]) == 'whiteList' && listarray.toString() != '') bkg.saveSetting('whiteList', JSON.stringify(listarray));
+						else if ($.trim(settingentry[0]) == 'blackList' && listarray.toString() != '') bkg.saveSetting('blackList', JSON.stringify(listarray));
 					} else 
 						localStorage[$.trim(settingentry[0])] = $.trim(settingentry[1]);
 				} else {

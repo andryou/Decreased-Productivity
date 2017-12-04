@@ -1,5 +1,5 @@
 # Decreased Productivity
-Discreetly surf the web! Control exactly how you want web pages to look like. A Chrome extension.
+Discreetly surf the web! Control exactly how you want web pages to look like. A Chrome and Firefox extension.
 
 Decreased Productivity (DP) creates a more "consistent" browsing experience (for you and others around you) by letting you control what you want to see ("stealth browsing" => text/page background colours, the cloaking of images, hiding page favicons, changing fonts, etc.). You can choose what style you want (e.g. green text on a black background) by going to the Options page (right-click on icon in address bar and click on "Options"). DP has tab-specific support and domain whitelisting/blacklisting!
 
@@ -25,7 +25,7 @@ Featured on Lifehacker: http://lifehacker.com/5666312/decreased-productivity-for
 * add and customize a toggle cloak icon in address bar
 
 ## To Use
-1. Install the extension from the Chrome Web Store: https://chrome.google.com/webstore/detail/decreased-productivity/nlbpiflhmdcklcbihngeffpmoklbiooj (or download this repo and load as a local extension)
+1. Install the extension from Firefox Add-ons Store: https://addons.mozilla.org/firefox/addon/decreased-productivity-andryou/ (or download this repo and load as a local extension)
 2. (optional) Allow in Incognito Mode (Incognito Mode and this extension complement each other!)
 
 ## Showing Thanks
