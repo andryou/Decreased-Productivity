@@ -134,7 +134,7 @@ function setDefaultOptions() {
 	defaultOptionValue("iconTitle", "Decreased Productivity");
 	defaultOptionValue("disableFavicons", "false");
 	defaultOptionValue("hidePageTitles", "false");
-	defaultOptionValue("pageTitleText", "Google Chrome");
+	defaultOptionValue("pageTitleText", "Opera");
 	defaultOptionValue("enableStickiness", "false");
 	defaultOptionValue("maxwidth", "0");
 	defaultOptionValue("maxheight", "0");
