@@ -9,11 +9,11 @@
    },
    "blacklistdomain": {
       "description": "Blacklist this Domain",
-      "message": "ブラックリストこのドメイン"
+      "message": "このドメインをブラックリストに登録"
    },
    "blacklisted": {
       "description": "Blacklisted",
-      "message": "ブラックリストに追加しました"
+      "message": "ブラックリストに登録しました"
    },
    "blue": {
       "description": "Blue",
@@ -33,7 +33,7 @@
    },
    "collapseimage": {
       "description": "Remove whitespace taken up by hidden element(s)",
-      "message": "隠し要素によって取り込まれたホワイトスペースを削除します"
+      "message": "隠された要素によって生じた空白を削除"
    },
    "color": {
       "description": "Color",
@@ -57,7 +57,7 @@
    },
    "colortable": {
       "description": "Table Borders",
-      "message": "テーブルボーダー"
+      "message": "テーブルの枠線"
    },
    "colortext": {
       "description": "Text",
@@ -101,7 +101,7 @@
    },
    "favicons": {
       "description": "Hide Page Favicons",
-      "message": "ページファビコンを非表示"
+      "message": "faviconを非表示"
    },
    "font": {
       "description": "Font",
@@ -113,7 +113,7 @@
    },
    "fontsize": {
       "description": "Font Size",
-      "message": "フォント·サイズ"
+      "message": "フォントサイズ"
    },
    "globalmode": {
       "description": "Global Mode",
@@ -129,7 +129,7 @@
    },
    "gray": {
       "description": "Gray",
-      "message": "グレイ"
+      "message": "グレー"
    },
    "green": {
       "description": "Green",
@@ -137,19 +137,19 @@
    },
    "help": {
       "description": "If you can help translate or improve, please contact me",
-      "message": "翻訳または訳語の改善を手伝ってくれる方、私にご連絡ください"
+      "message": "翻訳または訳語の改善を手伝ってくれる方はご連絡ください"
    },
    "hidetitles": {
       "description": "Hide Page Titles",
-      "message": "ページタイトルを変更"
+      "message": "ページタイトルを非表示"
    },
    "hovered": {
       "description": "Hovered",
-      "message": "ホバーしている時"
+      "message": "マウスホバー時"
    },
    "invalidcolour": {
       "description": "Your colors weren't saved as one or more were invalid. Please revert your colors or re-enter a correct color.",
-      "message": "無効な値が指定された為、色設定を保存できませんでした。色を元に戻すか正しく指定し直してください。"
+      "message": "無効な値が指定されたため、色設定を保存できませんでした。色を元に戻すか正しく指定してください。"
    },
    "invaliddomain": {
       "description": "Error: invalid domain.",
@@ -157,7 +157,7 @@
    },
    "invalidnumber": {
       "description": "Your change wasn't saved as you didn't enter a valid number.",
-      "message": "無効な数値が入力された為、変更内容は保存されませんでした。"
+      "message": "無効な数値が入力されたため、変更内容は保存されませんでした。"
    },
    "level": {
       "description": "Level",
@@ -169,7 +169,7 @@
    },
    "nsfw": {
       "description": "NSFW (show images/Flash, but change colors)",
-      "message": "NSFW (画像/フラッシュを表示するが、色を変更する)"
+      "message": "NSFW (画像/Flashを表示して色だけ変更する)"
    },
    "offwhite": {
       "description": "Off-White",
@@ -197,7 +197,7 @@
    },
    "people": {
       "description": "People who bought Andrew coffee",
-      "message": "Andrewコーヒーを購入した人"
+      "message": "Andrewコーヒーを購入してくれた方々"
    },
    "pink": {
       "description": "Pink",
@@ -217,11 +217,11 @@
    },
    "removefromblacklist": {
       "description": "Remove all entries from the blacklist?",
-      "message": "ブラックリストから全てのエントリを削除しますか？"
+      "message": "ブラックリストから全ての登録を削除しますか？"
    },
    "removefromwhitelist": {
       "description": "Remove all entries from the whitelist?",
-      "message": "ホワイトリストから全てのエントリを削除しますか？"
+      "message": "ホワイトリストから全ての登録を削除しますか？"
    },
    "revertcolours": {
       "description": "Revert Colors",
@@ -237,15 +237,15 @@
    },
    "saved": {
       "description": "Settings saved.",
-      "message": "設定が保存されました"
+      "message": "設定を保存しました。"
    },
    "sfw0": {
       "description": "SFW0 (cloak images/Flash)",
-      "message": "SFW0 (画像をクロークし、フラッシュをクロークし)"
+      "message": "SFW0 (画像/Flashをクローク)"
    },
    "sfw1": {
       "description": "SFW1 (cloak images/hide Flash)",
-      "message": "SFW1 (画像をクロークし、フラッシュを非表示)"
+      "message": "SFW1 (画像をクローク/Flashを非表示)"
    },
    "sfw2": {
       "description": "SFW2 (cloak images only)",
@@ -253,11 +253,11 @@
    },
    "showcontext": {
       "description": "Show Context Menu",
-      "message": "コンテキストメニューの表示"
+      "message": "コンテキストメニューを表示"
    },
    "showcontext2": {
       "description": "show right-click item for links/images",
-      "message": "リンク/画像の右クリックアイテムを表示するかどうか"
+      "message": "リンク/画像を右クリックしてメニューを表示するかどうか"
    },
    "showicon": {
       "description": "Show DP Icon",
@@ -265,7 +265,7 @@
    },
    "showicon2": {
       "description": "show icon in address bar",
-      "message": "アドレスバーにコイコンを表示するかどうか"
+      "message": "アドレスバーにアイコンを表示するかどうか"
    },
    "showicon_type": {
       "description": "Icon",
@@ -273,7 +273,7 @@
    },
    "showicon_type2": {
       "description": "icon to show in address bar",
-      "message": "アイコンがアドレスバーに表示します"
+      "message": "アドレスバーにアイコンを表示します"
    },
    "showicon_title": {
       "description": "Icon Title",
@@ -281,11 +281,11 @@
    },
    "showimages": {
       "description": "Show Images Within",
-      "message": "範囲内の画像を表示"
+      "message": "指定サイズ内の画像を表示"
    },
    "showimages2": {
       "description": "always show images that are within this size (disable: set to 0 x 0)",
-      "message": "このサイズ以内の画像は常に表示する (無効にするには 0 x 0 を設定)"
+      "message": "指定サイズ内の画像は常に表示します(0 x 0 を設定すると無効)"
    },
    "showunderline": {
       "description": "Underline Links",
@@ -293,11 +293,11 @@
    },
    "showupdate": {
       "description": "Show Update Popup",
-      "message": "アップデートポップアップの表示"
+      "message": "更新ポップアップを表示"
    },
    "showupdate2": {
       "description": "show popup page when DP is updated",
-      "message": "DPがアップデートされたらポップアップページを表示する"
+      "message": "DPが更新されたらポップアップページを表示します"
    },
    "stickiness": {
       "description": "Enable Stickiness",
@@ -305,11 +305,11 @@
    },
    "stickiness2": {
       "description": "new tabs from cloaked pages are cloaked",
-      "message": "クロークが有効なタブから開かれたページでクロークを有効にするかどうか"
+      "message": "クローク状態のタブから開かれたページでクロークを有効にするかどうか"
    },
    "support": {
       "description": "Support Andrew!",
-      "message": "Support Andrew!"
+      "message": "作者のAndrewを支援してください！"
    },
    "test1": {
       "description": "A test link",
@@ -321,15 +321,15 @@
    },
    "toggle": {
       "description": "Enable Key Toggling",
-      "message": "キーによる切替"
+      "message": "ホットキーを有効"
    },
    "toggle2": {
       "description": "press the set hotkey to toggle",
-      "message": "切り替えるには、設定されたホットキーを押します"
+      "message": "設定されたホットキーでモードを切り替えます"
    },
    "hotkey": {
       "description": "Hotkey Combination",
-      "message": "ホットキーコンビネーション"
+      "message": "ホットキー：クローク"
    },
    "hotkey_record": {
       "description": "Record",
@@ -341,19 +341,19 @@
    },
    "paranoidhotkey": {
       "description": "Paranoid Hotkey",
-      "message": "パラノイドホットキー"
+      "message": "ホットキー：パラノイド"
    },
    "translators": {
       "description": "People who helped translate",
-      "message": "翻訳を手伝ってくれた人"
+      "message": "翻訳を手伝ってくれた方々"
    },
    "uncloak": {
       "description": "Uncloak",
-      "message": "クロークなし"
+      "message": "クローク解除"
    },
    "unhovered": {
       "description": "Unhovered",
-      "message": "ホバーしていない時"
+      "message": "非マウスホバー時"
    },
    "white": {
       "description": "White",
@@ -369,6 +369,6 @@
    },
    "whitelisted": {
       "description": "Whitelisted",
-      "message": "ホワイトリストに追加しました"
+      "message": "ホワイトリストに登録しました"
    }
 }
