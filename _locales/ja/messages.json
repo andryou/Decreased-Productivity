@@ -349,7 +349,7 @@
    },
    "uncloak": {
       "description": "Uncloak",
-      "message": "クローク解除"
+      "message": "非クローク"
    },
    "unhovered": {
       "description": "Unhovered",
