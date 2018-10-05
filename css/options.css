@@ -8,7 +8,7 @@ h1 { margin: 0; }
 td { vertical-align: top; color: #000; font-size: 12px; border-top: 1px solid #eee; padding: 5px 2px; }
 tr.first td, td#t_table { border-top: none; }
 tr.bottom td { border-bottom: 1px solid #eee; }
-label { vertical-align: top; }
+label { vertical-align: top; float: left; }
 i { font-size: 11px; color: #000; line-height: 1.2em; }
 div#newPagesRow { font-size: 12px; }
 div#pageTitle { font-size: 12px; }
