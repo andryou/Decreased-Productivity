@@ -6,7 +6,7 @@ Discreetly surf the web! Control exactly how you want web pages to look like. A 
 
 Decreased Productivity (DP) creates a more "consistent" browsing experience (for you and others around you) by letting you control what you want to see ("stealth browsing" => text/page background colours, the cloaking of images, hiding page favicons, changing fonts, etc.). You can choose what style you want (e.g. green text on a black background) by going to the Options page (right-click on icon in address bar and click on "Options"). DP has tab-specific support and domain whitelisting/blacklisting!
 
-Translated for 17 different languages/dialects: Arabic, German, English (US), English (British), Spanish, Tagalog, French, Italian, Japanese, Korean, Portuguese (Brazil), Portuguese (Portugal), Russian, Vietnamese, Chinese (Simplified), and Chinese (Traditional)!
+Translated for 17 different languages/dialects: Arabic, German, English (US), English (British), Spanish, Tagalog, French, Italian, Japanese, Korean, Portuguese (Brazil), Portuguese (Portugal), Russian, Turkish, Vietnamese, Chinese (Simplified), and Chinese (Traditional)!
 
 Please note that I am not responsible for what you do with this extension and any subsequent consequences; please browse responsibly.
 

@@ -8,13 +8,13 @@ h1 { margin: 0; }
 td { vertical-align: top; color: #000; font-size: 12px; border-top: 1px solid #eee; padding: 5px 2px; }
 tr.first td, td#t_table { border-top: none; }
 tr.bottom td { border-bottom: 1px solid #eee; }
-label { vertical-align: top; }
+label { vertical-align: top; float: left; }
 i { font-size: 11px; color: #000; line-height: 1.2em; }
 div#newPagesRow { font-size: 12px; }
 div#pageTitle { font-size: 12px; }
 a { color: blue; }
 input[type=image] { opacity: 0.5; }
-#message { z-index: 999; color: #000; margin: 5px; position: fixed; top: 0; left: 0; padding: 5px; font-weight: bold; border: 1px solid #ffcc66; background-color: #ffffcc; }
+#message { display: none; z-index: 999; color: #000; margin: 5px; position: fixed; top: 0; left: 0; padding: 5px; font-weight: bold; border: 1px solid #ffcc66; background-color: #ffffcc; }
 #main:hover, input[type=image]:hover { opacity: 1; }
 #test { width: 411px; height: 188px; background-image: url('../img/option/demo/background.png'); }
 .list, textarea { width: 250px; max-height: 300px; overflow-y: auto; border: 1px solid #ccc; background-color: #eee; padding: 5px; }

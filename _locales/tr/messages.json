@@ -1,0 +1,390 @@
+{
+  "black": {
+    "description": "Siyah",
+    "message": "Siyah"
+  },
+  "blacklist": {
+    "description": "Karaliste",
+    "message": "Karaliste"
+  },
+  "blacklistdomain": {
+    "description": "Adresi karalisteye ekle",
+    "message": "Adresi karalisteye ekle"
+  },
+  "blacklisted": {
+    "description": "Karalisteye eklendi",
+    "message": "Karalisteye eklendi"
+  },
+  "blue": {
+    "description": "Mavi",
+    "message": "Mavi"
+  },
+  "clear": {
+    "description": "temizle",
+    "message": "temizle"
+  },
+  "cloak": {
+    "description": "Gizle",
+    "message": "Gizle"
+  },
+  "close": {
+    "description": "kapat",
+    "message": "Kapat"
+  },
+  "collapseimage": {
+    "description": "Gizlenen öğelerin boşluklarını kaldır",
+    "message": "Gizlenen öğelerin boşluklarını kaldır"
+  },
+  "color": {
+    "description": "Renk",
+    "message": "Renk"
+  },
+  "colorbackground": {
+    "description": "Arkaplan",
+    "message": "Arkaplan"
+  },
+  "colorlink": {
+    "description": "Link",
+    "message": "Link"
+  },
+  "colorpresets": {
+    "description": "Ön ayar",
+    "message": "Ön ayar"
+  },
+  "colorpresetselect": {
+    "description": "Bir ön ayar seç",
+    "message": "Bir ön ayar seç"
+  },
+  "colortable": {
+    "description": "Tablo Kenarlıkları",
+    "message": "Tablo Kenarlıkları"
+  },
+  "colortext": {
+    "description": "Yazı",
+    "message": "Yazı"
+  },
+  "customcss": {
+    "description": "Tüm web sitelerine uygulanacak özel CSS kodunu girin (gelişmiş kullanıcılar için)",
+    "message": "Tüm web sitelerine uygulanacak özel CSS kodunu girin (gelişmiş kullanıcılar için)"
+  },
+  "darkbrown": {
+    "description": "Koyu Kahverengi",
+    "message": "Koyu Kahverengi"
+  },
+  "default": {
+    "description": "Varsayılan",
+    "message": "Varsayılan"
+  },
+  "demo": {
+    "description": "Demo",
+    "message": "Demo"
+  },
+  "disabled": {
+    "description": "pasif",
+    "message": "pasif"
+  },
+  "domain": {
+    "description": "Web adresi",
+    "message": "Web adresi"
+  },
+  "dpoptions": {
+    "description": "DP Ayarları",
+    "message": "DP Ayarları"
+  },
+  "empty": {
+    "description": "Boş",
+    "message": "Boş"
+  },
+  "enable": {
+    "description": "Aktif",
+    "message": "Aktif"
+  },
+  "enabled": {
+    "description": "Aktif Edildi",
+    "message": "Aktif Edildi"
+  },
+  "favicons": {
+    "description": "Sayfa Faviconunu gizle",
+    "message": "Sayfa Faviconunu gizle"
+  },
+  "font": {
+    "description": "Font",
+    "message": "Font"
+  },
+  "customfont": {
+    "description": "Özel Font",
+    "message": "Özel Font"
+  },
+  "fontsize": {
+    "description": "Font Boyutu",
+    "message": "Font Boyutu"
+  },
+  "globalmode": {
+    "description": "Genel Mod",
+    "message": "Genel Mod"
+  },
+  "globalmode2": {
+    "description": "Seçili değilse tab-specific",
+    "message": "Seçili değilse tab-specific"
+  },
+  "globalmode3": {
+    "description": "Ön tanımlı olarak yeni sekme",
+    "message": "Ön tanımlı olarak yeni sekme"
+  },
+  "gray": {
+    "description": "Gri",
+    "message": "Gri"
+  },
+  "green": {
+    "description": "Yeşil",
+    "message": "Yeşil"
+  },
+  "help": {
+    "description": "Tercüme veya geliştirmeye yardımcı olabilirseniz, lütfen bana ulaşın",
+    "message": "Tercüme veya geliştirmeye yardımcı olabilirseniz, lütfen bana ulaşın"
+  },
+  "hidetitles": {
+    "description": "Sayfa başlıklarını gizle",
+    "message": "Sayfa başlıklarını gizle"
+  },
+  "hovered": {
+    "description": "Üstünde beklendi",
+    "message": "Üstünde beklendi"
+  },
+  "importsuccessoptions": {
+    "description": "Ayarlar başarıyla içe aktarıldı",
+    "message": "Ayarlar başarıyla içe aktarıldı"
+  },
+  "importsuccesscond": {
+    "description": "Ayarlar başarıyla içe aktarıldı, aşağıdakiler hariç (tanınmayan isim): ",
+    "message": "Ayarlar başarıyla içe aktarıldı, aşağıdakiler hariç (tanınmayan isim): "
+  },
+  "invalidcolour": {
+    "description": "Renkleriniz bir veya daha fazlası geçersiz olduğu için kaydedilemedi. Lütfen geri alın veya doğru renk kodlarını tekrar girin.",
+    "message": "Renkleriniz bir veya daha fazlası geçersiz olduğu için kaydedilemedi. Lütfen geri alın veya doğru renk kodlarını tekrar girin."
+  },
+  "invaliddomain": {
+    "description": "Hata: hatalı web adresi.",
+    "message": "Hata: hatalı web adresi."
+  },
+  "invalidnumber": {
+    "description": "Geçerli bir sayı girmediğiniz için değişiklikleriniz kaydedilmedi.",
+    "message": "Geçerli bir sayı girmediğiniz için değişiklikleriniz kaydedilmedi."
+  },
+  "level": {
+    "description": "Seviye",
+    "message": "Seviye"
+  },
+  "lightred": {
+    "description": "Açık Kırmızı",
+    "message": "Açık Kırmızı"
+  },
+  "nsfw": {
+    "description": "NSFW (Resim/Flash göster, ama renkleri değiştir)",
+    "message": "NSFW (Resim/Flash göster, ama renkleri değiştir)"
+  },
+  "offwhite": {
+    "description": "Kirli Beyaz",
+    "message": "Kirli Beyaz"
+  },
+  "opacity": {
+    "description": "Resim Saydamlığı",
+    "message": "Resim Saydamlığı"
+  },
+  "opacity2": {
+    "description": "görüntülerin ne kadar şeffaf olması gerektiğini belirle",
+    "message": "görüntülerin ne kadar şeffaf olması gerektiğini belirle"
+  },
+  "opensafely": {
+    "description": "Yeni sekmede güvenle aç",
+    "message": "Yeni sekmede güvenle aç"
+  },
+  "paleblue": {
+    "description": "Soluk Mavi",
+    "message": "Soluk Mavi"
+  },
+  "paranoid": {
+    "description": "Paronayak (herşeyi gizle)",
+    "message": "Paronayak (herşeyi gizle)"
+  },
+  "pastesettings": {
+    "description": "Ayarlara yapıştırın ve tekrar deneyin",
+    "message": "Ayarlara yapıştırın ve tekrar deneyin"
+  },
+  "people": {
+    "description": "Andrew kahve satın alanlar",
+    "message": "Andrew kahve satın alanlar"
+  },
+  "pink": {
+    "description": "Pembe",
+    "message": "Pembe"
+  },
+  "red": {
+    "description": "Kırmızı",
+    "message": "Kırmızı"
+  },
+  "removebold": {
+    "description": "Kalın yazıları incelt",
+    "message": "Kalın yazıları incelt"
+  },
+  "removelist": {
+    "description": "Listelerden kaldır",
+    "message": "Listelerden kaldır"
+  },
+  "removefromblacklist": {
+    "description": "Kara listeden tüm girişleri kaldırmak istiyormusunuz?",
+    "message": "Kara listeden tüm girişleri kaldırmak istiyormusunuz?"
+  },
+  "removefromwhitelist": {
+    "description": "Beyaz listeden tüm girişleri kaldırmak istiyormusunuz?",
+    "message": "Beyaz listeden tüm girişleri kaldırmak istiyormusunuz?"
+  },
+  "revertcolours": {
+    "description": "Renkleri ters çevir",
+    "message": "Renkleri ters çevir"
+  },
+  "save": {
+    "description": "Kaydet",
+    "message": "Kaydet"
+  },
+  "savecolours": {
+    "description": "Renkleri Kaydet",
+    "message": "Renkleri Kaydet"
+  },
+  "saved": {
+    "description": "Ayarlar kaydedildi.",
+    "message": "Ayarlar kaydedildi."
+  },
+  "sfw0": {
+    "description": "SFW0 (Resimler ve Flashları ört)",
+    "message": "SFW0 (Resimler ve Flashları ört)"
+  },
+  "sfw1": {
+    "description": "SFW1 (Resimleri ört /Flashları gizle)",
+    "message": "SFW1 (Resimleri ört /Flashları gizle)"
+  },
+  "sfw2": {
+    "description": "SFW2 (sadece resimleri ört)",
+    "message": "SFW2 (sadece resimleri ört)"
+  },
+  "showcontext": {
+    "description": "Bağlam menüsünü göster",
+    "message": "Bağlam menüsünü göster"
+  },
+  "showcontext2": {
+    "description": "Linkerde/Resimlerde sağ-tuş seçeneklerini göster",
+    "message": "Linkerde/Resimlerde sağ-tuş seçeneklerini göster"
+  },
+  "showicon": {
+    "description": "DP simgesini göster",
+    "message": "DP simgesini göster"
+  },
+  "showicon2": {
+    "description": "simgeyi adres çubuğunda göster",
+    "message": "simgeyi adres çubuğunda göster"
+  },
+  "showicon_type": {
+    "description": "Simge",
+    "message": "Simge"
+  },
+  "showicon_type2": {
+    "description": "adres çubuğunda gösterilecek simge",
+    "message": "adres çubuğunda gösterilecek simge"
+  },
+  "showicon_title": {
+    "description": "Simge Başlığı",
+    "message": "Simge Başlığı"
+  },
+  "showimages": {
+    "description": "İçindeki resimleri göster",
+    "message": "İçindeki resimleri göster"
+  },
+  "showimages2": {
+    "description": "bu boyutta olan resimleri her zaman göster (devre dışı: 0 x 0 olarak ayarla)",
+    "message": "bu boyutta olan resimleri her zaman göster (devre dışı: 0 x 0 olarak ayarla)"
+  },
+  "showunderline": {
+    "description": "Altı çizili linkler",
+    "message": "Altı çizili linkler"
+  },
+  "showupdate": {
+    "description": "Güncelleme Penceresini Göster",
+    "message": "Güncelleme Penceresini Göster"
+  },
+  "showupdate2": {
+    "description": "DP güncellendiğinde açılır sayfayı göster",
+    "message": "DP güncellendiğinde açılır sayfayı göster"
+  },
+  "stickiness": {
+    "description": "Yapışkanlığı aktif et",
+    "message": "Yapışkanlığı aktif et"
+  },
+  "stickiness2": {
+    "description": "gizlenmiş sayfalardan açılan yeni sekmeler de gizlenir",
+    "message": "gizlenmiş sayfalardan açılan yeni sekmeler de gizlenir"
+  },
+  "support": {
+    "description": "Andrew i destekle!",
+    "message": "Andrew i destekle!"
+  },
+  "test1": {
+    "description": "Bir test linki",
+    "message": "Bir test linki"
+  },
+  "test2": {
+    "description": "Link",
+    "message": "Link"
+  },
+  "toggle": {
+    "description": "Tuş Geçişini Etkinleştir",
+    "message": "Tuş Geçişini Etkinleştir"
+  },
+  "toggle2": {
+    "description": "tuş geçişi yapmak için kısayol tuşuna basın",
+    "message": "tuş geçişi yapmak için kısayol tuşuna basın"
+  },
+  "hotkey": {
+    "description": "Kısayol kombinasyonu",
+    "message": "Kısayol kombinasyonu"
+  },
+  "hotkey_record": {
+    "description": "Kayıt",
+    "message": "Kayıt"
+  },
+  "hotkey_set": {
+    "description": "Ayarla",
+    "message": "Ayarla"
+  },
+  "paranoidhotkey": {
+    "description": "Paronayak Kısayolu",
+    "message": "Paronayak Kısayolu"
+  },
+  "translators": {
+    "description": "Çeviriye yardımcı olan kişiler",
+    "message": "Çeviriye yardımcı olan kişiler"
+  },
+  "uncloak": {
+    "description": "Gizlemeyi iptal et",
+    "message": "Gizlemeyi iptal et"
+  },
+  "unhovered": {
+    "description": "Üstünde durulmadı",
+    "message": "Üstünde durulmadı"
+  },
+  "white": {
+    "description": "Beyaz",
+    "message": "Beyaz"
+  },
+  "whitelist": {
+    "description": "Beyaz liste",
+    "message": "Beyaz liste"
+  },
+  "whitelistdomain": {
+    "description": "Bu adresi Beyaz listeye ekle",
+    "message": "Bu adresi Beyaz listeye ekle"
+  },
+  "whitelisted": {
+    "description": "Beyaz listeye eklendi",
+    "message": "Beyaz listeye eklendi"
+  }
+}

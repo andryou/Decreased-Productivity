@@ -77,7 +77,7 @@ function addCloak(sfw, f, fsize, u, bg, text, table, link, bold, o1, o2, collaps
 		magic += " ._ovg3g, ._njmhc { position: initial !important; } ._sppa1 { display: none !important; } ";
 	}
 	else if (curlocation.match(/^https?:\/\/web\.whatsapp\.com\//i)) {
-		magic += " .app > div:nth-of-type(1) { display: none !important; } "; // fix blank white screen
+		magic += " .app > div, .app > div > div, .app > div > div > span { background-color: transparent !important; } "; // fix blank white screen
 		magic += " .message-in { float: none !important; } "; // fix incoming message display
 		magic += " .msg { clear: both !important; } "; // fix outgoing message display
 		magic += " .message-meta { position: initial !important; } "; // fix message timestamping
