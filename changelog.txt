@@ -1,3 +1,9 @@
+v0.46.56.11 - Friday, October 12, 2018
+- Fix WhatsApp Web blank white screen upon login
+- Add Turkish translation - thanks Serdar!
+- Improve Portuguese (Brazil) translation - thanks Cleber!
+- Improve Japanese translation - thanks cignoir!
+
 v0.46.56.10 - Monday, December 4, 2017
 - Improve WhatsApp Web compatibility: fix blank white screen upon login
 - Firefox
