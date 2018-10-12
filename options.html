@@ -30,18 +30,18 @@
 				<tr>
 				<td>
 					<table border="0" cellspacing="0" cellpadding="0">
-						<tr class="first"><td><label for="enable" class="i18_enable">Enable</label>:</td><td><input type="checkbox" id="enable" /> <i>(<span class="i18_default">Default</span>: <span class="i18_enabled">enabled</span>)</i></td></tr>
-						<tr><td><label for="global" class="i18_globalmode">Global Mode</label>:</td><td><input type="checkbox" id="global" title="Note: if you modify this setting, you must refresh all open tabs again. Any changes in the below options will not take effect until you do so." /> <i>(<span class="i18_default">Default</span>: <span class="i18_disabled">disabled</span>; <span class="i18_globalmode2">tab-specific if unticked</span>)</i><div id="newPagesRow"><select id="newPages">
+						<tr class="first"><td><label for="enable" class="i18_enable">Enable</label></td><td><input type="checkbox" id="enable" /> <i>(<span class="i18_default">Default</span>: <span class="i18_enabled">enabled</span>)</i></td></tr>
+						<tr><td><label for="global" class="i18_globalmode">Global Mode</label></td><td><input type="checkbox" id="global" title="Note: if you modify this setting, you must refresh all open tabs again. Any changes in the below options will not take effect until you do so." /> <i>(<span class="i18_default">Default</span>: <span class="i18_disabled">disabled</span>; <span class="i18_globalmode2">tab-specific if unticked</span>)</i><div id="newPagesRow"><select id="newPages">
 							<option value="Cloak" class="i18_cloak">Cloak</option>
 							<option value="Uncloak" class="i18_uncloak">Uncloak</option>
 						</select> <span class="i18_globalmode3">new tabs by default</span> <i>(<span class="i18_default">Default</span>: <span class="i18_uncloak"></span>)</i></div></td></tr>
-						<tr><td><label for="enableToggle" class="i18_toggle">Enable Key Toggling</label>:</td><td><input type="checkbox" id="enableToggle" /> <i>(<span class="i18_default">Default</span>: <span class="i18_enabled">enabled</span>; <span class="i18_toggle2">press the set hotkey to toggle</span>)</i></td></tr>
-						<tr class="hide" id="hotkeyrow"><td><label for="hotkey" class="i18_toggle_hotkey">Hotkey Combination</label>:</td><td><input type="text" id="hotkey" disabled /> <input id="hotkeyrecord" type="button" value="Record" class="i18_hotkey_record" /><br /><i>(<span class="i18_default">Default</span>: Meta F12, where Meta = Ctrl/Cmd)</i></td></tr>
-						<tr class="hide" id="paranoidhotkeyrow"><td><label for="paranoidhotkey" class="i18_toggle_paranoidhotkey">Paranoid Hotkey</label>:</td><td><input type="text" id="paranoidhotkey" disabled /> <input id="paranoidhotkeyrecord" type="button" value="Record" class="i18_hotkey_record" /><br /><i>(<span class="i18_default">Default</span>: Alt P)</i></td></tr>
-						<tr><td><label for="enableStickiness" class="i18_stickiness">Enable Stickiness</label>:</td><td><input type="checkbox" id="enableStickiness" /> <i>(<span class="i18_default">Default</span>: <span class="i18_disabled">disabled</span>; <span class="i18_stickiness2">new tabs from cloaked pages are cloaked</span>)</i></td></tr>
-						<tr><td><label for="showContext" class="i18_showcontext">Show Context Menu</label>:</td><td><input type="checkbox" id="showContext" /> <i>(<span class="i18_default">Default</span>: <span class="i18_enabled">enabled</span>; <span class="i18_showcontext2">show right-click item for links/images</span>)</i></td></tr>
-						<tr><td><label for="showIcon" class="i18_showicon">Show DP Icon</label>:</td><td><input type="checkbox" id="showIcon" /> <i>(<span class="i18_default">Default</span>: <span class="i18_enabled">enabled</span>; <span class="i18_showicon2">show icon in address bar</span>)</i></td></tr>
-						<tr class="discreeticonrow hide"><td><label for="iconType" class="i18_showicon_type">Icon</label>:</td><td><select id="iconType">
+						<tr><td><label for="enableToggle" class="i18_toggle">Enable Key Toggling</label></td><td><input type="checkbox" id="enableToggle" /> <i>(<span class="i18_default">Default</span>: <span class="i18_enabled">enabled</span>; <span class="i18_toggle2">press the set hotkey to toggle</span>)</i></td></tr>
+						<tr class="hide" id="hotkeyrow"><td><label for="hotkey" class="i18_toggle_hotkey">Hotkey Combination</label></td><td><input type="text" id="hotkey" disabled /> <input id="hotkeyrecord" type="button" value="Record" class="i18_hotkey_record" /><br /><i>(<span class="i18_default">Default</span>: Meta F12, where Meta = Ctrl/Cmd)</i></td></tr>
+						<tr class="hide" id="paranoidhotkeyrow"><td><label for="paranoidhotkey" class="i18_toggle_paranoidhotkey">Paranoid Hotkey</label></td><td><input type="text" id="paranoidhotkey" disabled /> <input id="paranoidhotkeyrecord" type="button" value="Record" class="i18_hotkey_record" /><br /><i>(<span class="i18_default">Default</span>: Alt P)</i></td></tr>
+						<tr><td><label for="enableStickiness" class="i18_stickiness">Enable Stickiness</label></td><td><input type="checkbox" id="enableStickiness" /> <i>(<span class="i18_default">Default</span>: <span class="i18_disabled">disabled</span>; <span class="i18_stickiness2">new tabs from cloaked pages are cloaked</span>)</i></td></tr>
+						<tr><td><label for="showContext" class="i18_showcontext">Show Context Menu</label></td><td><input type="checkbox" id="showContext" /> <i>(<span class="i18_default">Default</span>: <span class="i18_enabled">enabled</span>; <span class="i18_showcontext2">show right-click item for links/images</span>)</i></td></tr>
+						<tr><td><label for="showIcon" class="i18_showicon">Show DP Icon</label></td><td><input type="checkbox" id="showIcon" /> <i>(<span class="i18_default">Default</span>: <span class="i18_enabled">enabled</span>; <span class="i18_showicon2">show icon in address bar</span>)</i></td></tr>
+						<tr class="discreeticonrow hide"><td><label for="iconType" class="i18_showicon_type">Icon</label></td><td><select id="iconType">
 							<option value="coffee">Coffee Cup</option>
 							<option value="coffee-grey">Coffee Cup (grey)</option>
 							<option value="add-item">Add Item</option>
@@ -141,8 +141,8 @@
 							<option value="wifi">WiFi</option>
 							<option value="world">World</option>
 						</select> <i>(<span class="i18_default">Default</span>: Coffee Cup; <span class="i18_showicon_type2">icon to show in address bar</span>)</i><br /><br /><img src="../img/addressicon/coffee.png" id="sampleicon" /></td></tr>
-						<tr class="discreeticonrow hide"><td><label for="iconTitle" class="i18_showicon_title">Icon Title</label>:</td><td><input type="text" id="iconTitle" /> <i>(<span class="i18_default">Default</span>: Decreased Productivity)</i></td></tr>
-						<tr><td><label for="showUpdateNotifications" class="i18_showupdate">Show Update Popup</label>:</td><td><input type="checkbox" id="showUpdateNotifications" /> <i>(<span class="i18_default">Default</span>: <span class="i18_enabled">enabled</span>; <span class="i18_showupdate2">show popup page when DP is updated</span>)</i></td></tr>
+						<tr class="discreeticonrow hide"><td><label for="iconTitle" class="i18_showicon_title">Icon Title</label></td><td><input type="text" id="iconTitle" /> <i>(<span class="i18_default">Default</span>: Decreased Productivity)</i></td></tr>
+						<tr><td><label for="showUpdateNotifications" class="i18_showupdate">Show Update Popup</label></td><td><input type="checkbox" id="showUpdateNotifications" /> <i>(<span class="i18_default">Default</span>: <span class="i18_enabled">enabled</span>; <span class="i18_showupdate2">show popup page when DP is updated</span>)</i></td></tr>
 					</table>
 				</td>
 				</tr>
@@ -153,7 +153,7 @@
 				<tr>
 				<td>
 					<table border="0" cellspacing="0" cellpadding="0">
-						<tr class="first"><td><label for="sfwmode" class="i18_level">Level</label>:</td><td><select id="sfwmode">
+						<tr class="first"><td><label for="sfwmode" class="i18_level">Level</label></td><td><select id="sfwmode">
 							<option value="Paranoid" class="i18_paranoid">Paranoid (hide everything)</option>
 							<option value="SFW" class="i18_sfw0">SFW0 (cloak images/Flash)</option>
 							<option value="SFW1" class="i18_sfw1">SFW1 (cloak images/hide Flash)</option>
@@ -168,12 +168,12 @@
 							<div id="o2"></div>
 							<input type="text" id="opacity2" size="1" /> <span class="i18_hovered">Hovered</span> <i>(<span class="i18_default">Default</span>: 0.5; <span class="i18_opacity2">set how transparent images should be</span>)</i>
 							<div id="collapseimageblock" class="hide"><br /><input type="checkbox" id="collapseimage" /><label for="collapseimage" class="i18_collapseimage">&nbsp;Remove whitespace taken up by hidden element(s)</label></div></td></tr>
-						<tr><td><label for="disableFavicons" class="i18_favicons">Hide Page Favicons</label>:</td><td><input type="checkbox" id="disableFavicons" /> <i>(<span class="i18_default">Default</span>: <span class="i18_disabled">disabled</span>)</i></td></tr>
-						<tr><td><label for="hidePageTitles" class="i18_hidetitles">Hide Page Titles</label>:</td><td><input type="checkbox" id="hidePageTitles" /> <i>(<span class="i18_default">Default</span>: <span class="i18_disabled">disabled</span>)</i><div id="pageTitle"><input type="text" id="pageTitleText" /> <i>(<span class="i18_default">Default</span>: Google Chrome)</i></div></td></tr>
-						<tr><td><label for="maxwidth" class="i18_showimages">Show Images Within</label>:</td><td><input type="text" id="maxwidth" style="width: 30px;" /><i>w x</i> <input type="text" id="maxheight" style="width: 30px;" /><i>h (<span class="i18_showimages2">always show images that are within this size (disable: set to 0 x 0)</span>)</i></td></tr>
-						<tr><td><label for="showUnderline" class="i18_showunderline">Underline Links</label>:</td><td><input type="checkbox" id="showUnderline" /> <i>(<span class="i18_default">Default</span>: <span class="i18_enabled">enabled</span>)</i></td></tr>
-						<tr><td><label for="removeBold" class="i18_removebold">Unbold Text</label>:</td><td><input type="checkbox" id="removeBold" /> <i>(<span class="i18_default">Default</span>: <span class="i18_disabled">disabled</span>)</i></td></tr>
-						<tr><td><label for="font" class="i18_font">Font</label>:</td><td><select id="font">
+						<tr><td><label for="disableFavicons" class="i18_favicons">Hide Page Favicons</label></td><td><input type="checkbox" id="disableFavicons" /> <i>(<span class="i18_default">Default</span>: <span class="i18_disabled">disabled</span>)</i></td></tr>
+						<tr><td><label for="hidePageTitles" class="i18_hidetitles">Hide Page Titles</label></td><td><input type="checkbox" id="hidePageTitles" /> <i>(<span class="i18_default">Default</span>: <span class="i18_disabled">disabled</span>)</i><div id="pageTitle"><input type="text" id="pageTitleText" /> <i>(<span class="i18_default">Default</span>: Google Chrome)</i></div></td></tr>
+						<tr><td><label for="maxwidth" class="i18_showimages">Show Images Within</label></td><td><input type="text" id="maxwidth" style="width: 30px;" /><i>w x</i> <input type="text" id="maxheight" style="width: 30px;" /><i>h (<span class="i18_showimages2">always show images that are within this size (disable: set to 0 x 0)</span>)</i></td></tr>
+						<tr><td><label for="showUnderline" class="i18_showunderline">Underline Links</label></td><td><input type="checkbox" id="showUnderline" /> <i>(<span class="i18_default">Default</span>: <span class="i18_enabled">enabled</span>)</i></td></tr>
+						<tr><td><label for="removeBold" class="i18_removebold">Unbold Text</label></td><td><input type="checkbox" id="removeBold" /> <i>(<span class="i18_default">Default</span>: <span class="i18_disabled">disabled</span>)</i></td></tr>
+						<tr><td><label for="font" class="i18_font">Font</label></td><td><select id="font">
 							<option value="Arial">Arial</option>
 							<option value="Helvetica">Helvetica</option>
 							<option value="Calibri">Calibri</option>
@@ -182,9 +182,9 @@
 							<option value="-Custom-">-Custom-</option>
 							<option value="-Unchanged-">-Unchanged-</option>
 						</select> <i>(<span class="i18_default">Default</span>: Arial)</i></td></tr>
-						<tr id="customfontrow" class="hide"><td><label for="customfont" class="i18_customfont">Custom Font</label>:</td><td><input id="customfont" value="" /></td></tr>
-						<tr><td><label for="fontsize" class="i18_fontsize">Font Size</label>:</td><td><input type="number" id="fontsize" style="width: 40px" />px <i>(<span class="i18_default">Default</span>: 12px)</i></td></tr>
-						<tr><td><label for="s_preset"><span class="i18_color">Color</span> - <span class="i18_colorpresets">Presets</span></label>:</td><td><select id="s_preset">
+						<tr id="customfontrow" class="hide"><td><label for="customfont" class="i18_customfont">Custom Font</label></td><td><input id="customfont" value="" /></td></tr>
+						<tr><td><label for="fontsize" class="i18_fontsize">Font Size</label></td><td><input type="number" id="fontsize" style="width: 40px" />px <i>(<span class="i18_default">Default</span>: 12px)</i></td></tr>
+						<tr><td><label for="s_preset"><span class="i18_color">Color</span> - <span class="i18_colorpresets">Presets</span></label></td><td><select id="s_preset">
 							<option value="" class="i18_colorpresetselect">-- Select a Preset --</option>
 							<option value="White - Blue" class="i18_c1">White - Blue</option>
 							<option value="White - Green" class="i18_c10">White - Green</option>
@@ -197,11 +197,11 @@
 							<option value="Black - Red" class="i18_c8">Black - Red</option>
 							<option value="Black - Pink" class="i18_c9">Black - Pink</option>
 						</select></td></tr>
-						<tr><td><label for="s_bg"><span class="i18_color">Color</span> - <span class="i18_colorbackground">Background</span></label>:</td><td><input class="mousetrap" id="s_bg" maxlength="6" value="" /></td></tr>
-						<tr><td><label for="s_text"><span class="i18_color">Color</span> - <span class="i18_colortext">Text</span></label>:</td><td><input class="mousetrap" id="s_text" maxlength="6" value="" /></td></tr>
-						<tr><td><label for="s_link"><span class="i18_color">Color</span> - <span class="i18_colorlink">Link</span></label>:</td><td><input class="mousetrap" id="s_link" maxlength="6" value="" /></td></tr>
-						<tr><td><label for="s_table"><span class="i18_color">Color</span> - <span class="i18_colortable">Table Borders</span></label>:</td><td><input class="mousetrap" id="s_table" maxlength="6" value="" /></td></tr>
-						<tr><td><span class="i18_demo">Demo</span>:</td><td><div id="test">
+						<tr><td><label for="s_bg"><span class="i18_color">Color</span> - <span class="i18_colorbackground">Background</span></label></td><td><input class="mousetrap" id="s_bg" maxlength="6" value="" /></td></tr>
+						<tr><td><label for="s_text"><span class="i18_color">Color</span> - <span class="i18_colortext">Text</span></label></td><td><input class="mousetrap" id="s_text" maxlength="6" value="" /></td></tr>
+						<tr><td><label for="s_link"><span class="i18_color">Color</span> - <span class="i18_colorlink">Link</span></label></td><td><input class="mousetrap" id="s_link" maxlength="6" value="" /></td></tr>
+						<tr><td><label for="s_table"><span class="i18_color">Color</span> - <span class="i18_colortable">Table Borders</span></label></td><td><input class="mousetrap" id="s_table" maxlength="6" value="" /></td></tr>
+						<tr><td><span class="i18_demo">Demo</span></td><td><div id="test">
 							<img src="../img/option/demo/favicon.png" id="demo_favicon" /><div id="demo_title"></div>
 							<div id="demo_content">
 								<h1>Page Title</h1>
