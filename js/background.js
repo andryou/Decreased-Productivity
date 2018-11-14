@@ -476,7 +476,7 @@ initLists();
 setDPIcon();
 dpContext();
 if ((!optionExists("version") || localStorage["version"] != version) && localStorage["showUpdateNotifications"] == 'true') {
-	chrome.tabs.create({ url: chrome.extension.getURL('updated.html'), selected: false });
+	//chrome.tabs.create({ url: chrome.extension.getURL('updated.html'), selected: false }); - minor update so don't show update page
 	saveSetting('version', version);
 }
 chrome.runtime.onUpdateAvailable.addListener(function (details) {
