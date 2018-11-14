@@ -58,7 +58,7 @@ function addCloak(sfw, f, fsize, u, bg, text, table, link, bold, o1, o2, collaps
 	else magic += ' .dp'+timestamp+'_text { color: #'+text+' !important; background-color: #'+bg+' !important; background-image: none !important; }';
 	magic += ' .dp'+timestamp+'_hide { display: none !important }';
 	
-	if (curlocation.match(/^https?:\/\/www\.facebook\.com\//i)) {
+	if (curlocation.match(/^https?:\/\/www\.(?:facebook\.com|facebookcorewwwi\.onion)\//i)) {
 		magic += " ._52c6, ._5ine, .__cy, .fbPhotosPhotoTagboxes, ._jfi, ._5vb_ ._5aqh::before { position: initial !important; } "; // fix link caption, event cover photo, full-screen photo mode (._jfi = uploaded image thumbnail), instagram
 		magic += " ._4zoz._4zoz._4zoz, ._559p { clear: both !important; } "; // fix main timeline post status box
 		magic += " ._2yq ._4-u2::before { background-color: transparent !important; } "; // fix main timeline post title bars
