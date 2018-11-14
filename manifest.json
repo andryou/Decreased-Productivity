@@ -26,5 +26,5 @@
       "default_title": "Decreased Productivity"
    },
    "permissions": [ "http://*/*", "https://*/*", "contextMenus", "tabs" ],
-   "version": "0.46.56.11"
+   "version": "0.46.56.12"
 }
