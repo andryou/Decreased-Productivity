@@ -80,17 +80,19 @@ function addCloak(sfw, f, fsize, u, bg, text, table, link, bold, o1, o2, collaps
 		magic += " .app > div, .app > div > div, .app > div > div > span { background-color: transparent !important; } "; // fix blank white screen
 		magic += " .message-in { float: none !important; } "; // fix incoming message display
 		magic += " .msg { clear: both !important; } "; // fix outgoing message display
-		magic += " .message-meta { position: initial !important; } "; // fix message timestamping
-		magic += ' .bubble { border: 1px dotted #' + table + ' !important; } '; // distinguish bubbles
+		magic += ' .copyable-text, .copyable-text > div { background-color: transparent !important; } '; // fix message timestamping
+		magic += ' .message-in, .message-out { border: 1px dotted #' + table + ' !important; } '; // distinguish bubbles
 		magic += ' .drawer-manager, .drawer-manager > .pane { background-color: transparent !important; } '; // fix white screen bug
-		magic += ' .context.context-out { background: transparent !important; } '; // hide message options green gradient
+		magic += ' .video-thumb, .video-thumb > div { background-color: transparent !important; } '; // show video thumbnails
 		magic += ' .message-out .tail-container { display: none !important; } '; // hide message out tail
 		if (sfw == 'SFW' || sfw == 'SFW1' || sfw == 'SFW2') {
 			magic += ' div[data-asset-intro-image="true"] { opacity: '+o1+' !important; } div[data-asset-intro-image="true"]:hover { opacity: '+o2+' !important; } '; // add cloak support for welcome graphic
 			magic += ' .icon { opacity: '+o1+' !important; } .icon:hover { opacity: '+o2+' !important; } '; // add cloak support for welcome graphic
+			magic += ' .video-thumb > div { opacity: '+o1+' !important; } .video-thumb > div:hover { opacity: '+o2+' !important; } '; // add cloak support for video thumbnails
+			magic += ' .emojik { opacity: '+o1+' !important; } .emojik:hover { opacity: '+o2+' !important; } '; // add cloak support for emoji list
 		} else if (sfw == 'Paranoid') magic += ' div[data-asset-intro-image="true"] { display: none !important; } '; // hide welcome graphic
-		magic += ' .message .message-text .emojitext .emoji { pointer-events: initial !important; } '; // make emojis and icons at cloak-hover opacity
-	}	
+		magic += ' .copyable-text img { pointer-events: initial !important; } '; // make emojis and icons at cloak-hover opacity
+	}
 	else if (curlocation.match(/^https?:\/\/twitter\.com\//i)) {
 		magic += " .QuoteTweet, .QuoteTweet *, #playerContainer, #playerContainer *, .Gallery, .Gallery * { background-color: transparent !important; } ";
 		if (sfw != 'Paranoid' && sfw != 'SFW1') magic += " #playerContainer video { opacity: 1 !important; } ";
